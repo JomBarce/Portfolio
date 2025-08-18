@@ -1,0 +1,142 @@
+[
+    {
+        "id": 1,
+        "name": "Frog Jump",
+        "description": "An endless platformer mobile game where a frog charges a jump to accurately land on a platform and collect fireflies while its direction is based on the tilt of the mobile device.",
+        "date": "2021",
+        "type": "Game Development",
+        "tech": ["C#", "Unity"],
+        "path": "./Images/FrogJump/FrogJump.png",
+        "url": ""
+    },
+    {
+        "id": 2,
+        "name": "Identifying Common Pest and Disease of Lettuce Plants Using Convolutional Neural Network",
+        "description": "A published research paper about using a Convolutional Neural Network Model to identify if a lettuce plant is healthy, diseased, or has sign of pest infestation.",
+        "date": "2023",
+        "type": "Machine Learning / Deep Learning",
+        "tech": ["Python", "Tensorflow", "NumPy", "Pandas", "Matplotlib", "Scikit-Learn"],
+        "path": "./Images/Research.png",
+        "url": "https://ieeexplore.ieee.org/document/10424991"
+    },
+    {
+        "id": 3,
+        "name": "Arcade Games",
+        "description": "A curated collection of engaging 3D web games, powered by Three.js and designed to showcase interactive gaming experiences in the browser.",
+        "date": "2025",
+        "type": "Web/Game Development",
+        "tech": ["Three.js", "Typescript","HTML", "CSS"],
+        "path": "./Images/ArcadeGames/ArcadeGames.png",
+        "url": "https://github.com/JomBarce/ArcadeGames"
+    },
+    {
+        "id": 4,
+        "name": "AutoBar",
+        "description": "It is a mobile-based application built using Xamarin.Forms and MySQL. It is an integration of a POS, E-wallet, and points and rewards system.",
+        "date": "2022",
+        "type": "Application Development",
+        "tech": ["C#", "Xamarin Forms", "MySQL"],
+        "path": "./Images/Autobar/Autobar-Menu.png",
+        "url": "https://github.com/OG-Habit/AutoBar"
+    },
+    {
+        "id": 5,
+        "name": "VHire: Booking System",
+        "description": "It is a web-based application that provides a facility to reserve, cancel, and search for V-hire transportation seats.",
+        "date": "2021",
+        "type": "Web Development",
+        "tech": ["HTML", "JavaScript", "CSS", "PHP", "MySQL"],
+        "path": "./Images/VHire/VHire.png",
+        "url": "https://github.com/JomBarce/VHire"
+    },
+    {
+        "id": 6,
+        "name": "Chat App",
+        "description": "A simple mobile-based chat application built with Xamarin.Forms and Firebase.",
+        "date": "2022",
+        "type": "Mobile Development",
+        "tech": ["C#", "Xamarin Forms", "Firebase"],
+        "path": "./Images/ChatApp/ChatApp.png",
+        "url": "https://github.com/JomBarce/Chat_App"
+    },
+    {
+        "id": 7,
+        "name": "Hotel Booking",
+        "description": "An online reservation system that allows potential guests to book a hotel according to their specifications.",
+        "date": "2021",
+        "type": "Web Development",
+        "tech": ["HTML", "JavaScript", "CSS", "PHP", "MySQL", "SweetAlert"],
+        "path": "./Images/HotelBooking/HotelBooking.png",
+        "url": "https://github.com/JomBarce/Hotel-Booking"
+    },
+    {
+        "id": 8,
+        "name": "Merakoni",
+        "description": "It is an application that will help track the users of their tasks and habits, and help improve on them. ",
+        "date": "2022",
+        "type": "Web Development",
+        "tech": ["ReactJS"],
+        "path": "./Images/Merakoni/Merakoni.png",
+        "url": "https://github.com/Idan-Garay/Merakoni"
+    },
+    {
+        "id": 9,
+        "name": "Inventory System",
+        "description": "A java application that provides a way to tracks items and control stock before it is sold.",
+        "date": "2021",
+        "type": "Application Development",
+        "tech": ["Java", "MySQL"],
+        "path": "./Images/InventorySys/InvSys.png",
+        "url": ""
+    },
+    {
+        "id": 10,
+        "name": "Bus Seat Reservation",
+        "description": "A web application that provides a facility to reserve, cancel, and search for Bus seats.",
+        "date": "2021",
+        "type": "Application Development",
+        "tech": ["ServiceNow", "HTML", "JavaScript", "CSS"],
+        "path": "./Images/BusSeatRsrv/BusSeatRsrv-Search.png",
+        "url": ""
+    },
+    {
+        "id": 11,
+        "name": "To Do App",
+        "description": "A web application that will help users track their tasks and create task with just a click of a button",
+        "date": "2021",
+        "type": "Web Development",
+        "tech": ["ReactJS"],
+        "path": "./Images/ToDoApp.png",
+        "url": ""
+    },
+    {
+        "id": 12,
+        "name": "Food Shop",
+        "description": "A static website with a search filter that shows an example of food ecommerce website.",
+        "date": "2021",
+        "type": "Web Development",
+        "tech": ["VueJS"],
+        "path": "./Images/FoodShop/FoodShop.png",
+        "url": "https://github.com/JomBarce/FoodShop-Prefinals"
+    },
+    {
+        "id": 13,
+        "name": "CustomKybrd",
+        "description": "A static website that shows an example of an keyboard ecommerce website.",
+        "date": "2020",
+        "type": "Web Development",
+        "tech": ["HTML", "JavaScript", "CSS"],
+        "path": "./Images/CustomKybrd/CustomKybrd-Index.png",
+        "url": "https://github.com/JomBarce/CustomKybrd"
+    },
+    {
+        "id": 14,
+        "name": "BasketBall Counter",
+        "description": "A simple java application that provides the ability to track the scores, fouls, period, time, and shot clock of a basketball game.",
+        "date": "2021",
+        "type": "Application Development",
+        "tech": ["Java"],
+        "path": "./Images/BasketballScore.png",
+        "url": ""
+    }
+]
