@@ -46,20 +46,18 @@ export default class HomeView extends View {
         const geometry = new THREE.BufferGeometry();
         geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
 
-        const uniforms = {
+        this.uniforms = {
             uSize: { value: 2 },
             uTexture: { value: texture },
             uColumns: { value: columns },
             uRows: { value: rows },
             uTime: { value: 0.0 }
         };
-        
-        this.uniforms = uniforms;
 
         const material = new THREE.ShaderMaterial({
             vertexShader,
             fragmentShader,
-            uniforms,
+            uniforms: this.uniforms,
             transparent: true,
             depthTest: false,
             depthWrite: false

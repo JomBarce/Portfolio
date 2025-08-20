@@ -4,8 +4,8 @@ uniform float uColumns;
 uniform float uRows;
 uniform float uAsciiLength;
 uniform vec3 uPalette[5];
+uniform float uTime;
 
-varying vec2 vTextCoords;
 varying vec2 vPixelUV;
 varying vec2 vQuadUV;
 varying float vRandom;
@@ -26,11 +26,16 @@ void main() {
 
     vec4 asciiColor = texture2D(uAsciiTexture, asciiUV);
 
-    // if (asciiColor.r < 0.05) discard;
-
     int paletteIndex = int(clamp(floor(brightness * 5.0), 0.0, 4.0));
     vec3 tintColor = uPalette[paletteIndex];
 
+
+    float glow = pow(brightness, 2.0) + sin(uTime * 2.0 + vRandom * 10.0) * 0.05;
+    vec3 glowColor = tintColor * glow;
+
+    asciiColor.rgb += glowColor * 0.15;
+
+    
     asciiColor.rgb *= tintColor;
 
     gl_FragColor = asciiColor;

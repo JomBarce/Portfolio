@@ -8,10 +8,10 @@ export default class AboutView extends View {
     }
 
     async init() {
-        await this.setBackground();
+        await this.setAsciiImage();
     }
 
-    async setBackground() {
+    async setAsciiImage() {
         const vertexShader = await fetchText('/src/shaders/ascii.vert');
         const fragmentShader = await fetchText('/src/shaders/ascii.frag');
 
@@ -20,13 +20,6 @@ export default class AboutView extends View {
         });
 
         const asciiTexture = this.createAsciiTexture();
-
-        // const imgWidth = texture.image.width;
-        // const imgHeight = texture.image.height;
-
-        // const multiplier = 1;
-        // const columns = Math.floor(imgWidth * multiplier);
-        // const rows = Math.floor(imgHeight * multiplier);
 
         const columns = 100;
         const rows = 100;
@@ -56,7 +49,8 @@ export default class AboutView extends View {
             uColumns: { value: columns },
             uRows: { value: rows },
             uAsciiLength: { value: 90 },
-            uPalette: { value: paletteRGB }
+            uPalette: { value: paletteRGB },
+            uTime: { value: 0.0 }
         };
 
         const material = new THREE.ShaderMaterial({
@@ -115,6 +109,15 @@ export default class AboutView extends View {
         for (let i = 0; i < length; i++) {
             const xPos = i * 64 + 32;
             const yPos = 40;
+
+            if (i > 50) {
+                // Draw blurred glow layer
+                ctx.filter = 'blur(5px)';
+                ctx.fillText(asciiChar[i], xPos, yPos);
+            }
+
+            // Draw crisp foreground character
+            ctx.filter = 'none';
             ctx.fillText(asciiChar[i], xPos, yPos);
         }
         
