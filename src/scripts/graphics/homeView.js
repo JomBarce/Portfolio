@@ -1,25 +1,27 @@
 import * as THREE from 'https://esm.sh/three@0.154.0';
 
+import View from './view.js';
+import { PI } from '../utils/math.js';
 import { fetchText } from '../utils/fetch.js';
 
-export default class Particles {
-
-    constructor(scene) {
-        this.scene = scene;
-        this.container = new THREE.Object3D();
-        this.scene.add(this.container);
-        this.uniforms = null;
+export default class HomeView extends View {
+    constructor(canvas) {
+        super(canvas);
     }
 
-    async setParticlesGrid() {
+    async init() {
+        await this.setParticlesBackground();
+    }
+
+    async setParticlesBackground() {
         const vertexShader = await fetchText('/src/shaders/particle.vert');
         const fragmentShader = await fetchText('/src/shaders/particle.frag');
 
         const texture = await new Promise((resolve) => {
-            // new THREE.TextureLoader().load('/public/portfolio/images/Self.png', resolve);
             new THREE.TextureLoader().load('/public/portfolio/images/Oscar.png', resolve);
-            // new THREE.TextureLoader().load('/public/portfolio/images/Self-removebg.png', resolve);
         });
+        
+        texture.flipY = false;
         
         const imgWidth = texture.image.width;
         const imgHeight = texture.image.height;
@@ -64,6 +66,28 @@ export default class Particles {
         });
 
         this.gridMesh = new THREE.Points(geometry, material);
-        this.container.add(this.gridMesh);
+        this.scene.add(this.gridMesh);
+    }
+
+    animate() {
+        super.animate();
+        if (this.uniforms && this.uniforms.uTime) {
+            this.uniforms.uTime.value += 0.01;
+        }
+    }
+
+    cleanup() {
+        if (this.gridMesh) {
+            this.scene.remove(this.gridMesh);
+            this.gridMesh.geometry.dispose();  // Dispose of geometry
+            this.gridMesh.material.dispose();  // Dispose of material
+
+            // Dispose of the texture
+            if (this.gridMesh.material.map) {
+                this.gridMesh.material.map.dispose();
+            }
+        }
+
+        super.cleanup();
     }
 }

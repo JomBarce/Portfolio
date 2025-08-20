@@ -1,18 +1,41 @@
-import View from './graphics/view.js';
 import { loadPage } from './pages.js';
+import HomeView from './graphics/homeView.js';
+import WorksView from './graphics/worksView.js';
+import AboutView from './graphics/aboutView.js';
 
 const canvas = document.getElementById('app');
-const view = new View(canvas);
-view.animate();
-
-window.loadPage = loadPage;
 
 // Load initial page
-loadPage('home');
+let currentView = null;
+let currentPage = 'about';
+loadPage('about');
+switchView('about');
+
+// Function to switch views
+function switchView(viewName) {
+  if (currentView) {
+      currentView.cleanup();
+  }
+
+  if (viewName === 'home') {
+    currentView = new HomeView(canvas);
+  } else if (viewName === 'works') {
+    currentView = new WorksView(canvas);
+  } else if (viewName === 'about') {
+    currentView = new AboutView(canvas);
+  }
+
+  currentView.init();
+  currentView.animate();
+}
 
 // Logo click
 document.getElementById('logo').addEventListener('click', () => {
-  loadPage('home');
+  if (currentPage !== 'home') {
+    currentPage = 'home';
+    loadPage('home');
+    switchView('home');
+  }
 });
 
 // Nav button click
@@ -20,8 +43,10 @@ document.querySelectorAll('.navbar-menu button').forEach(button => {
   button.addEventListener('click', () => {
     const page = button.getAttribute('data-page');
 
-    if (page) {
+    if (page && currentPage !== page) {
+      currentPage = page;
       loadPage(page);
+      switchView(page);
     } else if (button.id === 'arcade-button') {
       window.open('games.html', '_blank');
     }
@@ -33,8 +58,10 @@ document.querySelectorAll('.menu button').forEach(button => {
   button.addEventListener('click', () => {
     const page = button.getAttribute('data-page');
 
-    if (page) {
+    if (page && currentPage !== page) {
+      currentPage = page;
       loadPage(page);
+      switchView(page);
     } else if (button.id === 'arcade-button') {
       window.open('games.html', '_blank');
     }

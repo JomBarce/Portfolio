@@ -1,8 +1,6 @@
 import * as THREE from 'https://esm.sh/three@0.154.0';
 import { OrbitControls } from 'https://esm.sh/three@0.154.0/examples/jsm/controls/OrbitControls.js';
 
-import Particles from './particles.js';
-
 export default class View {
     constructor(canvas) {
         this.canvas = canvas;
@@ -12,10 +10,6 @@ export default class View {
         this.setCamera();
         this.setControls();
         this.addListeners();
-
-        this.setParticles().then(() => {
-            this.animate();
-        });
     }
 
     // Setup Methods
@@ -23,7 +17,7 @@ export default class View {
     setRenderer() {
         const width = window.innerWidth;
         const height = window.innerHeight;
-
+        
         this.renderer = new THREE.WebGLRenderer({
             antialias: true,
             canvas: this.canvas
@@ -43,15 +37,11 @@ export default class View {
         const nearPlane = 0.1;
         const farPlane = 1000;
 
-        this.camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
-        // this.camera.position.x = 5;
-        // this.camera.position.y = 5;
-        // this.camera.position.z = 300;
-
-        // x=31.207232351433568, y=35.34354645658869, z=23.538066700349884
-        this.camera.position.x = 0;
-        this.camera.position.y = 20;
-        this.camera.position.z = 30;
+        this.camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);     
+        // this.camera.position.x = 0;
+        // this.camera.position.y = 20;
+        // this.camera.position.z = 30;
+        this.camera.position.z = 10;
 
         this.camera.lookAt(0, 0, 0);
 
@@ -70,33 +60,56 @@ export default class View {
         const width = window.innerWidth;
         const height = window.innerHeight;
 
-        this.renderer.setSize(width, height);
-
-        this.camera.aspect = width / height;
-        this.camera.updateProjectionMatrix();
+        if (this.camera) {
+            this.renderer.setSize(width, height);
+            this.camera.aspect = width / height;
+            this.camera.updateProjectionMatrix();
+        }
     }
 
     // Animation
     animate() {
-        requestAnimationFrame(() => this.animate());
-        this.controls.update();
-
-        if (this.particles && this.particles.uniforms && this.particles.uniforms.uTime) {
-            this.particles.uniforms.uTime.value += 0.01;
+        if (this.scene && this.camera && this.renderer) {
+            requestAnimationFrame(() => this.animate());
+            this.controls.update();
+            this.render();
         }
-
-        this.render();
     }
 
     render() {
         this.renderer.render(this.scene, this.camera);
     }
 
-
-    // Particles
-    async setParticles() {
-        this.particles = new Particles(this.scene);
-
-        await this.particles.setParticlesGrid();
+    resetScene() {
+        // Clear all existing objects in the scene
+        this.scene.traverse(object => {
+            if (object instanceof THREE.Mesh) {
+                object.geometry.dispose();
+                if (object.material.map) object.material.map.dispose();
+                object.material.dispose();
+                this.scene.remove(object);
+            }
+        });
     }
+
+    cleanup() {
+        // Only clear the scene, but do not dispose of the renderer or camera
+        this.resetScene();
+
+        // Optionally: reset controls if needed
+        if (this.controls) {
+            this.controls.reset();  // Reset OrbitControls to default position
+        }
+    }
+
+    // cleanup() {
+    //     this.renderer.dispose();
+    //     // this.renderer.forceContextLoss();
+    //     this.controls.dispose();
+
+    //     this.scene = null;
+    //     this.camera = null;
+
+    //     window.removeEventListener('resize', this.handleResize.bind(this));
+    // }
 }

@@ -133,6 +133,5 @@ document.addEventListener("visibilitychange", () => {
       if (intervalId) return;
       intervalId = setInterval(cycleTitles, 3000);
     }
-    console.log("Resumed title cycling");
   }
 });
