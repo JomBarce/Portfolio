@@ -1,7 +1,7 @@
 import * as THREE from 'https://esm.sh/three@0.154.0';
+import { OrbitControls } from 'https://esm.sh/three@0.154.0/examples/jsm/controls/OrbitControls.js';
 
 import View from './view.js';
-import { PI } from '../utils/math.js';
 import { fetchText } from '../utils/fetch.js';
 
 export default class HomeView extends View {
@@ -10,6 +10,9 @@ export default class HomeView extends View {
     }
 
     async init() {
+        this.camera.position.set(0, 20, 30);
+        this.setControls();
+
         await this.setParticlesBackground();
     }
 
@@ -17,11 +20,16 @@ export default class HomeView extends View {
         const vertexShader = await fetchText('/src/shaders/particle.vert');
         const fragmentShader = await fetchText('/src/shaders/particle.frag');
 
-        const texture = await new Promise((resolve) => {
-            new THREE.TextureLoader().load('/public/portfolio/images/Oscar.png', resolve);
-        });
-        
+        const loader = new THREE.ImageBitmapLoader();
+        loader.setOptions({ imageOrientation: 'flipY', premultiplyAlpha: 'none' });
+
+        const bitmap = await new Promise((resolve) => {
+            loader.load('/public/portfolio/images/Oscar.png', resolve);
+        })
+
+        const texture = new THREE.CanvasTexture(bitmap);
         texture.flipY = false;
+        texture.premultiplyAlpha = false;
         
         const imgWidth = texture.image.width;
         const imgHeight = texture.image.height;
@@ -67,23 +75,23 @@ export default class HomeView extends View {
         this.scene.add(this.gridMesh);
     }
 
+    setControls() {
+        this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    }
+
     animate() {
         super.animate();
         if (this.uniforms && this.uniforms.uTime) {
             this.uniforms.uTime.value += 0.01;
         }
+        this.controls.update();
     }
 
     cleanup() {
         if (this.gridMesh) {
             this.scene.remove(this.gridMesh);
-            this.gridMesh.geometry.dispose();  // Dispose of geometry
-            this.gridMesh.material.dispose();  // Dispose of material
-
-            // Dispose of the texture
-            if (this.gridMesh.material.map) {
-                this.gridMesh.material.map.dispose();
-            }
+            this.gridMesh.geometry.dispose();
+            this.gridMesh.material.dispose();
         }
 
         super.cleanup();

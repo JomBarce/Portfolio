@@ -7,7 +7,13 @@ const pages = {
   `,
   about: `
     <h1>About Me</h1>
-    <p>I am a Software developer with an interest in 3D and interactive design.</p>
+    <p>
+      I'm Jomer, a passionate and adaptable Software Developer who is aiming for growth and learning 
+      with a solid foundation in Computer Science.
+    </p>
+    <p>
+      My journey in the realm of technology has been dynamic, marked by diverse experiences across Game, Web, API, and App Development.
+    </p>
   `,
   works: `
     <h1>Works</h1>

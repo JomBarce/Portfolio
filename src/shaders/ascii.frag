@@ -1,7 +1,5 @@
 uniform sampler2D uAsciiTexture;
 uniform sampler2D uTexture;
-uniform float uColumns;
-uniform float uRows;
 uniform float uAsciiLength;
 uniform vec3 uPalette[5];
 uniform float uTime;

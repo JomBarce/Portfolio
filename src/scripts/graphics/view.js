@@ -8,7 +8,7 @@ export default class View {
         this.setRenderer();
         this.setScene();
         this.setCamera();
-        this.setControls();
+        // this.setControls();
         this.addListeners();
     }
 
@@ -38,10 +38,9 @@ export default class View {
         const farPlane = 1000;
 
         this.camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);     
-        // this.camera.position.x = 0;
-        // this.camera.position.y = 20;
-        // this.camera.position.z = 30;
-        this.camera.position.z = 10;
+        this.camera.position.x = 0;
+        this.camera.position.y = 0;
+        this.camera.position.z = 5;
 
         this.camera.lookAt(0, 0, 0);
 
@@ -71,7 +70,7 @@ export default class View {
     animate() {
         if (this.scene && this.camera && this.renderer) {
             requestAnimationFrame(() => this.animate());
-            this.controls.update();
+            // this.controls.update();
             this.render();
         }
     }
@@ -81,7 +80,6 @@ export default class View {
     }
 
     resetScene() {
-        // Clear all existing objects in the scene
         this.scene.traverse(object => {
             if (object instanceof THREE.Mesh) {
                 object.geometry.dispose();
@@ -92,24 +90,18 @@ export default class View {
         });
     }
 
-    cleanup() {
-        // Only clear the scene, but do not dispose of the renderer or camera
+    async cleanup() {
         this.resetScene();
 
-        // Optionally: reset controls if needed
-        if (this.controls) {
-            this.controls.reset();  // Reset OrbitControls to default position
+        if (this.renderer) {
+            this.renderer.dispose();
+            this.renderer.domElement = null;
+            this.renderer = null;
         }
+
+        this.scene = null;
+        this.camera = null;
+
+        window.removeEventListener('resize', this.handleResize.bind(this));
     }
-
-    // cleanup() {
-    //     this.renderer.dispose();
-    //     // this.renderer.forceContextLoss();
-    //     this.controls.dispose();
-
-    //     this.scene = null;
-    //     this.camera = null;
-
-    //     window.removeEventListener('resize', this.handleResize.bind(this));
-    // }
 }

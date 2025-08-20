@@ -12,9 +12,9 @@ loadPage('about');
 switchView('about');
 
 // Function to switch views
-function switchView(viewName) {
+async function switchView(viewName) {
   if (currentView) {
-      currentView.cleanup();
+    await currentView.cleanup();
   }
 
   if (viewName === 'home') {
@@ -25,7 +25,7 @@ function switchView(viewName) {
     currentView = new AboutView(canvas);
   }
 
-  currentView.init();
+  await currentView.init();
   currentView.animate();
 }
 

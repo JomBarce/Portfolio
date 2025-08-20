@@ -8,6 +8,8 @@ export default class WorksView extends View {
     }
 
     async init() {
+        this.camera.position.set(0, 20, 30);
+
         await this.setParticlesBackground();
     }
 
@@ -15,10 +17,14 @@ export default class WorksView extends View {
         const vertexShader = await fetchText('/src/shaders/particle.vert');
         const fragmentShader = await fetchText('/src/shaders/particle.frag');
 
-        const texture = await new Promise((resolve) => {
-            new THREE.TextureLoader().load('/public/portfolio/images/Logo.png', resolve);
-        });
+        const loader = new THREE.ImageBitmapLoader();
+        loader.setOptions({ imageOrientation: 'flipY', premultiplyAlpha: 'none' });
 
+        const bitmap = await new Promise((resolve) => {
+            loader.load('/public/portfolio/images/Logo.png', resolve);
+        })
+
+        const texture = new THREE.CanvasTexture(bitmap);
         texture.flipY = false;
         texture.premultiplyAlpha = false;
         
@@ -76,6 +82,8 @@ export default class WorksView extends View {
     cleanup() {
         if (this.gridMesh) {
             this.scene.remove(this.gridMesh);
+            this.gridMesh.geometry.dispose();
+            this.gridMesh.material.dispose();   
         }
 
         super.cleanup();

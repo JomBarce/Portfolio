@@ -8,6 +8,8 @@ export default class AboutView extends View {
     }
 
     async init() {
+        this.camera.position.set(0, 0, 10);
+
         await this.setAsciiImage();
     }
 
@@ -15,9 +17,16 @@ export default class AboutView extends View {
         const vertexShader = await fetchText('/src/shaders/ascii.vert');
         const fragmentShader = await fetchText('/src/shaders/ascii.frag');
 
-        const texture = await new Promise((resolve) => {
-            new THREE.TextureLoader().load('/public/portfolio/images/Self.png', resolve);
-        });
+        const loader = new THREE.ImageBitmapLoader();
+        loader.setOptions({ imageOrientation: 'flipY', premultiplyAlpha: 'none' });
+
+        const bitmap = await new Promise((resolve) => {
+            loader.load('/public/portfolio/images/Self.png', resolve);
+        })
+
+        const texture = new THREE.CanvasTexture(bitmap);
+        texture.flipY = false;
+        texture.premultiplyAlpha = false;
 
         const asciiTexture = this.createAsciiTexture();
 
@@ -67,7 +76,7 @@ export default class AboutView extends View {
             depthWrite: false,
         });
         
-        const instancedMesh = new THREE.InstancedMesh(geometry, material, instances);
+        this.instancedMesh = new THREE.InstancedMesh(geometry, material, instances);
 
         let index = 0;
         for (let i = 0; i < rows; i++) {
@@ -82,18 +91,18 @@ export default class AboutView extends View {
 
                 let m = new THREE.Matrix4();
                 m.setPosition(positions[index * 3], positions[index * 3 + 1], positions[index * 3 + 2]);
-                instancedMesh.setMatrixAt(index, m);
+                this.instancedMesh.setMatrixAt(index, m);
 
                 index++;
             }
         }
 
-        instancedMesh.needsUpdate = true;
+        this.instancedMesh.needsUpdate = true;
         geometry.setAttribute('aRandom', new THREE.InstancedBufferAttribute(random, 1));
         geometry.setAttribute('pixelUV', new THREE.InstancedBufferAttribute(uv, 2));
         geometry.setAttribute('aPosition', new THREE.BufferAttribute(positionArray, 3));
         
-        this.scene.add(instancedMesh);
+        this.scene.add(this.instancedMesh);
     }
 
     createAsciiTexture() {
@@ -130,6 +139,22 @@ export default class AboutView extends View {
         return asciiTexture;
     }
 
+    handleResize() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        const aspect = width / height;
+
+        this.renderer.setSize(width, height);
+
+        if (this.camera && this.camera.isPerspectiveCamera) {
+            this.camera.aspect = aspect;
+
+            this.camera.fov = Math.max(75, Math.min(100, 100 / aspect));
+            this.camera.updateProjectionMatrix();
+            
+        }
+    }
+
     animate() {
         super.animate();
         if (this.uniforms && this.uniforms.uTime) {
@@ -138,8 +163,10 @@ export default class AboutView extends View {
     }
 
     cleanup() {
-        if (this.gridMesh) {
-            this.scene.remove(this.gridMesh);
+        if (this.instancedMesh) {
+            this.scene.remove(this.instancedMesh);
+            this.instancedMesh.geometry.dispose();
+            this.instancedMesh.material.dispose();
         }
 
         super.cleanup();
