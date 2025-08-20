@@ -21,15 +21,21 @@ export default class AboutView extends View {
 
         const asciiTexture = this.createAsciiTexture();
 
+        const positionArray = new Float32Array([
+            -0.5, -0.5, 0.0,
+            0.5, -0.5, 0.0,
+            0.5,  0.5, 0.0,
+            -0.5,  0.5, 0.0
+        ]);
+
         const columns = 100;
         const rows = 100;
         let instances = rows * columns;
         let size = 0.1;
 
-        let positions = new Float32Array(instances * 3);
-        let colors =  new Float32Array(instances * 3);
-        let uv = new Float32Array(instances * 2);
         let random =  new Float32Array(instances);
+        let uv = new Float32Array(instances * 2);
+        let positions = new Float32Array(instances * 3);
 
         let palette = [
             '#8c1eff',
@@ -41,7 +47,6 @@ export default class AboutView extends View {
 
         const paletteRGB = palette.map(color => new THREE.Color(color));
         const geometry = new THREE.PlaneGeometry(size, size, 1, 1);
-
 
         this.uniforms = {
             uTexture: { value: texture },
@@ -61,7 +66,6 @@ export default class AboutView extends View {
             depthTest: false,
             depthWrite: false,
         });
-
         
         const instancedMesh = new THREE.InstancedMesh(geometry, material, instances);
 
@@ -85,8 +89,9 @@ export default class AboutView extends View {
         }
 
         instancedMesh.needsUpdate = true;
-        geometry.setAttribute('pixelUV', new THREE.InstancedBufferAttribute(uv, 2));
         geometry.setAttribute('aRandom', new THREE.InstancedBufferAttribute(random, 1));
+        geometry.setAttribute('pixelUV', new THREE.InstancedBufferAttribute(uv, 2));
+        geometry.setAttribute('aPosition', new THREE.BufferAttribute(positionArray, 3));
         
         this.scene.add(instancedMesh);
     }
@@ -111,12 +116,10 @@ export default class AboutView extends View {
             const yPos = 40;
 
             if (i > 50) {
-                // Draw blurred glow layer
                 ctx.filter = 'blur(5px)';
                 ctx.fillText(asciiChar[i], xPos, yPos);
             }
 
-            // Draw crisp foreground character
             ctx.filter = 'none';
             ctx.fillText(asciiChar[i], xPos, yPos);
         }

@@ -11,31 +11,29 @@ varying vec2 vQuadUV;
 varying float vRandom;
 
 void main() {
-    float dist = length(gl_PointCoord - vec2(0.5));
-    if (dist > 0.5) discard;
-
+    // Source texture brightness
     vec4 textureColor = texture2D(uTexture, vPixelUV);
     float brightness = pow(textureColor.r, 0.9) + (vRandom * 0.02);
 
+    // Get ASCII UV from brightness
     float asciiIndex = floor(brightness * uAsciiLength);
-    
     vec2 asciiUV = vec2(
-        (vQuadUV.x / uAsciiLength) + (floor(brightness * uAsciiLength) / uAsciiLength),
+        (vQuadUV.x / uAsciiLength) + (asciiIndex / uAsciiLength),
         vQuadUV.y
     );
 
     vec4 asciiColor = texture2D(uAsciiTexture, asciiUV);
 
+    // Get color based on brightness
     int paletteIndex = int(clamp(floor(brightness * 5.0), 0.0, 4.0));
     vec3 tintColor = uPalette[paletteIndex];
 
-
-    float glow = pow(brightness, 2.0) + sin(uTime * 2.0 + vRandom * 10.0) * 0.05;
+    // Get glow based on brightness and time
+    float glow = pow(brightness, 2.0) + sin(uTime * 2.0 + vRandom * 10.0) * 0.1;
     vec3 glowColor = tintColor * glow;
 
+    // Add glow and tint
     asciiColor.rgb += glowColor * 0.15;
-
-    
     asciiColor.rgb *= tintColor;
 
     gl_FragColor = asciiColor;
