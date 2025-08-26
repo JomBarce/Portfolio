@@ -4,14 +4,14 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Portfolio - JomBarce</title>
-		<link rel="icon" href="./public/portfolio/icons/Logo.svg">
+		<link rel="icon" href="/public/portfolio/icons/Logo.svg">
 		<link rel="stylesheet" href="/src/styles/main.css">
 		<link rel="stylesheet" href="/src/styles/rules.css">
 	</head>
     <body>
-		<header class="container">
-			<div class="navbar">
-				<img id="logo" src="/public/portfolio/icons/Logo.svg">
+		<header class="navbar">
+			<div class="navbar-content">
+				<img id="logo" alt="Logo" src="/public/portfolio/icons/Logo.svg">
 				<nav class="navbar-menu">
 					<button data-page="home">Home</button>
 					<button data-page="works">Works</button>
@@ -24,7 +24,7 @@
 			</div>
 		</header>
 
-		<div id="menu-overlay">
+		<div id="menuOverlay">
 			<nav class="menu">
 				<button data-page="home">Home</button>
 				<button data-page="works">Works</button>
@@ -33,11 +33,11 @@
 			</nav>
 		</div>
 
-		<main id="page-content" class="container">
+		<main id="pageContent" class="container">
 			<!-- Dynamic content -->
 		</main>
 
-        <canvas id="app"></canvas>
+        <canvas id="bgCanvas"></canvas>
 		<script type="module" src="/src/scripts/main.js"></script>
     </body>
 </html>

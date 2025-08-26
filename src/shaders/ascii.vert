@@ -1,5 +1,5 @@
 attribute vec3 aPosition;
-attribute vec2 pixelUV;
+attribute vec2 aPixelUV;
 attribute float aRandom;
 
 varying vec2 vPixelUV;
@@ -7,7 +7,7 @@ varying vec2 vQuadUV;
 varying float vRandom;
 
 void main() {
-    vPixelUV = pixelUV;
+    vPixelUV = aPixelUV;
     vQuadUV = uv;
     vRandom = aRandom;
 
@@ -27,6 +27,6 @@ void main() {
     vec2 finalPos = screenPos * 2.0 - 1.0;
 
     // Apply full transform
-    vec4 distortedWorldPos = vec4(finalPos, localPos.z, 1.0);
-    gl_Position = projectionMatrix * modelViewMatrix * distortedWorldPos;
+    vec4 distortedPos = vec4(finalPos, localPos.z, 1.0);
+    gl_Position = projectionMatrix * modelViewMatrix * distortedPos;
 }

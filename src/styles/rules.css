@@ -46,9 +46,13 @@
 /* Media */
 @media screen and (max-width: 650px) {
     .container {
-        margin: 20px;
+        padding: 100px 20px;
     }
-    
+
+    .navbar {
+        padding: 20px 20px 50px;
+    }
+        
     .hamburger {
         display: flex;
         align-items: center;

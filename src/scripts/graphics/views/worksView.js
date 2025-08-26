@@ -1,8 +1,11 @@
 import * as THREE from 'https://esm.sh/three@0.154.0';
-import View from './view.js';
-import { fetchText } from '../utils/fetch.js';
 
-export default class WorksView extends View {
+import ViewBase from '../shared/viewBase.js';
+import AssetManager from '../shared/assetManager.js';
+import CameraManager from '../shared/cameraManager.js';
+import { fetchText } from '../../utils/fetch.js';
+
+export default class WorksView extends ViewBase {
     constructor(canvas) {
         super(canvas);
     }
@@ -11,18 +14,20 @@ export default class WorksView extends View {
         this.camera.position.set(0, 20, 30);
 
         await this.setParticlesBackground();
+
+        // CameraManager.moveTo(
+        //     new THREE.Vector3(0, 20, 30),
+        //     new THREE.Vector3(0, 0, 0),
+        //     2.0,
+        //     'power4.out'
+        // );
     }
 
     async setParticlesBackground() {
         const vertexShader = await fetchText('/src/shaders/particle.vert');
         const fragmentShader = await fetchText('/src/shaders/particle.frag');
 
-        const loader = new THREE.ImageBitmapLoader();
-        loader.setOptions({ imageOrientation: 'flipY', premultiplyAlpha: 'none' });
-
-        const bitmap = await new Promise((resolve) => {
-            loader.load('/public/portfolio/images/Logo.png', resolve);
-        })
+        const bitmap = await AssetManager.loadImage('logo', '/public/portfolio/images/Logo.png');
 
         const texture = new THREE.CanvasTexture(bitmap);
         texture.flipY = false;

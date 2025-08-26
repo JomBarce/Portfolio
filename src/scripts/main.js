@@ -1,12 +1,16 @@
 import { loadPage } from './pages.js';
-import HomeView from './graphics/homeView.js';
-import WorksView from './graphics/worksView.js';
-import AboutView from './graphics/aboutView.js';
+import HomeView from './graphics/views/homeView.js';
+import WorksView from './graphics/views/worksView.js';
+import AboutView from './graphics/views/aboutView.js';
+import ImageView from './graphics/views/imageView.js';
 
-const canvas = document.getElementById('app');
+const bgCanvas = document.getElementById('bgCanvas');
 
 // Load initial page
 let currentView = null;
+// let currentPage = 'home';
+// loadPage('home');
+// switchView('home');
 let currentPage = 'about';
 loadPage('about');
 switchView('about');
@@ -18,11 +22,20 @@ async function switchView(viewName) {
   }
 
   if (viewName === 'home') {
-    currentView = new HomeView(canvas);
+    currentView = new HomeView(bgCanvas);
   } else if (viewName === 'works') {
-    currentView = new WorksView(canvas);
+    currentView = new WorksView(bgCanvas);
   } else if (viewName === 'about') {
-    currentView = new AboutView(canvas);
+    currentView = new AboutView(bgCanvas);
+    
+    // const modelCanvas = document.getElementById('modelCanvas');
+    // const modelView = new ImageView(modelCanvas);
+
+    // await modelView.init();
+    // modelView.animate();
+
+    // const contentDiv = document.getElementById('pageContent');
+    // contentDiv.style.backgroundColor = 'black';
   }
 
   await currentView.init();
@@ -74,9 +87,11 @@ document.querySelectorAll('.menu button').forEach(button => {
 document.getElementById('hamburger')?.addEventListener('click', toggleMenuOverlay);
 
 function toggleMenuOverlay() {
-  const overlay = document.getElementById('menu-overlay');
+  const overlay = document.getElementById('menuOverlay');
   const hamburger = document.querySelector('.hamburger');
+  const logo = document.getElementById('logo');
   
   overlay.classList.toggle('open');
   hamburger.classList.toggle('open');
+  logo.classList.toggle('open');
 }

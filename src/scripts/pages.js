@@ -6,14 +6,45 @@ const pages = {
     </div>
   `,
   about: `
-    <h1>About Me</h1>
-    <p>
-      I'm Jomer, a passionate and adaptable Software Developer who is aiming for growth and learning 
-      with a solid foundation in Computer Science.
-    </p>
-    <p>
-      My journey in the realm of technology has been dynamic, marked by diverse experiences across Game, Web, API, and App Development.
-    </p>
+    <section class="page-section split">
+      <div class="left">
+        <canvas id="modelCanvas"></canvas>
+      </div>
+      <div class="right">
+        <h1>About Me</h1>
+        <p>
+        I'm Jomer, a passionate and adaptable Software Developer who is aiming for growth and learning 
+        with a solid foundation in Computer Science.
+        </p>
+        <p>
+          My journey in the realm of technology has been dynamic, marked by diverse experiences across Game, Web, API, and App Development.
+        </p>
+      </div>
+    </section>
+    <section class="page-section">
+      <h1>Skills/Tech</h1>
+      <p>
+        I'm Jomer, a passionate and adaptable Software Developer who is aiming for growth and learning 
+        with a solid foundation in Computer Science.
+      </p>
+    </section>
+    <section class="page-section">
+      <h1>Experience</h1>
+      <p>
+        I'm Jomer, a passionate and adaptable Software Developer who is aiming for growth and learning 
+        with a solid foundation in Computer Science.
+      </p>
+    </section>
+    <section class="page-section">
+      <h1>Get in Touch</h1>
+      <p>
+        I'm Jomer, a passionate and adaptable Software Developer who is aiming for growth and learning 
+        with a solid foundation in Computer Science.
+      </p>
+    </section>
+    <button id="lookLeftBtn">←</button>
+    <button id="lookRightBtn">→</button>
+    <button id="aboutBtn">GET TO KNOW</button>
   `,
   works: `
     <h1>Works</h1>
@@ -45,8 +76,9 @@ export function loadPage(pageName) {
     if (pageName === currentPage) return;
     currentPage = pageName;
 
-    const contentDiv = document.getElementById('page-content');
+    const contentDiv = document.getElementById('pageContent');
     contentDiv.innerHTML = '';
+    contentDiv.className = (pageName === 'home') ? 'abs-center' : 'container';
 
     if (intervalId) {
         clearInterval(intervalId);
@@ -55,7 +87,7 @@ export function loadPage(pageName) {
     
     const wrapper = document.createElement('div');
     wrapper.innerHTML = pages[pageName] || `<h1>Page Not Found</h1>`;
-    wrapper.className = pageName === 'home' ? 'page-slide-in center' : 'page-slide-in';
+    wrapper.className = (pageName === 'home') ? 'page-slide-in flex-center' : 'page-slide-in';
     contentDiv.appendChild(wrapper);
 
     if (pageName === 'home') {

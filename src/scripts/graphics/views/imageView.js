@@ -1,28 +1,45 @@
 import * as THREE from 'https://esm.sh/three@0.154.0';
-import View from './view.js';
-import { fetchText } from '../utils/fetch.js';
 
-export default class AboutView extends View {
+import ViewBase from '../shared/viewBase.js';
+import AssetManager from '../shared/assetManager.js';
+import CameraManager from '../shared/cameraManager.js';
+import { fetchText } from '../../utils/fetch.js';
+
+export default class ImageView extends ViewBase {
     constructor(canvas) {
         super(canvas);
     }
 
     async init() {
-        this.camera.position.set(0, 0, 10);
+        // CameraManager.moveTo(
+        //     new THREE.Vector3(0, 0, 10),
+        //     new THREE.Vector3(0, 0, 0),
+        //     2.0,
+        //     'power4.out'
+        // );
+        this.handleResize();
 
         await this.setAsciiImage();
+
+        const model = await AssetManager.loadModel('monitor', '/public/portfolio/models/Monitor.glb');
+        model.scene.scale.set(0.1, 0.1, 0.1);
+
+        const monitorNode = model.scene.getObjectByName('Monitor');
+
+        if (monitorNode && this.instancedMesh) {
+            this.instancedMesh.position.set(0, 10, -170.5);
+            this.instancedMesh.scale.set(20, 20, 1);
+            monitorNode.add(this.instancedMesh);
+        }
+
+        this.scene.add(model.scene);
     }
 
     async setAsciiImage() {
         const vertexShader = await fetchText('/src/shaders/ascii.vert');
         const fragmentShader = await fetchText('/src/shaders/ascii.frag');
 
-        const loader = new THREE.ImageBitmapLoader();
-        loader.setOptions({ imageOrientation: 'flipY', premultiplyAlpha: 'none' });
-
-        const bitmap = await new Promise((resolve) => {
-            loader.load('/public/portfolio/images/Self.png', resolve);
-        })
+        const bitmap = await AssetManager.loadImage('self', '/public/portfolio/images/Self.png');
 
         const texture = new THREE.CanvasTexture(bitmap);
         texture.flipY = false;
@@ -72,13 +89,14 @@ export default class AboutView extends View {
             fragmentShader,
             uniforms: this.uniforms,
             transparent: true,
-            depthTest: false,
-            depthWrite: false,
+            depthTest: true,
+            depthWrite: true,
         });
         
         this.instancedMesh = new THREE.InstancedMesh(geometry, material, instances);
 
         let index = 0;
+        const tempMatrix = new THREE.Matrix4();
         for (let i = 0; i < rows; i++) {
             for (let j = 0; j < columns; j++) {
                 index = (i * columns) + j;
@@ -89,20 +107,20 @@ export default class AboutView extends View {
                 positions[index * 3 + 1] = j * size - size * (columns - 1) / 2;
                 positions[index * 3 + 2] = 0;
 
-                let m = new THREE.Matrix4();
-                m.setPosition(positions[index * 3], positions[index * 3 + 1], positions[index * 3 + 2]);
-                this.instancedMesh.setMatrixAt(index, m);
-
-                index++;
+                tempMatrix.setPosition(
+                    positions[index * 3],
+                    positions[index * 3 + 1],
+                    positions[index * 3 + 2]
+                );
+                this.instancedMesh.setMatrixAt(index, tempMatrix);
             }
         }
 
-        this.instancedMesh.needsUpdate = true;
-        geometry.setAttribute('aRandom', new THREE.InstancedBufferAttribute(random, 1));
-        geometry.setAttribute('pixelUV', new THREE.InstancedBufferAttribute(uv, 2));
-        geometry.setAttribute('aPosition', new THREE.BufferAttribute(positionArray, 3));
+        this.instancedMesh.geometry.setAttribute('aRandom', new THREE.InstancedBufferAttribute(random, 1));
+        this.instancedMesh.geometry.setAttribute('aPixelUV', new THREE.InstancedBufferAttribute(uv, 2));
+        this.instancedMesh.geometry.setAttribute('aPosition', new THREE.BufferAttribute(positionArray, 3));
         
-        this.scene.add(this.instancedMesh);
+        // this.scene.add(this.instancedMesh);
     }
 
     createAsciiTexture() {
@@ -139,21 +157,31 @@ export default class AboutView extends View {
         return asciiTexture;
     }
 
+    setRenderer() {
+        const width = this.canvas.clientWidth;
+        const height = this.canvas.clientHeight;
+
+        this.renderer = new THREE.WebGLRenderer({
+            antialias: true,
+            canvas: this.canvas,
+            alpha: true
+        });
+        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setSize(width, height);
+        this.renderer.setClearColor(0xffffff, 0);
+    }
+
+
     handleResize() {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-        const aspect = width / height;
+        if (!this.renderer || !this.camera || !this.camera.isPerspectiveCamera) return;
+
+        const width = this.canvas.clientWidth;
+        const height = this.canvas.clientHeight;
 
         this.renderer.setSize(width, height);
-
-        if (this.camera && this.camera.isPerspectiveCamera) {
-            this.camera.aspect = aspect;
-
-            this.camera.fov = Math.max(75, Math.min(100, 100 / aspect));
-            this.camera.updateProjectionMatrix();
-            
-        }
+        CameraManager.resize(width, height);
     }
+
 
     animate() {
         super.animate();

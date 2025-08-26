@@ -1,12 +1,16 @@
 import * as THREE from 'https://esm.sh/three@0.154.0';
 import { OrbitControls } from 'https://esm.sh/three@0.154.0/examples/jsm/controls/OrbitControls.js';
 
-export default class View {
+import CameraManager from './cameraManager.js';
+
+export default class ViewBase {
     constructor(canvas) {
         this.canvas = canvas;
+        this.clock = new THREE.Clock();
         
         this.setRenderer();
         this.setScene();
+        this.setLight();
         this.setCamera();
         // this.setControls();
         this.addListeners();
@@ -20,8 +24,10 @@ export default class View {
         
         this.renderer = new THREE.WebGLRenderer({
             antialias: true,
-            canvas: this.canvas
+            canvas: this.canvas,
+            alpha: true
         });
+        this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.setSize(width, height);
         this.renderer.setClearColor(0xffffff, 0);
     }
@@ -31,39 +37,38 @@ export default class View {
         this.scene.background = new THREE.Color(0x000000);       
     }
 
+    setLight() {
+        const directional = new THREE.DirectionalLight(0xffffff, 1);
+        directional.position.set(50, 50, 50);
+        this.scene.add(directional);
+
+        const ambient = new THREE.AmbientLight(0xffffff, 0.3);
+        this.scene.add(ambient);
+    }
+
     setCamera() {
-        const fieldOfView = 75;
-        const aspectRatio = window.innerWidth / window.innerHeight;
-        const nearPlane = 0.1;
-        const farPlane = 1000;
-
-        this.camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);     
-        this.camera.position.x = 0;
-        this.camera.position.y = 0;
-        this.camera.position.z = 5;
-
-        this.camera.lookAt(0, 0, 0);
-
-        this.scene.add(this.camera);
+        this.camera = CameraManager.getCamera();
     }
 
     setControls() {
         this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+        this.controls.enableDamping = true;
+        this.controls.dampingFactor = 0.05;
+        this.controls.enableZoom = true;
     }
 
     addListeners() {
-        window.addEventListener('resize', this.handleResize.bind(this)); // Bind 'this' correctly
+        window.addEventListener('resize', this.handleResize.bind(this));
     }
 
     handleResize() {
+        if (!this.renderer || !this.camera || !this.camera.isPerspectiveCamera) return;
+
         const width = window.innerWidth;
         const height = window.innerHeight;
 
-        if (this.camera) {
-            this.renderer.setSize(width, height);
-            this.camera.aspect = width / height;
-            this.camera.updateProjectionMatrix();
-        }
+        this.renderer.setSize(width, height);
+        CameraManager.resize(width, height);
     }
 
     // Animation
@@ -98,9 +103,8 @@ export default class View {
             this.renderer.domElement = null;
             this.renderer = null;
         }
-
+        
         this.scene = null;
-        this.camera = null;
 
         window.removeEventListener('resize', this.handleResize.bind(this));
     }

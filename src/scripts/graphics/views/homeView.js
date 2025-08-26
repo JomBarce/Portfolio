@@ -1,17 +1,16 @@
 import * as THREE from 'https://esm.sh/three@0.154.0';
-import { OrbitControls } from 'https://esm.sh/three@0.154.0/examples/jsm/controls/OrbitControls.js';
 
-import View from './view.js';
-import { fetchText } from '../utils/fetch.js';
+import ViewBase from '../shared/viewBase.js';
+import AssetManager from '../shared/assetManager.js';
+import { fetchText } from '../../utils/fetch.js';
 
-export default class HomeView extends View {
+export default class HomeView extends ViewBase {
     constructor(canvas) {
         super(canvas);
     }
 
     async init() {
         this.camera.position.set(0, 20, 30);
-        this.setControls();
 
         await this.setParticlesBackground();
     }
@@ -20,12 +19,7 @@ export default class HomeView extends View {
         const vertexShader = await fetchText('/src/shaders/particle.vert');
         const fragmentShader = await fetchText('/src/shaders/particle.frag');
 
-        const loader = new THREE.ImageBitmapLoader();
-        loader.setOptions({ imageOrientation: 'flipY', premultiplyAlpha: 'none' });
-
-        const bitmap = await new Promise((resolve) => {
-            loader.load('/public/portfolio/images/Oscar.png', resolve);
-        })
+        const bitmap = await AssetManager.loadImage('bg', '/public/portfolio/images/Oscar.png');
 
         const texture = new THREE.CanvasTexture(bitmap);
         texture.flipY = false;
@@ -75,16 +69,11 @@ export default class HomeView extends View {
         this.scene.add(this.gridMesh);
     }
 
-    setControls() {
-        this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    }
-
     animate() {
         super.animate();
         if (this.uniforms && this.uniforms.uTime) {
             this.uniforms.uTime.value += 0.01;
         }
-        this.controls.update();
     }
 
     cleanup() {
