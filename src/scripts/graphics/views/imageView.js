@@ -45,8 +45,8 @@ export default class ImageView {
 
     setCamera() {
         this.camera = new THREE.PerspectiveCamera(75, this.canvas.clientWidth / this.canvas.clientHeight, 0.1, 1000);
-        this.camera.position.set(0, 10, 0); // Start above the monitor
-        this.camera.lookAt(new THREE.Vector3(0, 0, -170.5)); // Looking toward the ASCII mesh
+        this.camera.position.set(0, 10, 0);
+        this.camera.lookAt(new THREE.Vector3(0, 0, -170.5));
     }
 
     addListeners() {
@@ -66,7 +66,7 @@ export default class ImageView {
 
         await this.setAsciiImage();
 
-        const model = await AssetManager.loadModel('monitor', '/public/portfolio/models/Monitor.glb');
+        const model = await AssetManager.loadModel('monitor', '/public/portfolio/assets/Monitor.glb');
         model.scene.scale.set(0.1, 0.1, 0.1);
 
         const monitorNode = model.scene.getObjectByName('Monitor');
@@ -164,8 +164,6 @@ export default class ImageView {
         this.instancedMesh.geometry.setAttribute('aRandom', new THREE.InstancedBufferAttribute(random, 1));
         this.instancedMesh.geometry.setAttribute('aPixelUV', new THREE.InstancedBufferAttribute(uv, 2));
         this.instancedMesh.geometry.setAttribute('aPosition', new THREE.BufferAttribute(positionArray, 3));
-        
-        // this.scene.add(this.instancedMesh);
     }
 
     createAsciiTexture() {

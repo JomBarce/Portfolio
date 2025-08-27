@@ -206,7 +206,7 @@ button:hover::before {
 }
 
 .page-section {
-    padding: 4rem 2rem;
+    padding: 1rem 2rem 4rem 2rem;
     width: 100%;
     box-sizing: border-box;
 }
@@ -218,6 +218,7 @@ button:hover::before {
 
 .about-details {
     display: none;
+    margin-bottom: 5rem;
 }
 
 .about-details.active {
