@@ -1,28 +1,62 @@
 import * as THREE from 'https://esm.sh/three@0.154.0';
-import View from './view.js';
-import { fetchText } from '../utils/fetch.js';
 
-export default class AboutView extends View {
+import ViewBase from '../shared/viewBase.js';
+import AssetManager from '../shared/assetManager.js';
+import CameraManager from '../shared/cameraManager.js';
+import { fetchText } from '../../utils/fetch.js';
+
+export default class AboutView extends ViewBase {
     constructor(canvas) {
         super(canvas);
     }
 
     async init() {
-        this.camera.position.set(0, 0, 10);
+        const position = new THREE.Vector3(0, 0, 0);
+        const angle = new THREE.Vector3(0, 0, 0);
+        CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
+
+        this.handleResize();
 
         await this.setAsciiImage();
+        // this.createBox();
+
+        const aboutBtn = document.getElementById('aboutBtn');
+        const introSection = document.querySelector('.about-intro');
+        const detailsSection = document.querySelector('.about-details');
+        const contentDiv = document.getElementById('pageContent');
+
+        aboutBtn.addEventListener('click', () => {
+            if (introSection.style.display !== 'none') {
+                introSection.style.display = 'none';
+                detailsSection.classList.add('active');
+                contentDiv.className = 'container';
+                const position = new THREE.Vector3(0, 0, -2);
+                CameraManager.moveTo(position, 2.0, 'power4.out');
+            }
+
+            document.getElementById('hideBtn').style.display = 'none';
+            document.getElementById('viewBtn').style.display = 'none';
+            document.getElementById('closeBtn').style.display = 'block';
+        });
+
+        document.getElementById('closeBtn').addEventListener('click', () => {
+            introSection.style.display = 'block';
+            detailsSection.classList.remove('active');
+            contentDiv.className = 'abs-bottom';
+            
+            document.getElementById('hideBtn').style.display = 'block';
+            document.getElementById('viewBtn').style.display = 'none';
+            document.getElementById('closeBtn').style.display = 'none';
+
+            this.handleResize();
+        });
     }
 
     async setAsciiImage() {
         const vertexShader = await fetchText('/src/shaders/ascii.vert');
         const fragmentShader = await fetchText('/src/shaders/ascii.frag');
 
-        const loader = new THREE.ImageBitmapLoader();
-        loader.setOptions({ imageOrientation: 'flipY', premultiplyAlpha: 'none' });
-
-        const bitmap = await new Promise((resolve) => {
-            loader.load('/public/portfolio/images/Self.png', resolve);
-        })
+        const bitmap = await AssetManager.loadImage('self', '/public/portfolio/images/Self.png');
 
         const texture = new THREE.CanvasTexture(bitmap);
         texture.flipY = false;
@@ -72,13 +106,14 @@ export default class AboutView extends View {
             fragmentShader,
             uniforms: this.uniforms,
             transparent: true,
-            depthTest: false,
-            depthWrite: false,
+            depthTest: true,
+            depthWrite: true,
         });
         
         this.instancedMesh = new THREE.InstancedMesh(geometry, material, instances);
 
         let index = 0;
+        const tempMatrix = new THREE.Matrix4();
         for (let i = 0; i < rows; i++) {
             for (let j = 0; j < columns; j++) {
                 index = (i * columns) + j;
@@ -89,18 +124,18 @@ export default class AboutView extends View {
                 positions[index * 3 + 1] = j * size - size * (columns - 1) / 2;
                 positions[index * 3 + 2] = 0;
 
-                let m = new THREE.Matrix4();
-                m.setPosition(positions[index * 3], positions[index * 3 + 1], positions[index * 3 + 2]);
-                this.instancedMesh.setMatrixAt(index, m);
-
-                index++;
+                tempMatrix.setPosition(
+                    positions[index * 3],
+                    positions[index * 3 + 1],
+                    positions[index * 3 + 2]
+                );
+                this.instancedMesh.setMatrixAt(index, tempMatrix);
             }
         }
 
-        this.instancedMesh.needsUpdate = true;
-        geometry.setAttribute('aRandom', new THREE.InstancedBufferAttribute(random, 1));
-        geometry.setAttribute('pixelUV', new THREE.InstancedBufferAttribute(uv, 2));
-        geometry.setAttribute('aPosition', new THREE.BufferAttribute(positionArray, 3));
+        this.instancedMesh.geometry.setAttribute('aRandom', new THREE.InstancedBufferAttribute(random, 1));
+        this.instancedMesh.geometry.setAttribute('aPixelUV', new THREE.InstancedBufferAttribute(uv, 2));
+        this.instancedMesh.geometry.setAttribute('aPosition', new THREE.BufferAttribute(positionArray, 3));
         
         this.scene.add(this.instancedMesh);
     }
@@ -139,20 +174,44 @@ export default class AboutView extends View {
         return asciiTexture;
     }
 
+    createBox() {
+        const geometry = new THREE.BoxGeometry( 20, 20, 20 );
+        const edges = new THREE.EdgesGeometry( geometry ); 
+        const lineMat = new THREE.LineBasicMaterial( { color: 0xffd319 } );
+        const line = new THREE.LineSegments( edges, lineMat ); 
+
+        this.cube = new THREE.Object3D();
+        this.cube.add(line);
+        
+        this.scene.add(this.cube);
+    }
+
     handleResize() {
+        if (!this.renderer || !this.camera || !this.camera.isPerspectiveCamera) return;
+
         const width = window.innerWidth;
         const height = window.innerHeight;
-        const aspect = width / height;
-
+        
         this.renderer.setSize(width, height);
+        CameraManager.resize(width, height);
 
-        if (this.camera && this.camera.isPerspectiveCamera) {
-            this.camera.aspect = aspect;
+        const introSection = document.querySelector('.about-intro');
+        if (introSection.style.display === 'none') return;
+        
+        let position;
+        let angle = new THREE.Vector3(0, 0, 0);
 
-            this.camera.fov = Math.max(75, Math.min(100, 100 / aspect));
-            this.camera.updateProjectionMatrix();
-            
+        if (width <= 650 && height <= 600) {
+            position = new THREE.Vector3(0, 0, 10);
+        } else if (width <= 650) {
+            position = new THREE.Vector3(0, -3, 15);
+        } else if (height <= 650) {
+            position = new THREE.Vector3(0, -1, 12);
+        } else {
+            position = new THREE.Vector3(0, -0.5, 8);
         }
+
+        CameraManager.moveTo(position, 2.0, 'power4.out');
     }
 
     animate() {

@@ -1,14 +1,19 @@
 import * as THREE from 'https://esm.sh/three@0.154.0';
-import View from './view.js';
-import { fetchText } from '../utils/fetch.js';
 
-export default class WorksView extends View {
+import ViewBase from '../shared/viewBase.js';
+import AssetManager from '../shared/assetManager.js';
+import CameraManager from '../shared/cameraManager.js';
+import { fetchText } from '../../utils/fetch.js';
+
+export default class HomeView extends ViewBase {
     constructor(canvas) {
         super(canvas);
     }
 
     async init() {
-        this.camera.position.set(0, 20, 30);
+        const position = new THREE.Vector3(0, 0, 30);
+        const angle = new THREE.Vector3(0, 30, 0);
+        CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
 
         await this.setParticlesBackground();
     }
@@ -17,12 +22,7 @@ export default class WorksView extends View {
         const vertexShader = await fetchText('/src/shaders/particle.vert');
         const fragmentShader = await fetchText('/src/shaders/particle.frag');
 
-        const loader = new THREE.ImageBitmapLoader();
-        loader.setOptions({ imageOrientation: 'flipY', premultiplyAlpha: 'none' });
-
-        const bitmap = await new Promise((resolve) => {
-            loader.load('/public/portfolio/images/Logo.png', resolve);
-        })
+        const bitmap = await AssetManager.loadImage('bg', '/public/portfolio/images/Oscar.png');
 
         const texture = new THREE.CanvasTexture(bitmap);
         texture.flipY = false;
@@ -83,7 +83,7 @@ export default class WorksView extends View {
         if (this.gridMesh) {
             this.scene.remove(this.gridMesh);
             this.gridMesh.geometry.dispose();
-            this.gridMesh.material.dispose();   
+            this.gridMesh.material.dispose();
         }
 
         super.cleanup();

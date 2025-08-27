@@ -4,11 +4,8 @@ html, body {
     padding: 0;
     font-family: 'Space Mono', monospace;
     color: white;
-    overflow: hidden;
-    /* height: 100%;
-    width: 100%; */
     pointer-events: none;
-    /* background-color: blue; */
+    z-index: 1;
 }
 
 button {
@@ -21,6 +18,7 @@ button {
     z-index: 1;
     cursor: pointer;
     min-width: 100px;
+    pointer-events: auto;
 }
 
 button::before {
@@ -28,24 +26,36 @@ button::before {
     position: absolute;
     top: -2px; left: -2px; right: -2px; bottom: -2px;
     border: 2px solid transparent;
-    pointer-events: none;
     z-index: 2;
     border-radius: 0;
+    pointer-events: none;
 }
 
 button:hover::before {
-    animation: border-animate 0.6s linear forwards;
     background-color: rgba(255, 255, 255, 0.1);
     transition: background-color 0.3s;
+    animation: border-animate 0.6s linear forwards;
 }
 
 /* Class */
 .container {
-    margin: 20px 50px;
+    min-height: 100vh;
+    padding: 100px 50px 50px;
     background-color: transparent;
+    box-sizing: border-box;
 }
 
 .navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px 50px;
+    box-sizing: border-box;
+    z-index: 11;
+}
+
+.navbar-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,7 +65,6 @@ button:hover::before {
 .hamburger{
     display: none;
     position: relative;
-    z-index: 1;
 }
 
 .hamburger span {
@@ -100,10 +109,6 @@ button:hover::before {
     top: 12px;
 }
 
-.hamburger.open {
-    z-index: 11;
-}
-
 .hamburger.open span {
     background: transparent;
 }
@@ -118,31 +123,61 @@ button:hover::before {
     transform: rotate(-45deg);
 }
 
-#menu-overlay {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 1);
-    z-index: -10;
-    pointer-events: auto;
-}
-
 .menu {
     display: grid;
     justify-content: center;
     gap: 20px;
 }
 
+.edit-bar {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 50px;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.icon:hover {
+    transition: transform 0.2s;
+    transform: scale(1.1);
+    cursor: pointer;
+    filter: brightness(30%) sepia(1) hue-rotate(0deg) saturate(0%) grayscale(100%) invert(20%);
+}
+
 .page-slide-in {
+    position: relative;
     animation: slideIn 0.5s ease;
 }
 
-.center {
+.abs-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    width: 90vw;
+    transform: translate(-50%, -50%);
+}
+
+.abs-bottom {
+    position: absolute;
+    bottom: 75px;
+    left: 50%;
+    margin: auto;
+    width: 80vw;
+    transform: translateX(-50%);
+}
+
+.flex-center {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,6 +205,27 @@ button:hover::before {
     opacity: 0;
 }
 
+.page-section {
+    padding: 4rem 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.about-intro {
+    display: block;
+    text-align: center;
+}
+
+.about-details {
+    display: none;
+}
+
+.about-details.active {
+    display: block;
+    opacity: 1;
+    animation: slideIn 0.5s ease;
+}
+
 /* ID */
 #logo {
     height: 50px;
@@ -183,7 +239,11 @@ button:hover::before {
     filter: brightness(30%) sepia(1) hue-rotate(0deg) saturate(0%) grayscale(100%) invert(20%);
 }
 
-#menu-overlay {
+#logo.open {
+    visibility: hidden;
+}
+
+#menuOverlay {
     display: none;
     align-items: center;
     justify-content: center;
@@ -193,21 +253,28 @@ button:hover::before {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 1);
-    z-index: -10;
-    pointer-events: auto;
-}
-
-#menu-overlay.open {
-    display: flex;
     z-index: 10;
 }
 
-#page-content {
-    position: relative;
-    height: 80vh;
+#menuOverlay.open {
+    display: flex;
 }
 
-#app {
+#viewBtn,
+#closeBtn {
+    display: none;
+}
+
+#aboutBtn {
+    width: 50%;
+}
+
+/* #pageContent {
+    position: relative;
+    height: 80vh;
+} */
+
+#bgCanvas {
     position: fixed;
 	top: 0;
 	left: 0;
@@ -215,5 +282,4 @@ button:hover::before {
 	height: 100vh;
 	z-index: -1;
     pointer-events: auto;
-	/* pointer-events: none; */
 }
