@@ -1,22 +1,67 @@
 import * as THREE from 'https://esm.sh/three@0.154.0';
 
-import ViewBase from '../shared/viewBase.js';
 import AssetManager from '../shared/assetManager.js';
-import CameraManager from '../shared/cameraManager.js';
 import { fetchText } from '../../utils/fetch.js';
 
-export default class ImageView extends ViewBase {
+export default class ImageView {
     constructor(canvas) {
-        super(canvas);
+        this.canvas = canvas;
+        this.clock = new THREE.Clock();
+        
+        this.setRenderer();
+        this.setScene();
+        this.setLight();
+        this.setCamera();
+        this.addListeners();
+    }
+
+    setRenderer() {
+        const width = this.canvas.offsetWidth;
+        const height = this.canvas.offsetHeight;
+
+        this.renderer = new THREE.WebGLRenderer({
+            canvas: this.canvas,
+            antialias: true,
+            alpha: true
+        });
+        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setSize(width, height);
+        this.renderer.setClearColor(0xffffff, 0);
+    }
+
+    setScene() {
+        this.scene = new THREE.Scene();
+        this.scene.background = new THREE.Color(0x000000);       
+    }
+
+    setLight() {
+        const directional = new THREE.DirectionalLight(0xffffff, 1);
+        directional.position.set(50, 50, 50);
+        this.scene.add(directional);
+
+        const ambient = new THREE.AmbientLight(0xffffff, 0.3);
+        this.scene.add(ambient);
+    }
+
+    setCamera() {
+        this.camera = new THREE.PerspectiveCamera(75, this.canvas.clientWidth / this.canvas.clientHeight, 0.1, 1000);
+        this.camera.position.set(0, 10, 0); // Start above the monitor
+        this.camera.lookAt(new THREE.Vector3(0, 0, -170.5)); // Looking toward the ASCII mesh
+    }
+
+    addListeners() {
+        window.addEventListener('resize', () => this.handleResize());
+    }
+
+    handleResize() {
+        const { width, height } = this.canvas.getBoundingClientRect();
+
+        this.renderer.setSize(width, height);
+        this.camera.aspect = width / height;
+        this.camera.updateProjectionMatrix();
     }
 
     async init() {
-        // CameraManager.moveTo(
-        //     new THREE.Vector3(0, 0, 10),
-        //     new THREE.Vector3(0, 0, 0),
-        //     2.0,
-        //     'power4.out'
-        // );
         this.handleResize();
 
         await this.setAsciiImage();
@@ -157,36 +202,11 @@ export default class ImageView extends ViewBase {
         return asciiTexture;
     }
 
-    setRenderer() {
-        const width = this.canvas.clientWidth;
-        const height = this.canvas.clientHeight;
-
-        this.renderer = new THREE.WebGLRenderer({
-            antialias: true,
-            canvas: this.canvas,
-            alpha: true
-        });
-        this.renderer.setPixelRatio(window.devicePixelRatio);
-        this.renderer.setSize(width, height);
-        this.renderer.setClearColor(0xffffff, 0);
-    }
-
-
-    handleResize() {
-        if (!this.renderer || !this.camera || !this.camera.isPerspectiveCamera) return;
-
-        const width = this.canvas.clientWidth;
-        const height = this.canvas.clientHeight;
-
-        this.renderer.setSize(width, height);
-        CameraManager.resize(width, height);
-    }
-
-
     animate() {
-        super.animate();
-        if (this.uniforms && this.uniforms.uTime) {
-            this.uniforms.uTime.value += 0.01;
+        if (this.scene && this.camera && this.renderer) {
+            requestAnimationFrame(() => this.animate());
+            // this.controls.update();
+            this.renderer.render(this.scene, this.camera);
         }
     }
 

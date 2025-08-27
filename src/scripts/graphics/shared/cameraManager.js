@@ -22,7 +22,17 @@ class CameraManager {
     this.camera.updateProjectionMatrix();
   }
 
-  moveTo(position, lookAt, duration = 1.5, ease = 'power2.inOut') {
+  moveTo(position, duration = 1.5, ease = 'power2.inOut') {
+    gsap.to(this.camera.position, {
+      x: position.x,
+      y: position.y,
+      z: position.z,
+      duration,
+      ease
+    });
+  }
+
+  moveToLookAt(position, lookAt, duration = 1.5, ease = 'power2.inOut') {
     gsap.to(this.camera.position, {
       x: position.x,
       y: position.y,
@@ -33,7 +43,6 @@ class CameraManager {
         this.camera.lookAt(lookAt);
       }
     });
-    // this.target.copy(lookAt);
   }
 }
 

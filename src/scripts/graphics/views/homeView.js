@@ -2,6 +2,7 @@ import * as THREE from 'https://esm.sh/three@0.154.0';
 
 import ViewBase from '../shared/viewBase.js';
 import AssetManager from '../shared/assetManager.js';
+import CameraManager from '../shared/cameraManager.js';
 import { fetchText } from '../../utils/fetch.js';
 
 export default class HomeView extends ViewBase {
@@ -10,7 +11,9 @@ export default class HomeView extends ViewBase {
     }
 
     async init() {
-        this.camera.position.set(0, 20, 30);
+        const position = new THREE.Vector3(0, 0, 30);
+        const angle = new THREE.Vector3(0, 30, 0);
+        CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
 
         await this.setParticlesBackground();
     }

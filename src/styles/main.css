@@ -5,6 +5,7 @@ html, body {
     font-family: 'Space Mono', monospace;
     color: white;
     pointer-events: none;
+    z-index: 1;
 }
 
 button {
@@ -31,13 +32,14 @@ button::before {
 }
 
 button:hover::before {
-    animation: border-animate 0.6s linear forwards;
     background-color: rgba(255, 255, 255, 0.1);
     transition: background-color 0.3s;
+    animation: border-animate 0.6s linear forwards;
 }
 
 /* Class */
 .container {
+    min-height: 100vh;
     padding: 100px 50px 50px;
     background-color: transparent;
     box-sizing: border-box;
@@ -127,7 +129,33 @@ button:hover::before {
     gap: 20px;
 }
 
+.edit-bar {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 50px;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.icon:hover {
+    transition: transform 0.2s;
+    transform: scale(1.1);
+    cursor: pointer;
+    filter: brightness(30%) sepia(1) hue-rotate(0deg) saturate(0%) grayscale(100%) invert(20%);
+}
+
 .page-slide-in {
+    position: relative;
     animation: slideIn 0.5s ease;
 }
 
@@ -138,6 +166,15 @@ button:hover::before {
     margin: auto;
     width: 90vw;
     transform: translate(-50%, -50%);
+}
+
+.abs-bottom {
+    position: absolute;
+    bottom: 75px;
+    left: 50%;
+    margin: auto;
+    width: 80vw;
+    transform: translateX(-50%);
 }
 
 .flex-center {
@@ -169,9 +206,24 @@ button:hover::before {
 }
 
 .page-section {
-  padding: 4rem 2rem;
-  width: 100%;
-  box-sizing: border-box;
+    padding: 4rem 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.about-intro {
+    display: block;
+    text-align: center;
+}
+
+.about-details {
+    display: none;
+}
+
+.about-details.active {
+    display: block;
+    opacity: 1;
+    animation: slideIn 0.5s ease;
 }
 
 /* ID */
@@ -206,6 +258,15 @@ button:hover::before {
 
 #menuOverlay.open {
     display: flex;
+}
+
+#viewBtn,
+#closeBtn {
+    display: none;
+}
+
+#aboutBtn {
+    width: 50%;
 }
 
 /* #pageContent {

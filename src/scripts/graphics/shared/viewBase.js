@@ -55,6 +55,7 @@ export default class ViewBase {
         this.controls.enableDamping = true;
         this.controls.dampingFactor = 0.05;
         this.controls.enableZoom = true;
+        this.controls.enabled = false;
     }
 
     addListeners() {
@@ -75,13 +76,19 @@ export default class ViewBase {
     animate() {
         if (this.scene && this.camera && this.renderer) {
             requestAnimationFrame(() => this.animate());
-            // this.controls.update();
-            this.render();
-        }
-    }
 
-    render() {
-        this.renderer.render(this.scene, this.camera);
+            // if (document.getElementById('pageContent').style.display == 'none') {
+            //     this.controls.enabled = true;
+            // } else {
+            //     this.controls.enabled = false;
+            // }
+
+            // if (this.controls.enabled) {
+            //     this.controls.update();
+            // }
+
+            this.renderer.render(this.scene, this.camera);
+        }
     }
 
     resetScene() {

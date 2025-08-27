@@ -11,7 +11,9 @@ export default class WorksView extends ViewBase {
     }
 
     async init() {
-        this.camera.position.set(0, 20, 30);
+        const position = new THREE.Vector3(0, 0, 40);
+        const angle = new THREE.Vector3(0, -20, 0);
+        CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
 
         await this.setParticlesBackground();
 
