@@ -11,41 +11,45 @@ export default class AboutView extends ViewBase {
     }
 
     async init() {
-        // CameraManager.moveTo(
-        //     new THREE.Vector3(0, 0, 10),
-        //     new THREE.Vector3(0, 0, 0),
-        //     2.0,
-        //     'power4.out'
-        // );
+        const position = new THREE.Vector3(0, 0, 0);
+        const angle = new THREE.Vector3(0, 0, 0);
+        CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
+
         this.handleResize();
 
         await this.setAsciiImage();
         // this.createBox();
 
-        // this.currentPage = 0;
-        // this.maxPage = 4;
+        const aboutBtn = document.getElementById('aboutBtn');
+        const introSection = document.querySelector('.about-intro');
+        const detailsSection = document.querySelector('.about-details');
+        const contentDiv = document.getElementById('pageContent');
 
-        // const sections = document.querySelectorAll('.page-section');
+        aboutBtn.addEventListener('click', () => {
+            if (introSection.style.display !== 'none') {
+                introSection.style.display = 'none';
+                detailsSection.classList.add('active');
+                contentDiv.className = 'container';
+                const position = new THREE.Vector3(0, 0, -2);
+                CameraManager.moveTo(position, 2.0, 'power4.out');
+            }
 
-        // const showPage = (index) => {
-        //     sections.forEach((section, i) => {
-        //         section.style.display = i === index ? 'block' : 'none';
-        //     });
-        // };
+            document.getElementById('hideBtn').style.display = 'none';
+            document.getElementById('viewBtn').style.display = 'none';
+            document.getElementById('closeBtn').style.display = 'block';
+        });
 
-        // // Initial display
-        // showPage(this.currentPage);
+        document.getElementById('closeBtn').addEventListener('click', () => {
+            introSection.style.display = 'block';
+            detailsSection.classList.remove('active');
+            contentDiv.className = 'abs-bottom';
+            
+            document.getElementById('hideBtn').style.display = 'block';
+            document.getElementById('viewBtn').style.display = 'none';
+            document.getElementById('closeBtn').style.display = 'none';
 
-        // // Button listeners
-        // document.getElementById('lookLeftBtn').addEventListener('click', () => {
-        //     this.currentPage = (this.currentPage - 1 + sections.length) % sections.length;
-        //     showPage(this.currentPage);
-        // });
-
-        // document.getElementById('lookRightBtn').addEventListener('click', () => {
-        //     this.currentPage = (this.currentPage + 1) % sections.length;
-        //     showPage(this.currentPage);
-        // });
+            this.handleResize();
+        });
     }
 
     async setAsciiImage() {
@@ -183,19 +187,31 @@ export default class AboutView extends ViewBase {
     }
 
     handleResize() {
-        if (!this.renderer || !this.camera && this.camera.isPerspectiveCamera) return;
+        if (!this.renderer || !this.camera || !this.camera.isPerspectiveCamera) return;
 
         const width = window.innerWidth;
         const height = window.innerHeight;
-
+        
         this.renderer.setSize(width, height);
         CameraManager.resize(width, height);
 
-        if (width <= 650) {
-            this.camera.position.set(0, -1, 10);
+        const introSection = document.querySelector('.about-intro');
+        if (introSection.style.display === 'none') return;
+        
+        let position;
+        let angle = new THREE.Vector3(0, 0, 0);
+
+        if (width <= 650 && height <= 600) {
+            position = new THREE.Vector3(0, 0, 10);
+        } else if (width <= 650) {
+            position = new THREE.Vector3(0, -3, 15);
+        } else if (height <= 650) {
+            position = new THREE.Vector3(0, -1, 12);
         } else {
-            this.camera.position.set(0, 0, 10);
+            position = new THREE.Vector3(0, -0.5, 8);
         }
+
+        CameraManager.moveTo(position, 2.0, 'power4.out');
     }
 
     animate() {
@@ -214,14 +230,4 @@ export default class AboutView extends ViewBase {
 
         super.cleanup();
     }
-
-    // showFullscreenScene() {
-    //     this.aboutSection.style.display = 'none';
-    //     this.bgCanvas.style.display = 'block';
-    // }
-
-    // restoreAboutView() {
-    //     this.bgCanvas.style.display = 'none';
-    //     this.aboutSection.style.display = 'block';
-    // }
 }
