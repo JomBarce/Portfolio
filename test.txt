@@ -1,0 +1,40 @@
+Portfolio/
+├── index.html
+├── games.html
+├── data/
+│   ├── games.json
+│   └── wokrs.json
+├── src/
+│   ├── scripts/
+│   │   ├── main.js
+│   │   ├── pages.js
+│   │   ├── games.js
+│   │   ├── games/
+│   │   │   ├── gameState.js
+│   │   │   └── blasterGame.js
+│   │   ├── graphics/
+│   │   │   ├── control.js
+│   │   │   ├── view.js
+│   │   │   ├── homeView.js
+│   │   │   ├── wokrsView.js
+│   │   │   └── aboutView.js
+│   │   └── utils/
+│   │       ├── fetch.js
+│   │       └── math.js
+│   ├── shaders/
+│   │   ├── ascii.vert
+│   │   ├── ascii.frag
+│   │   ├── particle.vert
+│   │   └── particle.frag
+│   └──  styles/
+│       ├── main.css
+│       ├── rules.css
+│       └── games.css
+├── public/
+│   ├── games/
+│   │   ├── assets/
+│   │   ├── icons/
+│   │   ├── images/
+│   └── portfolio/
+│       ├── icons/ 
+│       └── images/
