@@ -5,6 +5,7 @@ html, body {
     font-family: 'Space Mono', monospace;
     color: white;
     pointer-events: none;
+    overflow-x: hidden;
     z-index: 1;
 }
 
@@ -148,10 +149,10 @@ button:hover::before {
 }
 
 .icon:hover {
-    transition: transform 0.2s;
     transform: scale(1.1);
     cursor: pointer;
     filter: brightness(30%) sepia(1) hue-rotate(0deg) saturate(0%) grayscale(100%) invert(20%);
+    transition: transform 0.2s;
 }
 
 .page-slide-in {
@@ -205,12 +206,6 @@ button:hover::before {
     opacity: 0;
 }
 
-.page-section {
-    padding: 1rem 2rem 4rem 2rem;
-    width: 100%;
-    box-sizing: border-box;
-}
-
 .about-intro {
     display: block;
     text-align: center;
@@ -225,6 +220,68 @@ button:hover::before {
     display: block;
     opacity: 1;
     animation: slideIn 0.5s ease;
+}
+
+.page-section {
+    padding: 1rem 2rem 4rem 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.page-section h1{
+    font-size: 1.8rem;
+}
+
+.page-section p{
+    font-size: 1.2rem;
+}
+
+.about-icons > .icon{
+    width: 50px;
+    height: 50px;
+}
+
+.item-title {
+    pointer-events: auto;
+}
+
+.icons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 50px;
+    place-items: center;
+}
+
+.tech-icon {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.tech-icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
+}
+
+.page-section.text {
+    max-width: 80vw;
+}
+
+.invert-color {
+    filter: invert(100%);
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 1;
+    padding: 20px;
 }
 
 /* ID */

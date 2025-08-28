@@ -30,6 +30,7 @@ export default class AboutView extends ViewBase {
                 introSection.style.display = 'none';
                 detailsSection.classList.add('active');
                 contentDiv.className = 'container';
+                
                 const position = new THREE.Vector3(0, 0, -2);
                 CameraManager.moveTo(position, 2.0, 'power4.out');
             }
@@ -49,6 +50,31 @@ export default class AboutView extends ViewBase {
             document.getElementById('closeBtn').style.display = 'none';
 
             this.handleResize();
+        });
+
+        let currentPage = 0;
+        const iconGrids = document.querySelectorAll('.icons-grid');
+        const itemTitles = document.querySelectorAll('.item-title');
+
+        const showGrid = (index) => {
+            iconGrids.forEach((iconGrid, i) => {
+                iconGrid.style.display = i == index ? 'grid' : 'none';
+            });
+        };
+
+        // Initial display
+        showGrid(currentPage);
+
+        itemTitles.forEach(title => {
+            title.addEventListener('click', () => {
+                const index = title.getAttribute('data-index');
+
+                if (currentPage != index) {
+                    currentPage = index;
+                }
+
+                showGrid(currentPage);
+            });
         });
     }
 
