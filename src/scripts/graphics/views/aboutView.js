@@ -131,6 +131,35 @@ export default class AboutView extends ViewBase {
             });
         });
 
+        const emailButton = document.getElementById('emailButton');
+        const emailTooltip = emailButton.querySelector('.tooltip-text');
+        const discordButton = document.getElementById('discordButton');
+        const discordTooltip = discordButton.querySelector('.tooltip-text');
+
+        emailButton.addEventListener('click', () => {
+            navigator.clipboard.writeText("jomerbarcenilla@gmail.com").then(() => {
+                emailTooltip.textContent = "Copied to clipboard";
+                
+                setTimeout(() => {
+                    emailTooltip.textContent = "Copy to clipboard";
+                }, 2000);
+            }).catch(err => {
+                console.error("Failed to copy: ", err);
+            });
+        });
+
+        discordButton.addEventListener('click', () => {
+            navigator.clipboard.writeText("jomerok").then(() => {
+                discordTooltip.textContent = "Copied to clipboard";
+                
+                setTimeout(() => {
+                    discordTooltip.textContent = "Copy to clipboard";
+                }, 2000);
+            }).catch(err => {
+                console.error("Failed to copy: ", err);
+            });
+        });
+
         showGrid(currentGrid);
         showExp(currentExp);
     }

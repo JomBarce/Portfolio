@@ -8,9 +8,11 @@ const pages = {
   about: `
     <section class="about-intro">
       <h1>Software Developer with a passion for building purposeful experiences</h1>
-      <p>
+      <p class="about-text">
         I'm Jomer, a software developer from Cebu, Philippines.
-        I have a growth mindset and a passion for building intuitive experiences through thoughtful logic and clean architecture.
+        <span>
+          I have a growth mindset and a passion for building intuitive experiences through thoughtful logic and clean architecture.
+        </span>
       </p>
       <button id="aboutBtn" type="button">GET TO KNOW</button>
     </section>
@@ -22,7 +24,7 @@ const pages = {
           with a solid foundation in Computer Science. My journey in the realm of technology has been dynamic, marked by diverse experiences across Game, Web, API, and App Development.
         </p>
         <p>
-          I am interested in 
+          My goal is to be able to improve and further develop my skills in programming and development. With a focus on software development, algorithm design, and machine learning, I aspire to create impactful solutions that address real-world problems and contribute to the everevolving field of computer science. 
         </p>
       </section>
       <section class="page-section">
@@ -71,7 +73,7 @@ const pages = {
               <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" data-name="Canva" alt="Canva" draggable="false"/>
               <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" data-name="Photoshop" alt="Photoshop" draggable="false"/>
             </div>
-            <div class="icon-grid-controls">
+            <div class="icon-controls">
               <img id="leftIcon" class="control-icon" src="/public/portfolio/icons/ArrowLeft.svg" alt="Left" draggable="false"/>
               <h2 class="icon-name">\u{25CF}</h2>
               <img id="rightIcon" class="control-icon" src="/public/portfolio/icons/ArrowRight.svg" alt="Right" draggable="false"/>
@@ -79,7 +81,7 @@ const pages = {
           </div>
           <div class="column flex-center">
             <div class="text-container">
-              <h2 class="text-title">The world changes at a rapid pace.</h2>
+              <h2 class="text-title">The technological world changes at a rapid pace.</h2>
               <p>
                 Being a developer means being able to adapt and learn new languages and technologies.
               </p>
@@ -128,16 +130,33 @@ const pages = {
       </section>
       <section class="page-section">
         <h1 class="section-title">Get in Touch</h1>
-        <p>
-          I'm Jomer, a passionate and adaptable Software Developer who is aiming for growth and learning 
-          with a solid foundation in Computer Science.
-        </p>
-        <div>
-          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" draggable="false"/>
-          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" draggable="false"/>
-          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" draggable="false"/>
-          <img class="icon" src="/public/portfolio/icons/Discord.svg" draggable="false"/>
-          <img class="icon" src="/public/portfolio/icons/CV.svg" draggable="false"/>
+        <div class="contact-container">
+          <h2 class="section-sub-title">I'm always open to opportunities and collaborations.</h2>
+          <p class="section-text">
+          Whether you've got a small project in mind or just want to connect, free to drop me a message. I'd love to hear what you're working on.
+          </p>
+          <div class="contact-icons">
+            <a class="tooltip-wrapper" href="https://www.linkedin.com/in/jomer-barcenilla-903403227" target="_blank">
+              <img class="contact-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" alt="LinkedIn" draggable="false"/>
+              <span class="tooltip-text">Visit LinkedIn profile</span>
+            </a>
+            <a class="tooltip-wrapper" href="https://github.com/JomBarce" target="_blank">
+              <img class="contact-icon invert-color" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Github" draggable="false"/>
+              <span class="tooltip-text">Visit GitHub profile</span>
+            </a>
+            <div id="emailButton" class="tooltip-wrapper">
+              <img class="contact-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" alt="Google" draggable="false">
+              <span class="tooltip-text">Copy to clipboard</span>
+            </div>
+            <div id="discordButton" class="tooltip-wrapper">
+              <img class="contact-icon" src="/public/portfolio/icons/Discord.svg" alt="Discord" draggable="false"/>
+              <span class="tooltip-text">Copy to clipboard</span>
+            </div>
+            <a class="tooltip-wrapper" href="/public/portfolio/assets/BARCENILLA,Jomer-Resume.pdf" download>
+              <img class="contact-icon" src="/public/portfolio/icons/CV.svg" alt="CV" draggable="false"/>
+              <span class="tooltip-text">Download CV file</span>
+            </a>
+          </div>
         </div>
       </section>
     </div>

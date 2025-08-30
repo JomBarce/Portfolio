@@ -9,6 +9,10 @@ html, body {
     z-index: 1;
 }
 
+a {
+    text-decoration: none;
+}
+
 button {
     background: none;
     border: 2px solid white;
@@ -244,7 +248,7 @@ button:hover::before {
 }
 
 .page-section.text p{
-    padding: 20px;
+    padding: 0 20px;
 }
 
 .row {
@@ -266,7 +270,7 @@ button:hover::before {
     grid-template-rows: repeat(3, auto);
     gap: 50px;
     place-items: center;
-    scroll-snap-align: start;
+    /* max-width: 600px; */
 }
 
 .icons-grid.swipe-left {
@@ -290,13 +294,13 @@ button:hover::before {
     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
 }
 
-.icon-grid-controls {
+.icon-controls {
     display: flex;
     align-items: center;
     justify-content: space-between;
     text-align: center;
     margin-top: 30px;
-    /* padding: 0 20px; */
+    padding: 0 10px;
     height: 50px;
 }
 
@@ -330,6 +334,13 @@ button:hover::before {
     min-width: 350px;
 }
 
+.text-container {
+    padding: 0 20px 0 20px;
+    /* min-width: 350px; */
+    max-width: 500px;
+    gap: 10px;
+}
+
 .text-title {
     font-weight: bold;
     margin: 0 0 50px 0;
@@ -343,6 +354,7 @@ button:hover::before {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    min-width: 350px;
 }
 
 .experiences {
@@ -353,12 +365,12 @@ button:hover::before {
 }
 
 .experiences:hover {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
 .experiences.active {
     color: white;
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
 .experiences h2{
@@ -372,6 +384,7 @@ button:hover::before {
 .experience-container {
     border: 2px solid white;
     border-radius: 20px;
+    margin: 20px;
     max-width: 80%;
 }
 
@@ -383,6 +396,30 @@ button:hover::before {
     width: 50px;
     height: 50px;
     vertical-align: middle;
+}
+
+.contact-container {
+   padding: 0 20px;
+   text-align: center;
+}
+
+.contact-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    transition: transform 0.2s;
+}
+
+.contact-icon:hover {
+    transform: scale(1.2);
 }
 
 .invert-color {
@@ -446,4 +483,29 @@ button:hover::before {
 	height: 100vh;
 	z-index: -1;
     pointer-events: none;
+}
+
+.tooltip-wrapper {
+    position: relative;
+    color: white;
+    cursor: pointer;
+}
+
+.tooltip-text {
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    background-color: #2b2a2a;
+    text-align: center;
+    white-space: nowrap;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: opacity 0.3s ease;
+}
+
+.tooltip-wrapper:hover .tooltip-text {
+    opacity: 1;
 }
