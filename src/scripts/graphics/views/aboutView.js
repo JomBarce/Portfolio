@@ -52,30 +52,87 @@ export default class AboutView extends ViewBase {
             this.handleResize();
         });
 
-        let currentPage = 0;
+        const maxGrid = 3;
         const iconGrids = document.querySelectorAll('.icons-grid');
-        const itemTitles = document.querySelectorAll('.item-title');
+        const iconName = document.querySelector('.icon-name');
+        const icons = document.querySelectorAll('.tech-icon');
 
-        const showGrid = (index) => {
+        let currentGrid = 0;
+        let lastHoveredIcon = null;
+
+        const showGrid = (index, direction) => {
             iconGrids.forEach((iconGrid, i) => {
-                iconGrid.style.display = i == index ? 'grid' : 'none';
+                iconGrid.classList.remove('swipe-left', 'swipe-right');
+                iconGrid.style.display = (i == index) ? 'grid' : 'none';
             });
+
+            iconGrids[index].classList.add((direction === 'left') ? 'swipe-left' : 'swipe-right');
         };
 
-        // Initial display
-        showGrid(currentPage);
+        icons.forEach(icon => {
+            icon.addEventListener('mouseover', () => {
+                if (icon.classList.contains('active')) return;
 
-        itemTitles.forEach(title => {
-            title.addEventListener('click', () => {
-                const index = title.getAttribute('data-index');
+                icons.forEach(i => i.classList.remove('active'));
+                icon.classList.add('active');
 
-                if (currentPage != index) {
-                    currentPage = index;
-                }
-
-                showGrid(currentPage);
+                iconName.textContent = icon.dataset.name;
+                lastHoveredIcon = icon;
             });
         });
+
+        document.getElementById('leftIcon').addEventListener('click', () => {
+            currentGrid = (currentGrid - 1 + maxGrid) % maxGrid;
+            showGrid(currentGrid, 'left');
+        });
+
+        document.getElementById('rightIcon').addEventListener('click', () => {
+            currentGrid = (currentGrid + 1) % maxGrid;
+            showGrid(currentGrid, 'right');
+        });
+
+        iconName.addEventListener('click', () => {
+            if (!lastHoveredIcon) return;
+
+            iconGrids.forEach((grid, index) => {
+                if (grid.contains(lastHoveredIcon) && currentGrid != index) {
+                    const direction = index > currentGrid ? 'right' : 'left';
+                    currentGrid = index;
+                    showGrid(currentGrid, direction);
+                }
+            });
+        });
+
+        const expList = document.querySelectorAll('.experiences');
+        const expDetails = document.querySelectorAll('.experience-details');
+
+        let currentExp = 0;
+
+        const showExp = (index) => {
+            expDetails.forEach((detail, i) => {
+                detail.classList.remove('page-slide-in');
+                detail.style.display = (i == index) ? 'block' : 'none';
+            });
+
+            expDetails[index].classList.add('page-slide-in');
+        };
+
+        expList.forEach(exp => {
+            exp.addEventListener('click', () => {
+                if (exp.classList.contains('active')) return;
+                
+                const index = exp.getAttribute('data-index');
+                currentExp = index;
+
+                expList.forEach(i => i.classList.remove('active'));
+                exp.classList.add('active');
+
+                showExp(currentExp);
+            });
+        });
+
+        showGrid(currentGrid);
+        showExp(currentExp);
     }
 
     async setAsciiImage() {

@@ -10,6 +10,28 @@
     }
 }
 
+@keyframes swipeRight {
+    from {
+        opacity: 0;
+        transform: translateX(20%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes swipeLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 @keyframes border-animate {
     0% {
         border-top-color: #4b4b4b;
@@ -76,6 +98,36 @@
     .hero p {
         font-size: 25px;
         margin: 20px 0 0 0;
+    }
+
+    .page-section.text {
+        max-width: 90vw;
+    }
+
+    .page-section.text p{
+        padding: 10px;
+    }
+
+    .row .column:nth-child(2) {
+        display: none;
+    }
+    
+    .column {
+        padding: 10px;
+    }
+
+    .experiences-list {
+        gap: 50px;
+    }
+
+    .experiences {
+        text-align: center;
+        color: white;
+        cursor: auto;
+    }
+
+    .experiences.active {
+        transform: scale(1.0);
     }
 
     /* #arcade-button, #arcade-button-menu {

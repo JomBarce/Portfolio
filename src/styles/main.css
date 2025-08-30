@@ -60,7 +60,6 @@ button:hover::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    pointer-events: auto;
 }
 
 .hamburger{
@@ -146,13 +145,12 @@ button:hover::before {
     vertical-align: middle;
     cursor: pointer;
     pointer-events: auto;
+    transition: transform 0.2s;
 }
 
 .icon:hover {
     transform: scale(1.1);
-    cursor: pointer;
     filter: brightness(30%) sepia(1) hue-rotate(0deg) saturate(0%) grayscale(100%) invert(20%);
-    transition: transform 0.2s;
 }
 
 .page-slide-in {
@@ -178,13 +176,17 @@ button:hover::before {
     transform: translateX(-50%);
 }
 
-.flex-center {
+.flex-center-center {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 100%;
-    width: 100%;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero h1{
@@ -226,6 +228,7 @@ button:hover::before {
     padding: 1rem 2rem 4rem 2rem;
     width: 100%;
     box-sizing: border-box;
+    pointer-events: auto;
 }
 
 .page-section h1{
@@ -236,43 +239,12 @@ button:hover::before {
     font-size: 1.2rem;
 }
 
-.about-icons > .icon{
-    width: 50px;
-    height: 50px;
-}
-
-.item-title {
-    pointer-events: auto;
-}
-
-.icons-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, auto);
-    gap: 50px;
-    place-items: center;
-}
-
-.tech-icon {
-    width: 50px;
-    height: 50px;
-    vertical-align: middle;
-    cursor: pointer;
-    pointer-events: auto;
-}
-
-.tech-icon:hover {
-    transform: scale(1.1);
-    transition: transform 0.2s;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
-}
-
 .page-section.text {
     max-width: 80vw;
 }
 
-.invert-color {
-    filter: invert(100%);
+.page-section.text p{
+    padding: 20px;
 }
 
 .row {
@@ -284,9 +256,143 @@ button:hover::before {
     padding: 20px;
 }
 
+/* .item-title {
+    margin: 0;
+} */
+
+.icons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 50px;
+    place-items: center;
+    scroll-snap-align: start;
+}
+
+.icons-grid.swipe-left {
+  animation: swipeLeft 0.5s ease;
+}
+
+.icons-grid.swipe-right {
+  animation: swipeRight 0.5s ease;
+}
+
+.tech-icon {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.tech-icon.active {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+}
+
+.icon-grid-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 30px;
+    /* padding: 0 20px; */
+    height: 50px;
+}
+
+.control-icon {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: transform 0.2s;
+}
+
+.control-icon:hover {
+    transform: scale(1.1);
+    filter: brightness(30%) sepia(1) hue-rotate(0deg) saturate(0%) grayscale(100%) invert(20%);
+}
+
+.icon-name {
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.icon-name:hover {
+    transform: scale(1.2);
+}
+
+.text-container {
+    padding: 0 20px 0 20px;
+    min-width: 350px;
+}
+
+.text-title {
+    font-weight: bold;
+    margin: 0 0 50px 0;
+}
+
+.text-sub-title {
+    margin: 0 0 50px 0;
+}
+
+.experiences-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.experiences {
+    margin-left: 30px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    color: rgb(170, 170, 170);
+}
+
+.experiences:hover {
+    transform: scale(1.1);
+}
+
+.experiences.active {
+    color: white;
+    transform: scale(1.1);
+}
+
+.experiences h2{
+    margin: 0 0 10px 0;
+}
+
+.experiences p{
+    margin: 0;
+}
+
+.experience-container {
+    border: 2px solid white;
+    border-radius: 20px;
+    max-width: 80%;
+}
+
+.experience-details {
+    margin: 0;
+}
+
+.experience-icon {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.invert-color {
+    filter: invert(100%);
+}
+
 /* ID */
 #logo {
     height: 50px;
+    pointer-events: auto;
     transition: transform 0.2s;
 }
 
@@ -339,5 +445,5 @@ button:hover::before {
 	width: 100vw;
 	height: 100vh;
 	z-index: -1;
-    pointer-events: auto;
+    pointer-events: none;
 }
