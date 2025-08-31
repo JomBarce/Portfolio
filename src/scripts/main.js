@@ -4,11 +4,9 @@ import WorksView from './graphics/views/worksView.js';
 import AboutView from './graphics/views/aboutView.js';
 
 const bgCanvas = document.getElementById('bgCanvas');
-
 const hideButton = document.getElementById('hideBtn');
 const viewButton = document.getElementById('viewBtn');
 const pageContent = document.getElementById('pageContent');
-
 
 let currentView = null;
 // let currentPage = 'home';

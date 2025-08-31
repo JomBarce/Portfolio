@@ -24,6 +24,10 @@ export default class AboutView extends ViewBase {
         const introSection = document.querySelector('.about-intro');
         const detailsSection = document.querySelector('.about-details');
         const contentDiv = document.getElementById('pageContent');
+        const hideButton = document.getElementById('hideBtn');
+        const viewButton = document.getElementById('viewBtn');
+        const closeButton = document.getElementById('closeBtn');
+
 
         aboutBtn.addEventListener('click', () => {
             if (introSection.style.display !== 'none') {
@@ -35,19 +39,18 @@ export default class AboutView extends ViewBase {
                 CameraManager.moveTo(position, 2.0, 'power4.out');
             }
 
-            document.getElementById('hideBtn').style.display = 'none';
-            document.getElementById('viewBtn').style.display = 'none';
-            document.getElementById('closeBtn').style.display = 'block';
+            hideButton.style.display = 'none';
+            viewButton.style.display = 'none';
+            closeButton.style.display = 'block';
         });
 
-        document.getElementById('closeBtn').addEventListener('click', () => {
-            introSection.style.display = 'block';
+        closeButton.addEventListener('click', () => {
+            introSection.style.display = 'flex';
             detailsSection.classList.remove('active');
             contentDiv.className = 'abs-bottom';
-            
-            document.getElementById('hideBtn').style.display = 'block';
-            document.getElementById('viewBtn').style.display = 'none';
-            document.getElementById('closeBtn').style.display = 'none';
+            hideButton.style.display = 'block';
+            viewButton.style.display = 'none';
+            closeButton.style.display = 'none';
 
             this.handleResize();
         });

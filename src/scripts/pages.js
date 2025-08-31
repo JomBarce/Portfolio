@@ -7,8 +7,8 @@ const pages = {
   `,
   about: `
     <section class="about-intro">
-      <h1>Software Developer with a passion for building purposeful experiences</h1>
-      <p class="about-text">
+      <h1 class="intro-title">Software Developer with a passion for building purposeful experiences</h1>
+      <p class="intro-text">
         I'm Jomer, a software developer from Cebu, Philippines.
         <span>
           I have a growth mindset and a passion for building intuitive experiences through thoughtful logic and clean architecture.
@@ -95,43 +95,47 @@ const pages = {
       <section class="page-section">
         <h1 class="section-title">Experience</h1>
         <div class="row">
-          <div class="column experiences-list">
-            <div class="experiences active" data-index="0">
-              <h2 class="experience-title">Full-stack Software Developer</h2>
-              <p>AOS Stella Maris | 2025</p>
-            </div>
-            <div class="experiences" data-index="1">
-              <h2 class="experience-title">Freelance</h2>
-              <p>2024</p>
-            </div>
-            <div class="experiences" data-index="2">
-              <h2 class="experience-title">Back-end Developer</h2>
-              <p>Pixel8 Web Solutions & Consultancy Inc. | 2023</p>
-            </div>
-            <div class="experiences" data-index="3">
-              <h2 class="experience-title">Game Developer</h2>
-              <p>JaM! Games | 2021-2023</p>
-            </div>
-            <div class="experiences" data-index="4">
-              <h2 class="experience-title">Computer Science</h2>
-              <p>USC | 2020-2023</p>
+          <div class="column flex-center">
+            <div class="experiences-list">
+              <div class="experiences active" data-index="0">
+                <h2 class="experience-title">Full-stack Software Developer</h2>
+                <p>AOS Stella Maris | 2025</p>
+              </div>
+              <div class="experiences" data-index="1">
+                <h2 class="experience-title">Freelance</h2>
+                <p>2024</p>
+              </div>
+              <div class="experiences" data-index="2">
+                <h2 class="experience-title">Back-end Developer</h2>
+                <p>Pixel8 Web Solutions & Consultancy Inc. | 2023</p>
+              </div>
+              <div class="experiences" data-index="3">
+                <h2 class="experience-title">Game Developer</h2>
+                <p>JaM! Games | 2021-2023</p>
+              </div>
+              <div class="experiences" data-index="4">
+                <h2 class="experience-title">Computer Science</h2>
+                <p>USC | 2020-2023</p>
+              </div>
             </div>
           </div>
-          <div class="column experience-container">
-            <div class="experience-details">
-              <img class="experience-icon" src="/public/portfolio/icons/Software.gif" alt="Software" draggable="false">
-            </div>
-            <div class="experience-details">
-              <img class="experience-icon" src="/public/portfolio/icons/Software.gif" alt="Software" draggable="false">
-            </div>
-            <div class="experience-details">
-              <img class="experience-icon" src="/public/portfolio/icons/Software.gif" alt="Software" draggable="false">
-            </div>
-            <div class="experience-details">
-              <img class="experience-icon" src="/public/portfolio/icons/MobileGame.gif" alt="Mobile Game" draggable="false">
-            </div>
-            <div class="experience-details">
-              <img class="experience-icon" src="/public/portfolio/icons/Diploma.gif" alt="Diploma" draggable="false">
+          <div class="column flex-center">
+            <div class="experience-container">
+              <div class="experience-details">
+                <img class="experience-icon" src="/public/portfolio/icons/Software.gif" alt="Software" draggable="false">
+              </div>
+              <div class="experience-details">
+                <img class="experience-icon" src="/public/portfolio/icons/Software.gif" alt="Software" draggable="false">
+              </div>
+              <div class="experience-details">
+                <img class="experience-icon" src="/public/portfolio/icons/Software.gif" alt="Software" draggable="false">
+              </div>
+              <div class="experience-details">
+                <img class="experience-icon" src="/public/portfolio/icons/MobileGame.gif" alt="Mobile Game" draggable="false">
+              </div>
+              <div class="experience-details">
+                <img class="experience-icon" src="/public/portfolio/icons/Diploma.gif" alt="Diploma" draggable="false">
+              </div>
             </div>
         </div>        
       </section>

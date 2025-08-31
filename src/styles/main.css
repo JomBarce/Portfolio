@@ -218,8 +218,21 @@ button:hover::before {
 }
 
 .about-intro {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    gap: 1.85rem;
+}
+
+.intro-title {
+    margin: 0;
+}
+
+.intro-text {
+    margin: 0;
+    max-width: 900px;
 }
 
 .about-details {
@@ -249,7 +262,7 @@ button:hover::before {
 }
 
 .page-section.text {
-    max-width: 80%;
+    max-width: 85%;
 }
 
 .page-section.text p{
@@ -377,12 +390,12 @@ button:hover::before {
 }
 
 .experiences:hover {
-    transform: scale(1.08);
+    transform: scale(1.1);
 }
 
 .experiences.active {
     color: white;
-    transform: scale(1.08);
+    transform: scale(1.1);
 }
 
 .experiences h2{
@@ -396,8 +409,8 @@ button:hover::before {
 .experience-container {
     border: 2px solid white;
     border-radius: 20px;
-    margin: 1.25rem;
-    min-width: 350px;
+    width: 90%;
+    height: 100%;
 }
 
 .experience-details {
@@ -432,6 +445,32 @@ button:hover::before {
 
 .contact-icon:hover {
     transform: scale(1.2);
+}
+
+.tooltip-wrapper {
+    position: relative;
+    color: white;
+    cursor: pointer;
+}
+
+.tooltip-text {
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    background-color: #2b2a2a;
+    text-align: center;
+    white-space: nowrap;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: opacity 0.3s ease;
+}
+
+.tooltip-wrapper:hover .tooltip-text {
+    opacity: 1;
 }
 
 .invert-color {
@@ -485,29 +524,4 @@ button:hover::before {
 	height: 100%;
 	z-index: -1;
     pointer-events: none;
-}
-
-.tooltip-wrapper {
-    position: relative;
-    color: white;
-    cursor: pointer;
-}
-
-.tooltip-text {
-    position: absolute;
-    top: 150%;
-    left: 50%;
-    background-color: #2b2a2a;
-    text-align: center;
-    white-space: nowrap;
-    padding: 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    opacity: 0;
-    transform: translateX(-50%);
-    transition: opacity 0.3s ease;
-}
-
-.tooltip-wrapper:hover .tooltip-text {
-    opacity: 1;
 }

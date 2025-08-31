@@ -104,7 +104,7 @@
     }
 
     .page-section.text {
-        max-width: 90vw;
+        max-width: 90%;
     }
 
     .page-section.text p{
@@ -153,6 +153,14 @@
 }
 
 @media screen and (max-width: 400px) {
+    .about-intro {
+        gap: 1.25rem;
+    }
+
+    .intro-text span{
+        display: none;    
+    }
+    
     .icons-grid {
         gap: 1.25rem 0.63rem;
         max-width: 700px;
@@ -177,7 +185,11 @@
         height: 30px;
     }
 
-    .about-text span{
-        display: none;    
+    .contact-icons .tooltip-wrapper:nth-child(1) .tooltip-text {
+        transform: translateX(-15%);
+    }
+
+    .contact-icons .tooltip-wrapper:nth-child(5) .tooltip-text {
+        transform: translateX(-85%);
     }
 }
