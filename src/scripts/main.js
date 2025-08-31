@@ -5,75 +5,81 @@ import AboutView from './graphics/views/aboutView.js';
 
 const bgCanvas = document.getElementById('bgCanvas');
 
-// Load initial page
+const hideButton = document.getElementById('hideBtn');
+const viewButton = document.getElementById('viewBtn');
+const pageContent = document.getElementById('pageContent');
+
+
 let currentView = null;
 // let currentPage = 'home';
+let currentPage = 'about';
+
+// Load initial page
 // loadPage('home');
 // switchView('home');
-let currentPage = 'about';
 loadPage('about');
 switchView('about');
 
-// Function to switch views
+// Switch views
 async function switchView(viewName) {
   document.getElementById('closeBtn').style.display = 'none';
 
-  if (document.getElementById('viewBtn').style.display !== 'block'){
-    document.getElementById('hideBtn').style.display = 'block';
+  if (viewButton.style.display !== 'block'){
+    hideButton.style.display = 'block';
+    viewButton.style.display = 'none';
   }
   
-  
-  if (currentView) {
-    await currentView.cleanup();
-  }
+  if (currentView) await currentView.cleanup();
 
-  if (viewName === 'home') {
-    currentView = new HomeView(bgCanvas);
-  } else if (viewName === 'works') {
-    currentView = new WorksView(bgCanvas);
-  } else if (viewName === 'about') {
-    currentView = new AboutView(bgCanvas);
-  }
+  const views = {
+    home: HomeView,
+    works: WorksView,
+    about: AboutView
+  };
 
+  const ViewClass = views[viewName];
+  if (!ViewClass) return;
+
+  currentView = new ViewClass(bgCanvas);
   await currentView.init();
   currentView.animate();
 }
 
+// Navigation handler
+function handlePageSwitch(page) {
+  if (page && currentPage !== page) {
+    currentPage = page;
+    loadPage(page);
+    switchView(page);
+  }
+}
+
 // Logo click
 document.getElementById('logo').addEventListener('click', () => {
-  if (currentPage !== 'home') {
-    currentPage = 'home';
-    loadPage('home');
-    switchView('home');
-  }
+  handlePageSwitch('home');
 });
 
-// Nav button click
+// Navbar buttons
 document.querySelectorAll('.navbar-menu button').forEach(button => {
   button.addEventListener('click', () => {
     const page = button.getAttribute('data-page');
-
-    if (page && currentPage !== page) {
-      currentPage = page;
-      loadPage(page);
-      switchView(page);
-    } else if (button.id === 'nav-arcade-btn') {
+    if (button.id === 'nav-arcade-btn') {
       window.open('games.html', '_blank');
+    } else {
+      handlePageSwitch(page);
     }
   });
 });
 
-// Menu button click
+// Menu buttons
 document.querySelectorAll('.menu button').forEach(button => {
   button.addEventListener('click', () => {
     const page = button.getAttribute('data-page');
 
-    if (page && currentPage !== page) {
-      currentPage = page;
-      loadPage(page);
-      switchView(page);
-    } else if (button.id === 'menu-arcade-btn') {
+    if (button.id === 'menu-arcade-btn') {
       window.open('games.html', '_blank');
+    } else {
+      handlePageSwitch(page);
     }
 
     toggleMenuOverlay();
@@ -93,18 +99,20 @@ function toggleMenuOverlay() {
   logo.classList.toggle('open');
 }
 
-document.getElementById('hideBtn').addEventListener('click', () => {
-  document.getElementById('pageContent').style.display = 'none';
-  document.getElementById('hideBtn').style.display = 'none';
-  document.getElementById('viewBtn').style.display = 'block';
+// View toggle
+hideButton.addEventListener('click', () => {
+  pageContent.style.display = 'none';
+  hideButton.style.display = 'none';
+  viewButton.style.display = 'block';
 });
 
-document.getElementById('viewBtn').addEventListener('click', () => {
-  document.getElementById('pageContent').style.display = 'block';
-  document.getElementById('hideBtn').style.display = 'block';
-  document.getElementById('viewBtn').style.display = 'none';
+viewButton.addEventListener('click', () => {
+  pageContent.style.display = 'block';
+  hideButton.style.display = 'block';
+  viewButton.style.display = 'none';
 });
 
+// Console message
 var consoleSytle = [
   "display: block",
   "padding: 20px",
