@@ -68,11 +68,11 @@
 /* Media */
 @media screen and (max-width: 950px) {
     .container {
-        padding: 100px 20px;
+        padding: 6rem 1.25rem;
     }
 
     .navbar {
-        padding: 20px 20px 50px;
+        padding: 1.25rem 1.25rem 3rem;
     }
         
     .hamburger {
@@ -92,16 +92,15 @@
     }
 
     .hero h1 {
-        font-size: 50px;
+        font-size: 3rem;
     }
 
     .hero p {
-        font-size: 25px;
-        margin: 20px 0 0 0;
+        font-size: 1.5rem;
     }
 
     .page-section {
-        padding: 10px 10px 20px 10px;
+        padding: 0.63rem 0.63rem 1.25rem 0.63rem;
     }
 
     .page-section.text {
@@ -109,30 +108,30 @@
     }
 
     .page-section.text p{
-        padding: 0 10px;
+        padding: 0 0.63rem;
     }
 
     .row .column:nth-child(2) {
         display: none;
     }
     
-    .column {
+    /* .column {
         padding: 10px;
-    }
-
-    .experiences-list {
-        gap: 50px;
-        min-width: 0;
-    }
+    } */
 
     .icons-grid {
-        gap: 30px;
+        gap: 3rem 1.85rem;
+        max-width: 700px;
+    }
+
+    .icon-controls {
+        max-width: 600px;
     }
 
     .experiences {
         text-align: center;
         color: white;
-        margin: 10px;
+        margin: 0.63rem;
     }
 
     .experiences.active {
@@ -140,12 +139,12 @@
     }
 
     .contact-container {
-        padding: 0 10px; 
+        padding: 0 0.63rem; 
     }
 
     .contact-icons {
-        gap: 30px;
-        margin-top: 50px;
+        gap: 1.85rem;
+        margin-top: 3rem;
     }
 
     /* #arcade-button, #arcade-button-menu {
@@ -154,18 +153,23 @@
 }
 
 @media screen and (max-width: 400px) {
+    .icons-grid {
+        gap: 1.25rem 0.63rem;
+        max-width: 700px;
+    }
+    
     .tech-icon {
         width: 30px;
         height: 30px;
     }
 
     .icon-name {
-        font-size: 20px;
+        font-size: 1.25rem;
     }
     
     .contact-icons {
-        gap: 20px;
-        margin-top: 50px;
+        gap: 1.25rem;
+        margin-top: 3rem;
     }
 
     .contact-icon {

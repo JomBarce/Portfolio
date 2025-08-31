@@ -30,7 +30,7 @@ const pages = {
       <section class="page-section">
         <h1 class="section-title">Skills/Tech</h1>
         <div class="row">
-          <div class="column">
+          <div class="column skill-list">
             <div class="icons-grid">
               <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" data-name="C" alt="C" draggable="false"/>
               <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" data-name="Python" alt="Python" draggable="false"/>
@@ -101,19 +101,26 @@ const pages = {
               <p>AOS Stella Maris | 2025</p>
             </div>
             <div class="experiences" data-index="1">
+              <h2 class="experience-title">Freelance</h2>
+              <p>2024</p>
+            </div>
+            <div class="experiences" data-index="2">
               <h2 class="experience-title">Back-end Developer</h2>
               <p>Pixel8 Web Solutions & Consultancy Inc. | 2023</p>
             </div>
-            <div class="experiences" data-index="2">
+            <div class="experiences" data-index="3">
               <h2 class="experience-title">Game Developer</h2>
               <p>JaM! Games | 2021-2023</p>
             </div>
-            <div class="experiences" data-index="3">
+            <div class="experiences" data-index="4">
               <h2 class="experience-title">Computer Science</h2>
               <p>USC | 2020-2023</p>
             </div>
           </div>
           <div class="column experience-container">
+            <div class="experience-details">
+              <img class="experience-icon" src="/public/portfolio/icons/Software.gif" alt="Software" draggable="false">
+            </div>
             <div class="experience-details">
               <img class="experience-icon" src="/public/portfolio/icons/Software.gif" alt="Software" draggable="false">
             </div>
@@ -193,7 +200,6 @@ export function loadPage(pageName) {
 
     const contentDiv = document.getElementById('pageContent');
     contentDiv.innerHTML = '';
-    contentDiv.className = (pageName === 'home') ? 'abs-center' : 'container';
 
     if (pageName === 'home') {
       contentDiv.className = 'abs-center';
@@ -204,8 +210,8 @@ export function loadPage(pageName) {
     }
 
     if (intervalId) {
-        clearInterval(intervalId);
-        intervalId = null;
+      clearInterval(intervalId);
+      intervalId = null;
     }
     
     const wrapper = document.createElement('div');
@@ -214,9 +220,9 @@ export function loadPage(pageName) {
     contentDiv.appendChild(wrapper);
 
     if (pageName === 'home') {
-        setTimeout(() => {
-            intervalId = setInterval(cycleTitles, 3000);
-        }, 0);
+      setTimeout(() => {
+        intervalId = setInterval(cycleTitles, 3000);
+      }, 0);
     }
 }
 

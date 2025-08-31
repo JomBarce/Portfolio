@@ -11,29 +11,33 @@ html, body {
 
 a {
     text-decoration: none;
+    pointer-events: auto;
 }
 
 button {
+    min-width: 100px;
     background: none;
     border: 2px solid white;
     color: white;
-    padding: 10px 15px;
+    padding: 0.7rem 1rem;
     position: relative;
-    transition: background-color 0.3s;
-    z-index: 1;
     cursor: pointer;
-    min-width: 100px;
     pointer-events: auto;
+    min-width: 100px;
+    z-index: 1;
+    transition: background-color 0.3s;
 }
 
 button::before {
     content: '';
     position: absolute;
-    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
     border: 2px solid transparent;
-    z-index: 2;
-    border-radius: 0;
     pointer-events: none;
+    z-index: 2;
 }
 
 button:hover::before {
@@ -45,7 +49,7 @@ button:hover::before {
 /* Class */
 .container {
     min-height: 100vh;
-    padding: 100px 50px 50px;
+    padding: 6rem 3rem 3rem;
     background-color: transparent;
     box-sizing: border-box;
 }
@@ -55,7 +59,7 @@ button:hover::before {
     width: 100%;
     top: 0;
     left: 0;
-    padding: 20px 50px;
+    padding: 1.25rem 3rem;
     box-sizing: border-box;
     z-index: 11;
 }
@@ -133,12 +137,12 @@ button:hover::before {
     gap: 20px;
 }
 
-.edit-bar {
+.settings {
     position: fixed;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    padding: 20px 50px;
+    padding: 1.25rem 3rem;
     box-sizing: border-box;
     z-index: 100;
 }
@@ -167,7 +171,7 @@ button:hover::before {
     top: 50%;
     left: 50%;
     margin: auto;
-    width: 90vw;
+    width: 90%;
     transform: translate(-50%, -50%);
 }
 
@@ -191,16 +195,17 @@ button:hover::before {
     display: flex;
     align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .hero h1{
-    font-size: 100px;
+    font-size: 6rem;
     margin: 0;
 }
 
 .hero p{
-    font-size: 50px;
-    margin: 20px 0 0 0;
+    font-size: 3rem;
+    margin: 1.25rem 0 0 0;
 }
 
 .hero h1,
@@ -244,41 +249,51 @@ button:hover::before {
 }
 
 .page-section.text {
-    max-width: 80vw;
+    max-width: 80%;
 }
 
 .page-section.text p{
-    padding: 0 20px;
+    padding: 0 1.25rem;
 }
 
 .row {
     display: flex;
+    flex-wrap: nowrap;
 }
 
 .column {
-    flex: 1;
-    padding: 20px;
+    flex: 1 1 0;
+    padding: 2%;
+    min-width: 0;
 }
 
 /* .item-title {
     margin: 0;
 } */
 
+.skill-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .icons-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, auto);
-    gap: 50px;
+    gap: 3rem;
     place-items: center;
-    /* max-width: 600px; */
+    max-width: 600px;
+    width: 100%;
 }
 
 .icons-grid.swipe-left {
-  animation: swipeLeft 0.5s ease;
+    animation: swipeLeft 0.5s ease;
 }
 
 .icons-grid.swipe-right {
-  animation: swipeRight 0.5s ease;
+    animation: swipeRight 0.5s ease;
 }
 
 .tech-icon {
@@ -302,6 +317,9 @@ button:hover::before {
     margin-top: 30px;
     padding: 0 10px;
     height: 50px;
+    width: 100%;
+    max-width: 550px;
+    min-width: 200px;
 }
 
 .control-icon {
@@ -330,35 +348,29 @@ button:hover::before {
 }
 
 .text-container {
-    padding: 0 20px 0 20px;
-    min-width: 350px;
-}
-
-.text-container {
-    padding: 0 20px 0 20px;
-    /* min-width: 350px; */
+    padding: 0 1.25rem;
     max-width: 500px;
     gap: 10px;
 }
 
 .text-title {
     font-weight: bold;
-    margin: 0 0 50px 0;
+    margin: 0 0 3rem 0;
 }
 
 .text-sub-title {
-    margin: 0 0 50px 0;
+    margin: 0 0 3rem 0;
 }
 
 .experiences-list {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    min-width: 350px;
+    justify-content: center;
+    gap: 1.85rem;
 }
 
 .experiences {
-    margin-left: 30px;
+    margin-left: 1.85rem;
     cursor: pointer;
     transition: transform 0.2s;
     color: rgb(170, 170, 170);
@@ -384,8 +396,8 @@ button:hover::before {
 .experience-container {
     border: 2px solid white;
     border-radius: 20px;
-    margin: 20px;
-    max-width: 80%;
+    margin: 1.25rem;
+    min-width: 350px;
 }
 
 .experience-details {
@@ -399,7 +411,7 @@ button:hover::before {
 }
 
 .contact-container {
-   padding: 0 20px;
+   padding: 0 1.25rem;
    text-align: center;
 }
 
@@ -407,8 +419,8 @@ button:hover::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50px;
-    margin-top: 50px;
+    gap: 3rem;
+    margin-top: 3rem;
 }
 
 .contact-icon {
@@ -461,26 +473,16 @@ button:hover::before {
     display: flex;
 }
 
-#viewBtn,
-#closeBtn {
-    display: none;
-}
-
 #aboutBtn {
     width: 50%;
 }
-
-/* #pageContent {
-    position: relative;
-    height: 80vh;
-} */
 
 #bgCanvas {
     position: fixed;
 	top: 0;
 	left: 0;
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	z-index: -1;
     pointer-events: none;
 }
