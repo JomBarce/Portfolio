@@ -5,9 +5,22 @@ import AssetManager from '../shared/assetManager.js';
 import CameraManager from '../shared/cameraManager.js';
 import { fetchText } from '../../utils/fetch.js';
 
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ-";
+const fullName = "JOMER BARCENILLA";
+const titles = [
+  "SOFTWARE DEVELOPER",
+  "GAME DEVELOPER",
+  "WEB DEVELOPER",
+  "FULL-STACK DEVELOPER",
+  "BACK-END DEVELOPER"
+];
+
 export default class HomeView extends ViewBase {
     constructor(canvas) {
         super(canvas);
+        this.intervalId = null;
+        this.index = 0;
+        this.isCycling = false;
     }
 
     async init() {
@@ -16,6 +29,18 @@ export default class HomeView extends ViewBase {
         CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
 
         await this.setParticlesBackground();
+        this.startTitleCycle();
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                clearInterval(this.intervalId);
+                this.intervalId = null;
+            } else {
+                if (!this.intervalId) {
+                    this.intervalId = setInterval(() => this.cycleTitles(), 3000);
+                }
+            }
+        });
     }
 
     async setParticlesBackground() {
@@ -79,11 +104,78 @@ export default class HomeView extends ViewBase {
         }
     }
 
+    startTitleCycle() {
+        this.intervalId = setInterval(() => this.cycleTitles(), 3000);
+    }
+
+    scrambleText(target, newText) {       
+        let iteration = 0;
+
+        const scrambleInterval = setInterval(() => {
+            target.innerText = newText
+                .split("")
+                .map((letter, index) => {
+                    if (letter == " ") return " ";
+
+                    const roundedIndex = Math.floor(iteration);
+                    
+                    if (index <= roundedIndex) {
+                        return newText[index];
+                    }
+
+                    return letters[Math.floor(Math.random() * 26)];
+                })
+                .join("");
+
+            iteration += 1 / 3;
+
+            if (iteration >= newText.length) clearInterval(scrambleInterval);
+        }, 30);
+    }
+
+    cycleTitles() {
+        const titleName = document.querySelector(".hero h1");
+        const subtitleName = document.querySelector(".hero p");
+
+        if (!titleName || !subtitleName) return;
+
+        titleName.classList.add("fade-out");
+
+        setTimeout(() => {
+            let nextTitle;
+            let nextSubtitle;
+            
+            if (!this.isCycling) {
+                this.isCycling = true;
+                this.index = 0;
+            }
+
+            if (titles.length > this.index) {
+                nextTitle = titles[this.index];
+                nextSubtitle = fullName;
+                this.index++;
+            } else {
+                this.isCycling = false;
+                nextTitle = fullName;
+                nextSubtitle = "";
+            }
+
+            this.scrambleText(titleName, nextTitle);
+            subtitleName.textContent = nextSubtitle;
+            titleName.classList.remove("fade-out");
+        }, 500);
+    }
+
     cleanup() {
         if (this.gridMesh) {
             this.scene.remove(this.gridMesh);
             this.gridMesh.geometry.dispose();
             this.gridMesh.material.dispose();
+        }
+
+        if (this.intervalId) {
+            clearInterval(this.intervalId);
+            this.intervalId = null;
         }
 
         super.cleanup();
