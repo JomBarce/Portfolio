@@ -86,7 +86,7 @@ const pages = {
           <div class="column flex-center">
             <div class="text-col-container">
               <h2 class="text-title">The technological world changes at a rapid pace.</h2>
-              <p>
+              <p class="text-sub-title">
                 Being a developer means being able to adapt and learn new languages and technologies.
               </p>
               <p>
@@ -106,7 +106,7 @@ const pages = {
                 <p>AOS Stella Maris | 2025</p>
               </div>
               <div class="experiences" data-index="1">
-                <h2 class="experience-title">Freelance</h2>
+                <h2 class="experience-title">Freelance Developer</h2>
                 <p>2024</p>
               </div>
               <div class="experiences" data-index="2">
@@ -126,64 +126,62 @@ const pages = {
           <div class="column flex-center">
             <div class="experience-container">
               <div class="experience-details">
-                <img class="experience-icon" src="/public/portfolio/icons/Software.gif" alt="Software" draggable="false">
-                <p>
-                  Designed and developed an internal Accommodation and Reporting System to streamline operational workflows.
-                </p>
-                <p>
-                  Handled both frontend and backend tasks, ensuring smooth integration and functionality across the stack.
-                </p>
+                <h2>
+                  <img class="experience-icon" src="/public/portfolio/icons/Software.gif" alt="Software" draggable="false">
+                  Full-stack Development
+                </h2>
+                <p>Designed and developed an internal Accommodation and Reporting System to streamline operational workflows.</p>
+                <p>Handled both frontend and backend tasks, ensuring smooth integration and functionality across the stack.</p>
+                <p>Integrated Google Apps Script to automate report generation and export data directly into Google Sheets format.</p>
               </div>
               <div class="experience-details">
-                <img class="experience-icon" src="/public/portfolio/icons/Freelance.gif" alt="Freelance" draggable="false">
-                <p>
-                  Taught programming fundamentals to undergraduate students, focusing on hands-on projects and real-world applications.
-                </p>
-                <p>
-                  Taught mathematics and computer science concepts, emphasizing problem-solving and critical thinking skills.
-                </p>
-                <p>
-                  Fixed and troubleshot computer hardware and software issues, providing timely solutions to enhance user experience.
-                </p>
+                <h2>
+                  <img class="experience-icon" src="/public/portfolio/icons/Freelance.gif" alt="Freelance" draggable="false">                
+                  Freelancer
+                </h2>
+                <p>Assisted in debugging and optimizing code, improving reliability and performance in the project.</p>
+                <p>Taught mathematics and programming fundamentals, focusing on logic, problem-solving, and real-world applications.</p>
+                <p>Mentored thesis projects about motor vehicle crash detection and Arduino-powered gloves for sign language detection.</p>
               </div>
               <div class="experience-details">
-                <img class="experience-icon" src="/public/portfolio/icons/Backend.gif" alt="Back End" draggable="false">
-                <p>
-                  Developed backend REST APIs for microservices with comprehensive documentation and unit testing.
-                </p>
-                <p>
-                  Collaborated in an agile environment, contributing to scalable architecture and clean code practices.
-                </p>
+                <h2>
+                  <img class="experience-icon" src="/public/portfolio/icons/Backend.gif" alt="Back End" draggable="false">
+                  Back-end API Development
+                </h2>
+                <p>Developed backend REST APIs for microservices with comprehensive documentation and unit testing.</p>
+                <p>Collaborated in an agile environment, contributing to clean architecture and modular backend logic.</p>
+                <p>Optimized database queries and middleware for performance and maintainability.</p>
               </div>
               <div class="experience-details">
-                <img class="experience-icon" src="/public/portfolio/icons/MobileGame.gif" alt="Mobile Game" draggable="false">
-                <p>
-                  Independently designed, developed, and published a mobile game: Jump Frog.
-                </p>
-                <p>
-                  Managed the full development lifecycle including design, programming, testing, and deployment.
-                </p>
+                <h2>
+                  <img class="experience-icon" src="/public/portfolio/icons/MobileGame.gif" alt="Mobile Game" draggable="false">
+                  Mobile Game Development
+                </h2>
+                <p>Independently designed, developed, and published a mobile game "Jump Frog" using Unity and C#.</p>
+                <p>Engineered a custom jump mechanic using the phone's accelerometer to calculate jump angle and force dynamically.</p>
+                <p>Managed the full development lifecycle including design, programming, testing, and deployment.</p>
               </div>
               <div class="experience-details">
-                <img class="experience-icon" src="/public/portfolio/icons/Diploma.gif" alt="Diploma" draggable="false">
-                <p>
-                  Bachelor of Science in Computer Science 
-                  • GWA 1.67 (89%) - Dean's Lister 
-                </p>
-                <p>
-                  Handled both frontend and backend tasks, ensuring smooth integration and functionality across the stack.
-                </p>
+                <h2>
+                  <img class="experience-icon" src="/public/portfolio/icons/Diploma.gif" alt="Diploma" draggable="false">
+                  Bachelor's Degree
+                </h2>
+                <p>Published a research article on identifying common pest and diseases in lettuce plants using CNN.</p>
+                <p>Built full-stack projects integrating frontend UI logic with backend data handling.</p>
+                <p>Explored algorithm design, machine learning fundamentals, and modular architecture principles.</p>
               </div>
             </div>
         </div>        
       </section>
       <section class="page-section">
         <h1 class="section-title">Get in Touch</h1>
-        <div class="contact-container">
-          <h2 class="section-sub-title">I'm always open to opportunities and collaborations.</h2>
-          <p class="section-text">
-          Whether you've got a small project in mind or just want to connect, free to drop me a message. I'd love to hear what you're working on.
-          </p>
+        <div class="contact-container flex-col-center">
+          <div class="contact-text">
+            <h2 class="section-sub-title">I'm always open to opportunities and collaborations.</h2>
+            <p class="section-text">
+            Whether you've got a small project in mind or just want to connect, free to drop me a message. I'd love to hear what you're working on.
+            </p>
+          </div>
           <div class="contact-icons">
             <a class="tooltip-wrapper" href="https://www.linkedin.com/in/jomer-barcenilla-903403227" target="_blank">
               <img class="contact-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" alt="LinkedIn" draggable="false"/>

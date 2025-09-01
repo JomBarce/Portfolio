@@ -205,12 +205,12 @@ button:hover::before {
 }
 
 .hero h1{
-    font-size: 6rem;
+    font-size: clamp(3rem, 6vw, 6.1vw);
     margin: 0;
 }
 
 .hero p{
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 3vw, 3.1vw);
     margin: 1.25rem 0 0 0;
 }
 
@@ -253,7 +253,7 @@ button:hover::before {
 }
 
 .page-section {
-    padding: 1rem 2rem 4rem 2rem;
+    padding: 1rem 2rem 4rem;
     width: 100%;
     box-sizing: border-box;
     pointer-events: auto;
@@ -284,25 +284,23 @@ button:hover::before {
 
 .text-container {
     text-align: justify;
-    padding: 0 1.25rem;
     max-width: 85%;
 }
 
 .text-col-container {
     text-align: justify;
-    padding: 0 1.25rem;
     max-width: 600px;
 }
 
 .text-title {
     text-align: left;
     margin: 0 0 3rem 0;
-    font-size: 1.7rem;
+    font-size: clamp(1.5rem, 1.5vw, 1.7rem) !important;
 }
 
-/* .item-title {
-    margin: 0;
-} */
+.text-sub-title {
+    margin: 0 0 2rem 0;
+}
 
 .icons-grid {
     display: grid;
@@ -413,19 +411,32 @@ button:hover::before {
 
 .experience-details {
     margin: 0;
-    padding: 1.25rem;
+    padding: 1.25rem 2vw;
     text-align: justify;
 }
 
+.experience-details h2{
+    border-bottom: 1px solid white;
+    font-size: clamp(1rem, 1.5vw, 1.5rem) !important;
+}
+
+.experience-details p{
+    margin: 0 0 2vw 0;
+}
+
 .experience-icon {
-    width: 50px;
-    height: 50px;
+    max-width: 100px;
+    max-height: 100px;
     vertical-align: middle;
+    width: 6vw;
 }
 
 .contact-container {
-   padding: 0 1.25rem;
-   text-align: center;
+    text-align: center;
+}
+
+.contact-text {
+    max-width: 85%;
 }
 
 .contact-icons {
