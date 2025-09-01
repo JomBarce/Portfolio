@@ -17,20 +17,24 @@ const pages = {
       <button id="aboutBtn" type="button">GET TO KNOW</button>
     </section>
     <div class="about-details">
-      <section class="page-section text">
+      <section class="page-section">
         <h1 class="section-title">About Me</h1>
-        <p>
-          I'm Jomer, a passionate and adaptable Software Developer who is aiming for growth and learning 
-          with a solid foundation in Computer Science. My journey in the realm of technology has been dynamic, marked by diverse experiences across Game, Web, API, and App Development.
-        </p>
-        <p>
-          My goal is to be able to improve and further develop my skills in programming and development. With a focus on software development, algorithm design, and machine learning, I aspire to create impactful solutions that address real-world problems and contribute to the everevolving field of computer science. 
-        </p>
+        <div class="flex-col-center">
+          <div class="text-container">
+            <p>
+              I'm Jomer, a passionate and adaptable Software Developer who is aiming for growth and learning
+              with a solid foundation in Computer Science. My journey in the realm of technology has been dynamic, marked by diverse experiences across Game, Web, API, and App Development.
+            </p>
+            <p>
+              My goal is to be able to improve and further develop my skills in programming and development. With a focus on software development, algorithm design, and machine learning, I aspire to create impactful solutions that address real-world problems and contribute to the everevolving field of computer science. 
+            </p>
+          </div>
+        </div>
       </section>
       <section class="page-section">
         <h1 class="section-title">Skills/Tech</h1>
         <div class="row">
-          <div class="column skill-list">
+          <div class="column flex-col-center">
             <div class="icons-grid">
               <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" data-name="C" alt="C" draggable="false"/>
               <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" data-name="Python" alt="Python" draggable="false"/>
@@ -80,7 +84,7 @@ const pages = {
             </div>
           </div>
           <div class="column flex-center">
-            <div class="text-container">
+            <div class="text-col-container">
               <h2 class="text-title">The technological world changes at a rapid pace.</h2>
               <p>
                 Being a developer means being able to adapt and learn new languages and technologies.
@@ -123,18 +127,52 @@ const pages = {
             <div class="experience-container">
               <div class="experience-details">
                 <img class="experience-icon" src="/public/portfolio/icons/Software.gif" alt="Software" draggable="false">
+                <p>
+                  Designed and developed an internal Accommodation and Reporting System to streamline operational workflows.
+                </p>
+                <p>
+                  Handled both frontend and backend tasks, ensuring smooth integration and functionality across the stack.
+                </p>
               </div>
               <div class="experience-details">
-                <img class="experience-icon" src="/public/portfolio/icons/Software.gif" alt="Software" draggable="false">
+                <img class="experience-icon" src="/public/portfolio/icons/Freelance.gif" alt="Freelance" draggable="false">
+                <p>
+                  Taught programming fundamentals to undergraduate students, focusing on hands-on projects and real-world applications.
+                </p>
+                <p>
+                  Taught mathematics and computer science concepts, emphasizing problem-solving and critical thinking skills.
+                </p>
+                <p>
+                  Fixed and troubleshot computer hardware and software issues, providing timely solutions to enhance user experience.
+                </p>
               </div>
               <div class="experience-details">
-                <img class="experience-icon" src="/public/portfolio/icons/Software.gif" alt="Software" draggable="false">
+                <img class="experience-icon" src="/public/portfolio/icons/Backend.gif" alt="Back End" draggable="false">
+                <p>
+                  Developed backend REST APIs for microservices with comprehensive documentation and unit testing.
+                </p>
+                <p>
+                  Collaborated in an agile environment, contributing to scalable architecture and clean code practices.
+                </p>
               </div>
               <div class="experience-details">
                 <img class="experience-icon" src="/public/portfolio/icons/MobileGame.gif" alt="Mobile Game" draggable="false">
+                <p>
+                  Independently designed, developed, and published a mobile game: Jump Frog.
+                </p>
+                <p>
+                  Managed the full development lifecycle including design, programming, testing, and deployment.
+                </p>
               </div>
               <div class="experience-details">
                 <img class="experience-icon" src="/public/portfolio/icons/Diploma.gif" alt="Diploma" draggable="false">
+                <p>
+                  Bachelor of Science in Computer Science 
+                  • GWA 1.67 (89%) - Dean's Lister 
+                </p>
+                <p>
+                  Handled both frontend and backend tasks, ensuring smooth integration and functionality across the stack.
+                </p>
               </div>
             </div>
         </div>        
@@ -201,6 +239,6 @@ export function loadPage(pageName) {
     
     const wrapper = document.createElement('div');
     wrapper.innerHTML = pages[pageName] || `<h1>Page Not Found</h1>`;
-    wrapper.className = (pageName === 'home') ? 'page-slide-in flex-center-center' : 'page-slide-in';
+    wrapper.className = (pageName === 'home') ? 'page-slide-in flex-text-center' : 'page-slide-in';
     contentDiv.appendChild(wrapper);
 }

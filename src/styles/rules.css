@@ -103,21 +103,9 @@
         padding: 0.63rem 0.63rem 1.25rem 0.63rem;
     }
 
-    .page-section.text {
-        max-width: 90%;
-    }
-
-    .page-section.text p{
-        padding: 0 0.63rem;
-    }
-
     .row .column:nth-child(2) {
         display: none;
     }
-    
-    /* .column {
-        padding: 10px;
-    } */
 
     .icons-grid {
         gap: 3rem 1.85rem;
@@ -160,7 +148,19 @@
     .intro-text span{
         display: none;    
     }
-    
+
+    .page-section h1{
+        font-size: 1.5rem;
+    }
+
+    .page-section h2{
+        font-size: 1.3rem;
+    }
+
+    .page-section p{
+        font-size: 1rem;
+    }
+
     .icons-grid {
         gap: 1.25rem 0.63rem;
         max-width: 700px;
@@ -173,6 +173,10 @@
 
     .icon-name {
         font-size: 1.25rem;
+    }
+
+    .experiences-list {
+        gap: 1rem;
     }
     
     .contact-icons {
@@ -191,5 +195,13 @@
 
     .contact-icons .tooltip-wrapper:nth-child(5) .tooltip-text {
         transform: translateX(-85%);
+    }
+}
+
+@media screen and (max-width: 200px), screen and (max-height: 200px) {
+    header,
+    main,
+    .settings {
+        visibility: hidden;
     }
 }

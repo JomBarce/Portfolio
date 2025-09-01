@@ -184,18 +184,24 @@ button:hover::before {
     transform: translateX(-50%);
 }
 
-.flex-center-center {
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-text-center {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
-.flex-center {
+.flex-col-center {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    align-items: center;
 }
 
 .hero h1{
@@ -257,16 +263,12 @@ button:hover::before {
     font-size: 1.8rem;
 }
 
+.page-section h2{
+    font-size: 1.5rem;
+}
+
 .page-section p{
     font-size: 1.2rem;
-}
-
-.page-section.text {
-    max-width: 85%;
-}
-
-.page-section.text p{
-    padding: 0 1.25rem;
 }
 
 .row {
@@ -280,16 +282,27 @@ button:hover::before {
     min-width: 0;
 }
 
+.text-container {
+    text-align: justify;
+    padding: 0 1.25rem;
+    max-width: 85%;
+}
+
+.text-col-container {
+    text-align: justify;
+    padding: 0 1.25rem;
+    max-width: 600px;
+}
+
+.text-title {
+    text-align: left;
+    margin: 0 0 3rem 0;
+    font-size: 1.7rem;
+}
+
 /* .item-title {
     margin: 0;
 } */
-
-.skill-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
 .icons-grid {
     display: grid;
@@ -360,21 +373,6 @@ button:hover::before {
     transform: scale(1.2);
 }
 
-.text-container {
-    padding: 0 1.25rem;
-    max-width: 500px;
-    gap: 10px;
-}
-
-.text-title {
-    font-weight: bold;
-    margin: 0 0 3rem 0;
-}
-
-.text-sub-title {
-    margin: 0 0 3rem 0;
-}
-
 .experiences-list {
     display: flex;
     flex-direction: column;
@@ -415,6 +413,8 @@ button:hover::before {
 
 .experience-details {
     margin: 0;
+    padding: 1.25rem;
+    text-align: justify;
 }
 
 .experience-icon {
