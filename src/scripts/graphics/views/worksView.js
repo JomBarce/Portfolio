@@ -15,14 +15,8 @@ export default class WorksView extends ViewBase {
         const angle = new THREE.Vector3(0, -20, 0);
         CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
 
-        await this.setParticlesBackground();
-
-        // CameraManager.moveTo(
-        //     new THREE.Vector3(0, 20, 30),
-        //     new THREE.Vector3(0, 0, 0),
-        //     2.0,
-        //     'power4.out'
-        // );
+        // await this.setParticlesBackground();
+        this.setBackground();
     }
 
     async setParticlesBackground() {
@@ -77,6 +71,19 @@ export default class WorksView extends ViewBase {
 
         this.gridMesh = new THREE.Points(geometry, material);
         this.scene.add(this.gridMesh);
+    }
+
+    setBackground() {
+        let size = 500;
+        
+        const geometry = new THREE.PlaneGeometry(size, size, 100, 100);
+        const material = new THREE.MeshBasicMaterial({
+            color: 0xfffff,
+            wireframe: true
+        })
+
+        this.terrainMesh = new THREE.Mesh(geometry, material);
+        this.scene.add(this.terrainMesh);
     }
 
     animate() {

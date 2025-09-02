@@ -9,14 +9,14 @@ const viewButton = document.getElementById('viewBtn');
 const pageContent = document.getElementById('pageContent');
 
 let currentView = null;
-let currentPage = 'home';
-// let currentPage = 'about';
+// let currentPage = 'home';
+let currentPage = 'works';
 
 // Load initial page
-loadPage('home');
-switchView('home');
-// loadPage('about');
-// switchView('about');
+// loadPage('home');
+// switchView('home');
+loadPage('works');
+switchView('works');
 
 // Switch views
 async function switchView(viewName) {
