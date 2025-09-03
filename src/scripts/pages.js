@@ -199,7 +199,7 @@ const pages = {
               <img class="contact-icon" src="/public/portfolio/icons/Discord.svg" alt="Discord" draggable="false"/>
               <span class="tooltip-text">Copy to clipboard</span>
             </div>
-            <a class="tooltip-wrapper" href="/public/portfolio/assets/BARCENILLA,Jomer-Resume.pdf" download>
+            <a class="tooltip-wrapper" href="/public/portfolio/assets/BARCENILLA-CV.pdf" download>
               <img class="contact-icon" src="/public/portfolio/icons/CV.svg" alt="CV" draggable="false"/>
               <span class="tooltip-text">Download CV file</span>
             </a>
