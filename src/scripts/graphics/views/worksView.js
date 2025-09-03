@@ -11,78 +11,56 @@ export default class WorksView extends ViewBase {
     }
 
     async init() {
-        const position = new THREE.Vector3(0, 0, 40);
-        const angle = new THREE.Vector3(0, -20, 0);
+        // const position = new THREE.Vector3(0, 0, 40);
+        // const angle = new THREE.Vector3(0, -20, 0);
+        // const position = new THREE.Vector3(0, 0, 40);
+        // const angle = new THREE.Vector3(40, 100, 0);
+        const position = new THREE.Vector3(0, 0, 200);
+        const angle = new THREE.Vector3(0, 500, 0);
         CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
 
-        // await this.setParticlesBackground();
-        this.setBackground();
+        await this.setTerrainBackground();
     }
 
-    async setParticlesBackground() {
-        const vertexShader = await fetchText('/src/shaders/particle.vert');
-        const fragmentShader = await fetchText('/src/shaders/particle.frag');
+    async setTerrainBackground() {
+        const vertexShader = await fetchText('/src/shaders/terrain.vert');
+        const fragmentShader = await fetchText('/src/shaders/terrain.frag');
 
-        const bitmap = await AssetManager.loadImage('logo', '/public/portfolio/images/Logo.png');
+        const radius = 200;
+        const widthSegments = 100;
+        const heightSegments = 100;
 
-        const texture = new THREE.CanvasTexture(bitmap);
-        texture.flipY = false;
-        texture.premultiplyAlpha = false;
-        
-        const imgWidth = texture.image.width;
-        const imgHeight = texture.image.height;
+        const geometry = new THREE.SphereGeometry(radius, widthSegments, heightSegments);
+        geometry.rotateZ(Math.PI / 2);
 
-        const multiplier = 1;
-        const columns = Math.floor(imgWidth * multiplier);
-        const rows = Math.floor(imgHeight * multiplier);
+        // let size = 1500;
+        // const geometry = new THREE.PlaneGeometry(size, size, 100, 100);
+        // geometry.rotateX(-Math.PI / 2);
 
-        const points = [];
-
-        for (let i = 0; i < rows; i++) {
-            for (let j = 0; j < columns; j++) {
-                const x = (j - columns / 2);
-                const y = (i - rows / 2);
-                const z = 0;
-
-                points.push(x, y, z);
-            }
-        }
-
-        const vertices = new Float32Array(points);
-        const geometry = new THREE.BufferGeometry();
-        geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+        const positionAttribute = geometry.getAttribute('position');
+        const positionArray = positionAttribute.array;
 
         this.uniforms = {
-            uSize: { value: 2 },
-            uTexture: { value: texture },
-            uColumns: { value: columns },
-            uRows: { value: rows },
-            uTime: { value: 0.0 }
+            uTime: { value: 0.0 },
+            uDisplacement: { value: 1.0 },
+            uColorA: { value: new THREE.Color(0xfffff) },
+            uColorB: { value: new THREE.Color(0xFF69B4) },
+            uRotationSpeed: { value: 0.2 }
         };
 
         const material = new THREE.ShaderMaterial({
             vertexShader,
             fragmentShader,
             uniforms: this.uniforms,
-            transparent: true,
-            depthTest: false,
-            depthWrite: false
+            depthTest: true,
+            depthWrite: true,
+            wireframe: true
         });
 
-        this.gridMesh = new THREE.Points(geometry, material);
-        this.scene.add(this.gridMesh);
-    }
-
-    setBackground() {
-        let size = 500;
-        
-        const geometry = new THREE.PlaneGeometry(size, size, 100, 100);
-        const material = new THREE.MeshBasicMaterial({
-            color: 0xfffff,
-            wireframe: true
-        })
-
         this.terrainMesh = new THREE.Mesh(geometry, material);
+
+        this.terrainMesh.geometry.setAttribute('aPosition', new THREE.BufferAttribute(positionArray, 3));
+        
         this.scene.add(this.terrainMesh);
     }
 
