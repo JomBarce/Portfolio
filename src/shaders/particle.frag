@@ -1,6 +1,7 @@
 uniform sampler2D uTexture;
 uniform float uColumns;
 uniform float uRows;
+
 varying vec2 vTextCoords;
 
 void main() {
