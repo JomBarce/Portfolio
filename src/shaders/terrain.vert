@@ -102,6 +102,8 @@ mat3 rotateX(float angle) {
 uniform float uTime;
 uniform float uDisplacement;
 uniform float uRotationSpeed;
+uniform float uRandom;
+uniform vec3 uNoiseShift;
 
 varying vec2 vTextCoords;
 varying float noise;
@@ -110,10 +112,12 @@ void main() {
     vTextCoords = uv;
 
     // Noise to get complex terrain displacement
-    float highFreqNoise = 80.0 * turbulence(normal);
+    // float highFreqNoise = uRandom * turbulence(normal);
+    float highFreqNoise = uRandom * turbulence(normal + uNoiseShift);
     float lowFreqNoise = 5.0 * pnoise(0.01 * position + uTime, vec3(100.0));
+    // float lowFreqNoise = 5.0;
 
-    noise = (highFreqNoise / 80.0 + lowFreqNoise / 5.0) / 2.0;
+    noise = (highFreqNoise / uRandom + lowFreqNoise / 5.0) / 2.0;
 
     // Add displacement
     float displacement = (highFreqNoise + lowFreqNoise);
