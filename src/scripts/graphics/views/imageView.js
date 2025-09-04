@@ -16,12 +16,12 @@ export default class ImageView {
     }
 
     setRenderer() {
-        const width = this.canvas.offsetWidth;
-        const height = this.canvas.offsetHeight;
-
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        
         this.renderer = new THREE.WebGLRenderer({
-            canvas: this.canvas,
             antialias: true,
+            canvas: this.canvas,
             alpha: true
         });
         this.renderer.setPixelRatio(window.devicePixelRatio);
@@ -45,16 +45,17 @@ export default class ImageView {
 
     setCamera() {
         this.camera = new THREE.PerspectiveCamera(75, this.canvas.clientWidth / this.canvas.clientHeight, 0.1, 1000);
-        this.camera.position.set(0, 10, 0);
-        this.camera.lookAt(new THREE.Vector3(0, 0, -170.5));
     }
 
     addListeners() {
-        window.addEventListener('resize', () => this.handleResize());
+        window.addEventListener('resize', this.handleResize.bind(this));
     }
 
     handleResize() {
-        const { width, height } = this.canvas.getBoundingClientRect();
+        if (!this.renderer || !this.camera || !this.camera.isPerspectiveCamera) return;
+
+        const width = window.innerWidth;
+        const height = window.innerHeight;
 
         this.renderer.setSize(width, height);
         this.camera.aspect = width / height;
@@ -62,8 +63,6 @@ export default class ImageView {
     }
 
     async init() {
-        this.handleResize();
-
         await this.setAsciiImage();
 
         const model = await AssetManager.loadModel('monitor', '/public/portfolio/assets/Monitor.glb');
@@ -78,6 +77,8 @@ export default class ImageView {
         }
 
         this.scene.add(model.scene);
+
+        this.createBox();
     }
 
     async setAsciiImage() {
@@ -200,10 +201,21 @@ export default class ImageView {
         return asciiTexture;
     }
 
+    createBox() {
+        const geometry = new THREE.BoxGeometry( 20, 20, 20 );
+        const edges = new THREE.EdgesGeometry( geometry ); 
+        const lineMat = new THREE.LineBasicMaterial( { color: 0xffd319 } );
+        const line = new THREE.LineSegments( edges, lineMat ); 
+
+        this.cube = new THREE.Object3D();
+        this.cube.add(line);
+        
+        this.scene.add(this.cube);
+    }
+
     animate() {
         if (this.scene && this.camera && this.renderer) {
             requestAnimationFrame(() => this.animate());
-            // this.controls.update();
             this.renderer.render(this.scene, this.camera);
         }
     }
@@ -215,6 +227,14 @@ export default class ImageView {
             this.instancedMesh.material.dispose();
         }
 
-        super.cleanup();
+        if (this.renderer) {
+            this.renderer.dispose();
+            this.renderer.domElement = null;
+            this.renderer = null;
+        }
+        
+        this.scene = null;
+
+        window.removeEventListener('resize', this.handleResize.bind(this));
     }
 }

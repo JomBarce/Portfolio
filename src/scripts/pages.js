@@ -36,46 +36,46 @@ const pages = {
         <div class="row">
           <div class="column flex-col-center">
             <div class="icons-grid">
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" data-name="C" alt="C" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" data-name="Python" alt="Python" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" data-name="Java" alt="Java" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" data-name="HTML" alt="HTML" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" data-name="CSS" alt="CSS" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" data-name="JavaScript" alt="JavaScript" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" data-name="TypeScript" alt="TypeScript" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" data-name="C#" alt="C#" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" data-name="MySQL" alt="MySQL" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" data-name="PHP" alt="PHP" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opengl/opengl-plain.svg" data-name="OpenGL" alt="OpenGL" draggable="false"/>
-              <img class="tech-icon" src="/public/portfolio/icons/Rust.svg" data-name="Rust" alt="Rust" draggable="false"/>
+              <div class="tech-icon-wrapper" data-name="C"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Python"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Java"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="HTML"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="CSS"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="JavaScript"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="TypeScript"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="C#"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="C#" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="MySQL"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="PHP"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="OpenGL"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opengl/opengl-plain.svg" alt="OpenGL" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Rust"><img class="tech-icon" src="/public/portfolio/icons/Rust.svg" alt="Rust" draggable="false"/></div>
             </div>
             <div class="icons-grid">
-              <img class="tech-icon" src="/public/portfolio/icons/ThreeJs.svg" data-name="Three.js" alt="Three.js" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" data-name="TensorFlow" alt="TensorFlow" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" data-name="NumPy" alt="NumPy" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" data-name="Pandas" alt="Pandas" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" data-name="Scikit-learn" alt="Scikit-learn" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" data-name="Matplotlib" alt="Matplotlib" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" data-name="React" alt="React" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" data-name="Vue.js" alt="Vue.js" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" data-name="Vite.js" alt="Vite.js" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" data-name="Bootstrap" alt="Bootstrap" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg" data-name="jQuery" alt="jQuery" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xamarin/xamarin-original.svg" data-name="Xamarin" alt="Xamarin" draggable="false"/>
+              <div class="tech-icon-wrapper" data-name="Three.js"><img class="tech-icon" src="/public/portfolio/icons/ThreeJs.svg" alt="Three.js" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="TensorFlow"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="NumPy"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Pandas"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Scikit-learn"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Matplotlib"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="React"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Vue.js"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" alt="Vue.js" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Vite.js"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" alt="Vite.js" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Bootstrap"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="jQuery"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg" alt="jQuery" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Xamarin"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xamarin/xamarin-original.svg" alt="Xamarin" draggable="false"/></div>
             </div>
             <div class="icons-grid">
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" data-name="Git" alt="Git" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" data-name="Visual Studio" alt="Visual Studio" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" data-name="VS Code" alt="VS Code" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecolab/googlecolab-original.svg" data-name="Google Colab" alt="Google Colab" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/anaconda/anaconda-original.svg" data-name="Anaconda" alt="Anaconda" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" data-name="Jupyter" alt="Jupyter" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" data-name="Unity" alt="Unity" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" data-name="Node.js" alt="Node.js" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/insomnia/insomnia-original.svg" data-name="Insomnia" alt="Insomnia" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" data-name="Figma" alt="Figma" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" data-name="Canva" alt="Canva" draggable="false"/>
-              <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" data-name="Photoshop" alt="Photoshop" draggable="false"/>
+              <div class="tech-icon-wrapper" data-name="Git"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Visual Studio"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="VS Code"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Google Colab"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecolab/googlecolab-original.svg" alt="Google Colab" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Anaconda"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/anaconda/anaconda-original.svg" alt="Anaconda" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Jupyter"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" alt="Jupyter" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Unity"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" alt="Unity" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Node.js"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Insomnia"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/insomnia/insomnia-original.svg" alt="Insomnia" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Figma"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Canva"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" alt="Canva" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Photoshop"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" alt="Photoshop" draggable="false"/></div>
             </div>
             <div class="icon-controls">
               <img id="leftIcon" class="control-icon" src="/public/portfolio/icons/ArrowLeft.svg" alt="Left" draggable="false"/>
@@ -209,11 +209,10 @@ const pages = {
     </div>
   `,
   works: `
-    <h1>Works</h1>
-    <ul>
-      <li>3D Portfolio Site</li>
-      <li>Interactive WebGL Demo</li>
-    </ul>
+    <section class="page-section">
+      <h1>Works</h1>
+      <div id="slideshow"></div>
+    </section>
   `,
 };
 

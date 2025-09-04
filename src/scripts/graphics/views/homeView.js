@@ -28,11 +28,15 @@ export default class HomeView extends ViewBase {
         let angle = new THREE.Vector3(0, 0, 0);
         CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
 
-        position = new THREE.Vector3(0, 0, 30);
-        angle = new THREE.Vector3(0, 30, 0);
+        // position = new THREE.Vector3(0, 0, 30);
+        // angle = new THREE.Vector3(0, 30, 0);
+
+        // setTimeout(() => {
+        //     CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
+        // }, 2000); 
 
         setTimeout(() => {
-            CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
+            this.handleResize();
         }, 2000); 
         
         // const position = new THREE.Vector3(0, 0, 30);
@@ -106,6 +110,22 @@ export default class HomeView extends ViewBase {
 
         this.gridMesh = new THREE.Points(geometry, material);
         this.scene.add(this.gridMesh);
+    }
+
+    handleResize() {
+        if (!this.renderer || !this.camera || !this.camera.isPerspectiveCamera) return;
+
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        
+        this.renderer.setSize(width, height);
+        CameraManager.resize(width, height);
+        
+        const position = new THREE.Vector3(0, 0, 30);
+        const angle = new THREE.Vector3(0, 30, 0);
+
+        // CameraManager.moveTo(position, 2.0, 'power4.out');
+        CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
     }
 
     animate() {

@@ -6,7 +6,7 @@
         "date": "2021",
         "type": "Game Development",
         "tech": ["C#", "Unity"],
-        "path": "./Images/FrogJump/FrogJump.png",
+        "imgPath": "../public/portfolio/images/FrogJump",
         "url": ""
     },
     {
@@ -16,7 +16,7 @@
         "date": "2023",
         "type": "Machine Learning / Deep Learning",
         "tech": ["Python", "Tensorflow", "NumPy", "Pandas", "Matplotlib", "Scikit-Learn"],
-        "path": "./Images/Research.png",
+        "imgPath": "../public/portfolio/images/Research",
         "url": "https://ieeexplore.ieee.org/document/10424991"
     },
     {
@@ -26,7 +26,7 @@
         "date": "2025",
         "type": "Web/Game Development",
         "tech": ["Three.js", "Typescript","HTML", "CSS"],
-        "path": "./Images/ArcadeGames/ArcadeGames.png",
+        "imgPath": "../public/portfolio/images/ArcadeGames",
         "url": "https://github.com/JomBarce/ArcadeGames"
     },
     {
@@ -36,7 +36,7 @@
         "date": "2022",
         "type": "Application Development",
         "tech": ["C#", "Xamarin Forms", "MySQL"],
-        "path": "./Images/Autobar/Autobar-Menu.png",
+        "imgPath": "../public/portfolio/images/Autobar",
         "url": "https://github.com/OG-Habit/AutoBar"
     },
     {
@@ -46,7 +46,7 @@
         "date": "2021",
         "type": "Web Development",
         "tech": ["HTML", "JavaScript", "CSS", "PHP", "MySQL"],
-        "path": "./Images/VHire/VHire.png",
+        "imgPath": "../public/portfolio/images/VHire",
         "url": "https://github.com/JomBarce/VHire"
     },
     {
@@ -56,7 +56,7 @@
         "date": "2022",
         "type": "Mobile Development",
         "tech": ["C#", "Xamarin Forms", "Firebase"],
-        "path": "./Images/ChatApp/ChatApp.png",
+        "imgPath": "../public/portfolio/images/ChatApp",
         "url": "https://github.com/JomBarce/Chat_App"
     },
     {
@@ -66,7 +66,7 @@
         "date": "2021",
         "type": "Web Development",
         "tech": ["HTML", "JavaScript", "CSS", "PHP", "MySQL", "SweetAlert"],
-        "path": "./Images/HotelBooking/HotelBooking.png",
+        "imgPath": "../public/portfolio/images/HotelBooking",
         "url": "https://github.com/JomBarce/Hotel-Booking"
     },
     {
@@ -76,7 +76,7 @@
         "date": "2022",
         "type": "Web Development",
         "tech": ["ReactJS"],
-        "path": "./Images/Merakoni/Merakoni.png",
+        "imgPath": "../public/portfolio/images/Merakoni",
         "url": "https://github.com/Idan-Garay/Merakoni"
     },
     {
@@ -86,7 +86,7 @@
         "date": "2021",
         "type": "Application Development",
         "tech": ["Java", "MySQL"],
-        "path": "./Images/InventorySys/InvSys.png",
+        "imgPath": "../public/portfolio/images/InvSys",
         "url": ""
     },
     {
@@ -96,7 +96,7 @@
         "date": "2021",
         "type": "Application Development",
         "tech": ["ServiceNow", "HTML", "JavaScript", "CSS"],
-        "path": "./Images/BusSeatRsrv/BusSeatRsrv-Search.png",
+        "imgPath": "../public/portfolio/images/Bus",
         "url": ""
     },
     {
@@ -106,7 +106,7 @@
         "date": "2021",
         "type": "Web Development",
         "tech": ["ReactJS"],
-        "path": "./Images/ToDoApp.png",
+        "imgPath": "../public/portfolio/images/ToDoApp",
         "url": ""
     },
     {
@@ -116,7 +116,7 @@
         "date": "2021",
         "type": "Web Development",
         "tech": ["VueJS"],
-        "path": "./Images/FoodShop/FoodShop.png",
+        "imgPath": "../public/portfolio/images/FoodShop",
         "url": "https://github.com/JomBarce/FoodShop-Prefinals"
     },
     {
@@ -126,7 +126,7 @@
         "date": "2020",
         "type": "Web Development",
         "tech": ["HTML", "JavaScript", "CSS"],
-        "path": "./Images/CustomKybrd/CustomKybrd-Index.png",
+        "imgPath": "../public/portfolio/images/CustomKybrd",
         "url": "https://github.com/JomBarce/CustomKybrd"
     },
     {
@@ -136,7 +136,7 @@
         "date": "2021",
         "type": "Application Development",
         "tech": ["Java"],
-        "path": "./Images/BasketballScore.png",
+        "imgPath": "../public/portfolio/images/BasketballScore",
         "url": ""
     }
 ]

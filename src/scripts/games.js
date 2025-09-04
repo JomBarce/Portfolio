@@ -1,4 +1,11 @@
-import * as THREE from 'https://esm.sh/three@0.154.0';
-import { GameState } from './games/gameState';
+import { GameState } from './games/gameState.js';
 
-const GameState = new GameState();
+import ImageView from './graphics/views/imageView.js';
+
+const gameState = new GameState();
+
+const gameCanvas = document.getElementById('game');
+const currentView = new ImageView(gameCanvas);
+
+await currentView.init();
+currentView.animate();
