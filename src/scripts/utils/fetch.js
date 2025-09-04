@@ -5,3 +5,11 @@ export async function fetchText(url) {
     }
     return await res.text();
 }
+
+export async function fetchJson(url) {
+    const res = await fetch(url);
+    if (!res.ok) {
+        throw new Error(`Failed to fetch JSON from ${url}: ${res.status} ${res.statusText}`);
+    }
+    return await res.json();
+}

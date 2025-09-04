@@ -14,7 +14,7 @@ const mod = (value, modulus) => {
     return ((value % modulus) + modulus) % modulus;
 };
 
-const random = (min, max) => {
+const rangeRandom = (min, max) => {
     return Math.random() * (max - min) + min;
 };
 
@@ -25,5 +25,5 @@ export {
     clamp,
     lerp,
     mod,
-    random
+    rangeRandom
 };
