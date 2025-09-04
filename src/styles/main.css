@@ -79,7 +79,7 @@ button:hover::before {
     display: block;
     width: 30px;
     height: 4px;
-    background: #ffffff;
+    background: white;
     position: absolute;
     top: 50%;
     left: 0;
@@ -93,7 +93,7 @@ button:hover::before {
     position: absolute;
     width: 30px;
     height: 4px;
-    background: #ffffff;
+    background: white;
     transition: top 0.3s, transform 0.3s, opacity 0.3s;
 }
 
@@ -306,7 +306,7 @@ button:hover::before {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, auto);
-    gap: 3rem;
+    gap: 1rem 0.5rem;
     place-items: center;
     max-width: 600px;
     width: 100%;
@@ -320,18 +320,32 @@ button:hover::before {
     animation: swipeRight 0.5s ease;
 }
 
-.tech-icon {
-    width: 50px;
-    height: 50px;
-    vertical-align: middle;
+.tech-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    background-color: transparent;
     cursor: pointer;
     transition: transform 0.2s;
 }
 
-.tech-icon.active {
+.tech-icon-wrapper.active {
+    background-color: rgba(121, 163, 218, 0.1);
     transform: scale(1.2);
-    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
 }
+
+
+.tech-icon {
+    width: 50px;
+    height: 50px;
+    padding: 1rem;
+    vertical-align: middle;
+}
+
 
 .icon-controls {
     display: flex;
@@ -468,7 +482,7 @@ button:hover::before {
     position: absolute;
     top: 150%;
     left: 50%;
-    background-color: #2b2a2a;
+    background-color: rgba(43, 42, 42, 1);
     text-align: center;
     white-space: nowrap;
     padding: 8px;
@@ -486,6 +500,14 @@ button:hover::before {
 
 .invert-color {
     filter: invert(100%);
+}
+
+.project-content {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: 2px solid white;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 1);
 }
 
 /* ID */

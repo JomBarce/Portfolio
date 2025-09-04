@@ -100,7 +100,6 @@
     }
 
     .icons-grid {
-        gap: 3rem 1.85rem;
         max-width: 700px;
     }
 
@@ -128,7 +127,7 @@
     } */
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
     .about-intro {
         gap: 1.25rem;
     }
@@ -157,6 +156,7 @@
     .tech-icon {
         width: 30px;
         height: 30px;
+        padding: 0.5rem;
     }
 
     .icon-name {
@@ -194,7 +194,7 @@
     }
 }
 
-@media screen and (max-width: 200px), screen and (max-height: 200px) {
+@media screen and (max-width: 295px), screen and (max-height: 295px) {
     header,
     main,
     .settings {

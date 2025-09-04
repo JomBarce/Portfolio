@@ -11,14 +11,19 @@ export default class AboutView extends ViewBase {
     }
 
     async init() {
-        const position = new THREE.Vector3(0, 0, 0);
+        // const position = new THREE.Vector3(0, 0, 0);
+        // const angle = new THREE.Vector3(0, 0, 0);
+        // CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
+
+        const position = new THREE.Vector3(0, 0, 1);
         const angle = new THREE.Vector3(0, 0, 0);
         CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
 
-        this.handleResize();
+        setTimeout(() => {
+            this.handleResize();
+        }, 2000); 
 
         await this.setAsciiImage();
-        // this.createBox();
 
         const aboutBtn = document.getElementById('aboutBtn');
         const introSection = document.querySelector('.about-intro');
@@ -58,7 +63,7 @@ export default class AboutView extends ViewBase {
         const maxGrid = 3;
         const iconGrids = document.querySelectorAll('.icons-grid');
         const iconName = document.querySelector('.icon-name');
-        const icons = document.querySelectorAll('.tech-icon');
+        const icons = document.querySelectorAll('.tech-icon-wrapper');
 
         let currentGrid = 0;
         let lastHoveredIcon = null;
@@ -289,18 +294,6 @@ export default class AboutView extends ViewBase {
         return asciiTexture;
     }
 
-    createBox() {
-        const geometry = new THREE.BoxGeometry( 20, 20, 20 );
-        const edges = new THREE.EdgesGeometry( geometry ); 
-        const lineMat = new THREE.LineBasicMaterial( { color: 0xffd319 } );
-        const line = new THREE.LineSegments( edges, lineMat ); 
-
-        this.cube = new THREE.Object3D();
-        this.cube.add(line);
-        
-        this.scene.add(this.cube);
-    }
-
     handleResize() {
         if (!this.renderer || !this.camera || !this.camera.isPerspectiveCamera) return;
 
@@ -314,7 +307,6 @@ export default class AboutView extends ViewBase {
         if (introSection.style.display === 'none') return;
         
         let position;
-        let angle = new THREE.Vector3(0, 0, 0);
 
         if (width <= 650 && height <= 600) {
             position = new THREE.Vector3(0, 0, 10);

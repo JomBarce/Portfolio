@@ -37,16 +37,16 @@ void main() {
     float phase = mod(uTime, 30.0);
 
     if (phase < 5.0) {
-        asciiColor = texture2D(uAsciiTexture, asciiUV);
-    } else if (phase < 10.0) {
         asciiColor.rgb *= tintColor;
+    } else if (phase < 10.0) {
+        asciiColor.rgb += glowColor * 0.15;
     } else if (phase < 15.0) {
         asciiColor.rgb += glowColor * 0.15;
-    } else if (phase < 20.0) {
-        asciiColor.rgb += glowColor * 0.15;
         asciiColor.rgb *= tintColor;
-    } else if (phase < 25.0) {
+    } else if (phase < 20.0) {
         asciiColor.rgb *= invertedTint;
+    } else if (phase < 25.0) {
+        asciiColor = texture2D(uAsciiTexture, asciiUV);
     } else {
         asciiColor.rgb += (glow * invertedTint) * 0.3;
     }
