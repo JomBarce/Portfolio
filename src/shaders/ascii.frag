@@ -44,9 +44,9 @@ void main() {
         asciiColor.rgb += glowColor * 0.15;
         asciiColor.rgb *= tintColor;
     } else if (phase < 20.0) {
-        asciiColor.rgb *= invertedTint;
-    } else if (phase < 25.0) {
         asciiColor = texture2D(uAsciiTexture, asciiUV);
+    } else if (phase < 25.0) {
+        asciiColor.rgb *= invertedTint;
     } else {
         asciiColor.rgb += (glow * invertedTint) * 0.3;
     }
