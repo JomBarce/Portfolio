@@ -18,7 +18,7 @@ export default class WorksView extends ViewBase {
 
         await this.setTerrainBackground();
 
-        const slideContainer = document.getElementById('slideshow');
+        const worksContainer = document.getElementById('works-container');
         const worksData = await fetchJson('../../../../data/works.json');
 
         if (!Array.isArray(worksData) || worksData.length === 0) {
@@ -40,7 +40,7 @@ export default class WorksView extends ViewBase {
             </div>
             `;
 
-            slideContainer.appendChild(div);
+            worksContainer.appendChild(div);
         });
     }
 
@@ -86,8 +86,10 @@ export default class WorksView extends ViewBase {
 
     animate() {
         super.animate();
+        
+        const delta = this.clock.getDelta();
         if (this.uniforms && this.uniforms.uTime) {
-            this.uniforms.uTime.value += 0.01;
+            this.uniforms.uTime.value += delta;
         }
     }
 

@@ -130,8 +130,10 @@ export default class HomeView extends ViewBase {
 
     animate() {
         super.animate();
+        
+        const delta = this.clock.getDelta();
         if (this.uniforms && this.uniforms.uTime) {
-            this.uniforms.uTime.value += 0.01;
+            this.uniforms.uTime.value += delta;
         }
     }
 

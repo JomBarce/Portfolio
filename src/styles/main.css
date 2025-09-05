@@ -17,6 +17,7 @@ a {
 button {
     min-width: 100px;
     background: none;
+    /* background: rgba(0, 0, 0, 1); */
     border: 2px solid white;
     color: white;
     padding: 0.7rem 1rem;
@@ -144,7 +145,7 @@ button:hover::before {
     transform: translateX(-50%);
     padding: 1.25rem 3rem;
     box-sizing: border-box;
-    z-index: 100;
+    z-index: 9;
 }
 
 .icon {
@@ -502,12 +503,42 @@ button:hover::before {
     filter: invert(100%);
 }
 
+.works-section {
+    pointer-events: auto;
+}
+
+#works-container {
+    margin: 1rem 2rem 4rem;
+    display: flex;
+    gap: 2rem;
+    padding: 3rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* scrollbar-width: none;
+    -ms-overflow-style: none; */
+}
+
 .project-content {
     padding: 1rem;
-    margin-bottom: 2rem;
     border: 2px solid white;
     border-radius: 1rem;
+    /* background-color: rgba(0, 0, 0, 1); */
+    background-color: rgb(0, 0, 0, 0.5);
+    width: 25rem;
+    height: 40rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.project-content:hover {
+    transform: scale(1.1);
     background-color: rgba(0, 0, 0, 1);
+}
+
+#works-images-container {
+    /* position: absolute; */
+    /* background-color: aqua; */
+    width: 100%;
 }
 
 /* ID */

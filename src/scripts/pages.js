@@ -209,9 +209,10 @@ const pages = {
     </div>
   `,
   works: `
-    <section class="page-section">
+    <section class="works-section">
       <h1>Works</h1>
-      <div id="slideshow"></div>
+      <div id="works-container"></div>
+      <div id="works-images-container"></div>
     </section>
   `,
 };
