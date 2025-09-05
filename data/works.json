@@ -11,16 +11,6 @@
     },
     {
         "id": 2,
-        "name": "Identifying Common Pest and Disease of Lettuce Plants Using Convolutional Neural Network",
-        "description": "A published research paper about using a Convolutional Neural Network Model to identify if a lettuce plant is healthy, diseased, or has sign of pest infestation.",
-        "date": "2023",
-        "type": "Machine Learning / Deep Learning",
-        "tech": ["Python", "Tensorflow", "NumPy", "Pandas", "Matplotlib", "Scikit-Learn"],
-        "imgPath": "../public/portfolio/images/Research",
-        "url": "https://ieeexplore.ieee.org/document/10424991"
-    },
-    {
-        "id": 3,
         "name": "Arcade Games",
         "description": "A curated collection of engaging 3D web games, powered by Three.js and designed to showcase interactive gaming experiences in the browser.",
         "date": "2025",
@@ -30,14 +20,24 @@
         "url": "https://github.com/JomBarce/ArcadeGames"
     },
     {
+        "id": 3,
+        "name": "Identifying Common Pest and Disease of Lettuce Plants Using Convolutional Neural Network",
+        "description": "A published research paper about using a Convolutional Neural Network Model to identify if a lettuce plant is healthy, diseased, or has sign of pest infestation.",
+        "date": "2023",
+        "type": "Machine Learning / Deep Learning",
+        "tech": ["Python", "Tensorflow", "NumPy", "Pandas", "Matplotlib", "Scikit-Learn"],
+        "imgPath": "../public/portfolio/images/Research",
+        "url": "https://ieeexplore.ieee.org/document/10424991"
+    },
+    {
         "id": 4,
-        "name": "AutoBar",
-        "description": "It is a mobile-based application built using Xamarin.Forms and MySQL. It is an integration of a POS, E-wallet, and points and rewards system.",
-        "date": "2022",
-        "type": "Application Development",
-        "tech": ["C#", "Xamarin Forms", "MySQL"],
-        "imgPath": "../public/portfolio/images/Autobar",
-        "url": "https://github.com/OG-Habit/AutoBar"
+        "name": "Portfolio Website",
+        "description": "It is an application that will help track the users of their tasks and habits, and help improve on them. ",
+        "date": "2025",
+        "type": "Web Development",
+        "tech": ["Three.js", "JavaScript","HTML", "CSS", "GLSL"],
+        "imgPath": "../public/portfolio/images/Merakoni",
+        "url": "https://github.com/Idan-Garay/Merakoni"
     },
     {
         "id": 5,
@@ -71,16 +71,6 @@
     },
     {
         "id": 8,
-        "name": "Merakoni",
-        "description": "It is an application that will help track the users of their tasks and habits, and help improve on them. ",
-        "date": "2022",
-        "type": "Web Development",
-        "tech": ["ReactJS"],
-        "imgPath": "../public/portfolio/images/Merakoni",
-        "url": "https://github.com/Idan-Garay/Merakoni"
-    },
-    {
-        "id": 9,
         "name": "Inventory System",
         "description": "A java application that provides a way to tracks items and control stock before it is sold.",
         "date": "2021",
@@ -90,7 +80,7 @@
         "url": ""
     },
     {
-        "id": 10,
+        "id": 9,
         "name": "Bus Seat Reservation",
         "description": "A web application that provides a facility to reserve, cancel, and search for Bus seats.",
         "date": "2021",
@@ -98,6 +88,16 @@
         "tech": ["ServiceNow", "HTML", "JavaScript", "CSS"],
         "imgPath": "../public/portfolio/images/Bus",
         "url": ""
+    },
+    {
+        "id": 10,
+        "name": "AutoBar",
+        "description": "It is a mobile-based application built using Xamarin.Forms and MySQL. It is an integration of a POS, E-wallet, and points and rewards system.",
+        "date": "2022",
+        "type": "Application Development",
+        "tech": ["C#", "Xamarin Forms", "MySQL"],
+        "imgPath": "../public/portfolio/images/Autobar",
+        "url": "https://github.com/OG-Habit/AutoBar"
     },
     {
         "id": 11,
