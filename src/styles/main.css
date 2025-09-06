@@ -9,6 +9,18 @@ html, body {
     z-index: 1;
 }
 
+h1 {
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
 a {
     text-decoration: none;
     pointer-events: auto;
@@ -208,29 +220,17 @@ button:hover::before {
 .hero h1{
     font-size: clamp(3rem, 6vw, 6.1vw);
     margin: 0;
+    transition: opacity 0.5s ease-in;
 }
 
 .hero p{
     font-size: clamp(1.5rem, 3vw, 3.1vw);
     margin: 1.25rem 0 0 0;
-}
-
-.hero h1,
-.hero p {
     transition: opacity 0.5s ease-in;
 }
 
 .fade-out {
     opacity: 0;
-}
-
-.about-intro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 1.85rem;
 }
 
 .intro-title {
@@ -239,18 +239,7 @@ button:hover::before {
 
 .intro-text {
     margin: 0;
-    max-width: 900px;
-}
-
-.about-details {
-    display: none;
-    margin-bottom: 5rem;
-}
-
-.about-details.active {
-    display: block;
-    opacity: 1;
-    animation: slideIn 0.5s ease;
+    max-width: 1000px;
 }
 
 .page-section {
@@ -258,18 +247,6 @@ button:hover::before {
     width: 100%;
     box-sizing: border-box;
     pointer-events: auto;
-}
-
-.page-section h1{
-    font-size: 1.8rem;
-}
-
-.page-section h2{
-    font-size: 1.5rem;
-}
-
-.page-section p{
-    font-size: 1.2rem;
 }
 
 .row {
@@ -503,43 +480,30 @@ button:hover::before {
     filter: invert(100%);
 }
 
-.works-section {
-    pointer-events: auto;
-}
-
-#works-container {
-    margin: 1rem 2rem 4rem;
-    display: flex;
-    gap: 2rem;
-    padding: 3rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    /* scrollbar-width: none;
-    -ms-overflow-style: none; */
-}
-
 .project-content {
     padding: 1rem;
     border: 2px solid white;
     border-radius: 1rem;
     /* background-color: rgba(0, 0, 0, 1); */
     background-color: rgb(0, 0, 0, 0.5);
-    width: 25rem;
-    height: 40rem;
+    width: 25vw;
+    height: 55vh;
+    min-width: 220px;
     cursor: pointer;
-    transition: transform 0.2s;
+    scroll-snap-align: start;
+    /* transition: transform 0.2s; */
 }
 
 .project-content:hover {
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
     background-color: rgba(0, 0, 0, 1);
 }
 
-#works-images-container {
-    /* position: absolute; */
-    /* background-color: aqua; */
-    width: 100%;
+.project-img {
+    width: 500px;
+    border: 2px solid white;
 }
+
 
 /* ID */
 #logo {
@@ -574,6 +538,60 @@ button:hover::before {
 
 #menuOverlay.open {
     display: flex;
+}
+
+#works-cards {
+    pointer-events: auto;
+}
+
+#cards-container {
+    /* margin: 1rem 2rem 4rem; */
+    display: flex;
+    gap: 2rem;
+    /* padding: 3rem; */
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
+    scroll-behavior: smooth;
+    /* scrollbar-width: none;
+    -ms-overflow-style: none; */
+    cursor: grab;
+}
+
+#cards-container:active {
+  cursor: grabbing;
+}
+
+#works-details {
+    display: none;
+    margin-bottom: 5rem;
+}
+
+#works-details.active {
+    display: block;
+    opacity: 1;
+    animation: slideIn 0.5s ease;
+}
+
+#about-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.85rem;
+}
+
+#about-details {
+    display: none;
+    margin-bottom: 5rem;
+}
+
+#about-details.active {
+    display: block;
+    opacity: 1;
+    animation: slideIn 0.5s ease;
 }
 
 #aboutBtn {

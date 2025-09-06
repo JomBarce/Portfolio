@@ -128,24 +128,24 @@
 }
 
 @media screen and (max-width: 450px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+    
     .about-intro {
         gap: 1.25rem;
     }
 
-    .intro-text span{
+    .intro-text span {
         display: none;    
-    }
-
-    .page-section h1{
-        font-size: 1.5rem;
-    }
-
-    .page-section h2{
-        font-size: 1.3rem;
-    }
-
-    .page-section p{
-        font-size: 1rem;
     }
 
     .icons-grid {
