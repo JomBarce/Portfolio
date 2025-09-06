@@ -112,31 +112,6 @@ export default class HomeView extends ViewBase {
         this.scene.add(this.gridMesh);
     }
 
-    handleResize() {
-        if (!this.renderer || !this.camera || !this.camera.isPerspectiveCamera) return;
-
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-        
-        this.renderer.setSize(width, height);
-        CameraManager.resize(width, height);
-        
-        const position = new THREE.Vector3(0, 0, 30);
-        const angle = new THREE.Vector3(0, 30, 0);
-
-        // CameraManager.moveTo(position, 2.0, 'power4.out');
-        CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
-    }
-
-    animate() {
-        super.animate();
-        
-        const delta = this.clock.getDelta();
-        if (this.uniforms && this.uniforms.uTime) {
-            this.uniforms.uTime.value += delta;
-        }
-    }
-
     startTitleCycle() {
         this.intervalId = setInterval(() => this.cycleTitles(), 3000);
     }
@@ -197,6 +172,30 @@ export default class HomeView extends ViewBase {
             subtitleName.textContent = nextSubtitle;
             titleName.classList.remove("fade-out");
         }, 500);
+    }
+
+    handleResize() {
+        if (!this.renderer || !this.camera || !this.camera.isPerspectiveCamera) return;
+
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        
+        this.renderer.setSize(width, height);
+        CameraManager.resize(width, height);
+        
+        const position = new THREE.Vector3(0, 0, 30);
+        const angle = new THREE.Vector3(0, 30, 0);
+        
+        CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
+    }
+
+    animate() {
+        super.animate();
+        
+        const delta = this.clock.getDelta();
+        if (this.uniforms && this.uniforms.uTime) {
+            this.uniforms.uTime.value += delta;
+        }
     }
 
     cleanup() {
