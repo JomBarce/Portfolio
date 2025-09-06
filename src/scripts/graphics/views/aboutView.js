@@ -26,8 +26,8 @@ export default class AboutView extends ViewBase {
         await this.setAsciiImage();
 
         const aboutBtn = document.getElementById('aboutBtn');
-        const introSection = document.querySelector('.about-intro');
-        const detailsSection = document.querySelector('.about-details');
+        const introSection = document.getElementById('about-intro');
+        const detailsSection = document.getElementById('about-details');
         const contentDiv = document.getElementById('pageContent');
         const hideButton = document.getElementById('hideBtn');
         const viewButton = document.getElementById('viewBtn');
@@ -303,7 +303,7 @@ export default class AboutView extends ViewBase {
         this.renderer.setSize(width, height);
         CameraManager.resize(width, height);
 
-        const introSection = document.querySelector('.about-intro');
+        const introSection = document.getElementById('about-intro');
         if (introSection.style.display === 'none') return;
         
         let position;
