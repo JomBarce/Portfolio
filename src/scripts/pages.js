@@ -6,7 +6,7 @@ const pages = {
     </div>
   `,
   about: `
-    <section class="about-intro">
+    <section id="about-intro">
       <h1 class="intro-title">Software Developer with a passion for building purposeful experiences</h1>
       <p class="intro-text">
         I'm Jomer, a software developer from Cebu, Philippines.
@@ -16,18 +16,13 @@ const pages = {
       </p>
       <button id="aboutBtn" type="button">GET TO KNOW</button>
     </section>
-    <div class="about-details">
+    <div id="about-details">
       <section class="page-section">
         <h1 class="section-title">About Me</h1>
         <div class="flex-col-center">
           <div class="text-container">
-            <p>
-              I'm Jomer, a passionate and adaptable Software Developer who is aiming for growth and learning
-              with a solid foundation in Computer Science. My journey in the realm of technology has been dynamic, marked by diverse experiences across Game, Web, API, and App Development.
-            </p>
-            <p>
-              My goal is to be able to improve and further develop my skills in programming and development. With a focus on software development, algorithm design, and machine learning, I aspire to create impactful solutions that address real-world problems and contribute to the everevolving field of computer science. 
-            </p>
+            <p>I'm Jomer, a passionate and adaptable Software Developer who is aiming for growth and learning with a solid foundation in Computer Science. My journey in the realm of technology has been dynamic, marked by diverse experiences across Game, Web, API, and App Development.</p>
+            <p>My goal is to be able to improve and further develop my skills in programming and development. With a focus on software development, algorithm design, and machine learning, I aspire to create impactful solutions that address real-world problems and contribute to the everevolving field of computer science. </p>
           </div>
         </div>
       </section>
@@ -209,11 +204,11 @@ const pages = {
     </div>
   `,
   works: `
-    <section class="works-section">
+    <section id="works-cards">
       <h1>Works</h1>
-      <div id="works-container"></div>
-      <div id="works-images-container"></div>
+      <div id="cards-container"></div>
     </section>
+    <div id="works-details"></div>
   `,
 };
 

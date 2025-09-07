@@ -171,7 +171,7 @@ export default class HomeView extends ViewBase {
             this.scrambleText(titleName, nextTitle);
             subtitleName.textContent = nextSubtitle;
             titleName.classList.remove("fade-out");
-        }, 500);
+        }, 1000);
     }
 
     handleResize() {
@@ -207,6 +207,8 @@ export default class HomeView extends ViewBase {
 
         if (this.intervalId) {
             clearInterval(this.intervalId);
+            this.index = 0;
+            this.isCycling = false;
             this.intervalId = null;
         }
 

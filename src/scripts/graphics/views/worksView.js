@@ -12,13 +12,17 @@ export default class WorksView extends ViewBase {
     }
 
     async init() {
-        const position = new THREE.Vector3(0, 0, 200);
-        const angle = new THREE.Vector3(0, 500, 0);
-        CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
+        this.handleResize();
 
         await this.setTerrainBackground();
 
-        const worksContainer = document.getElementById('works-container');
+        const cardsSection = document.getElementById('works-cards');
+        const cardsContainer = document.getElementById('cards-container');
+        const detailsSection = document.getElementById('works-details');
+        const contentDiv = document.getElementById('pageContent');
+        const hideButton = document.getElementById('hideBtn');
+        const viewButton = document.getElementById('viewBtn');
+        const closeButton = document.getElementById('closeBtn');
         const worksData = await fetchJson('../../../../data/works.json');
 
         if (!Array.isArray(worksData) || worksData.length === 0) {
@@ -28,20 +32,68 @@ export default class WorksView extends ViewBase {
 
         worksData.forEach(project => {
             const div = document.createElement('div');
-            div.className = 'project';
+            div.className = 'card';
 
             div.innerHTML = `
-            <div class="project-content">
-                <h2>${project.name}</h2>
-                <p>${project.description}</p>
-                <p>Date: ${project.date}</p>
-                <p>Type: ${project.type}</p>
-                <p>Technologies: ${project.tech.join(', ')}</p>
-            </div>
+                <div class="project-content">
+                    <h2>${project.name}</h2>
+                    <!-- <p>${project.description}</p> -->
+                    <p>Date: ${project.date}</p>
+                    <p>Type: ${project.type}</p>
+                    <p>Technologies: ${project.tech.join(', ')}</p>
+                    <button type="button" data-id=="${project.id}">View</button>
+                </div>
             `;
 
-            worksContainer.appendChild(div);
+            div.addEventListener('click', () => {
+                if (cardsSection.style.display !== 'none') {
+                    cardsSection.style.display = 'none';
+                    detailsSection.classList.add('active');
+
+                    const position = new THREE.Vector3(0, 300, 0);
+                    CameraManager.moveTo(position, 2.0, 'power4.out');
+                }
+
+                hideButton.style.display = 'none';
+                viewButton.style.display = 'none';
+                closeButton.style.display = 'block';
+
+                renderProjectDetails(project.id);
+            });
+
+            cardsContainer.appendChild(div);
         });
+
+        closeButton.addEventListener('click', () => {
+            cardsSection.style.display = 'block';
+            detailsSection.classList.remove('active');
+            contentDiv.className = 'container';
+            hideButton.style.display = 'block';
+            viewButton.style.display = 'none';
+            closeButton.style.display = 'none';
+
+            this.handleResize();
+        });
+
+        function renderProjectDetails(projectId) {
+            const project = worksData.find(p => p.id === projectId);
+
+            if (project) {
+                detailsSection.innerHTML = `
+                    <section class="page-section">
+                        <h2>${project.name}</h2>
+                        <p>${project.description}</p>
+                        <p><strong>Date:</strong> ${project.date}</p>
+                        <p><strong>Type:</strong> ${project.type}</p>
+                        <p><strong>Technologies:</strong> ${project.tech.join(', ')}</p>
+                    </section>
+                    <section class="page-section">
+                        <p><strong>URL:</strong> ${project.url}</p>
+                        <img class="project-img" src="/public/portfolio/images/ArcadeGames/ArcadeGames.png" alt="Project" draggable="false"/>
+                    </section>
+                `;
+            }
+        }
     }
 
     async setTerrainBackground() {
@@ -82,6 +134,24 @@ export default class WorksView extends ViewBase {
         this.terrainMesh.geometry.setAttribute('aPosition', new THREE.BufferAttribute(positionArray, 3));
         
         this.scene.add(this.terrainMesh);
+    }
+
+    handleResize() {
+        if (!this.renderer || !this.camera || !this.camera.isPerspectiveCamera) return;
+
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        
+        this.renderer.setSize(width, height);
+        CameraManager.resize(width, height);
+
+        const cardsSection = document.getElementById('works-cards');
+        if (cardsSection.style.display === 'none') return;
+        
+        const position = new THREE.Vector3(0, 0, 200);
+        const angle = new THREE.Vector3(0, 500, 0);
+
+        CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
     }
 
     animate() {
