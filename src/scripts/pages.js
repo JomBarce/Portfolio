@@ -81,12 +81,8 @@ const pages = {
           <div class="column flex-center">
             <div class="text-col-container">
               <h2 class="text-title">The technological world changes at a rapid pace.</h2>
-              <p class="text-sub-title">
-                Being a developer means being able to adapt and learn new languages and technologies.
-              </p>
-              <p>
-                What matters most is your ability to stay curious, stay humble, and keep building, even when the tools evolve faster than you expect.
-              </p>
+              <p class="text-sub-title">Being a developer means being able to adapt and learn new languages and technologies.</p>
+              <p>What matters most is your ability to stay curious, stay humble, and keep building, even when the tools evolve faster than you expect.</p>
             </div>
           </div>
         </div>
@@ -173,9 +169,7 @@ const pages = {
         <div class="contact-container flex-col-center">
           <div class="contact-text">
             <h2 class="section-sub-title">I'm always open to opportunities and collaborations.</h2>
-            <p class="section-text">
-            Whether you've got a small project in mind or just want to connect, free to drop me a message. I'd love to hear what you're working on.
-            </p>
+            <p class="section-text">Whether you've got a small project in mind or just want to connect, free to drop me a message. I'd love to hear what you're working on.</p>
           </div>
           <div class="contact-icons">
             <a class="tooltip-wrapper" href="https://www.linkedin.com/in/jomer-barcenilla-903403227" target="_blank">
@@ -214,7 +208,6 @@ const pages = {
 
 let currentPage = null;
 
-// Load chosen page
 export function loadPage(pageName) {
     if (pageName === currentPage) return;
     currentPage = pageName;
