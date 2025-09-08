@@ -46,7 +46,7 @@ export default class HomeView extends ViewBase {
         await this.setParticlesBackground();
         this.startTitleCycle();
 
-        document.addEventListener("visibilitychange", () => {
+        document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
                 clearInterval(this.intervalId);
                 this.intervalId = null;
@@ -142,12 +142,12 @@ export default class HomeView extends ViewBase {
     }
 
     cycleTitles() {
-        const titleName = document.querySelector(".hero h1");
-        const subtitleName = document.querySelector(".hero p");
+        const titleName = document.querySelector('.hero h1');
+        const subtitleName = document.querySelector('.hero p');
 
         if (!titleName || !subtitleName) return;
 
-        titleName.classList.add("fade-out");
+        titleName.classList.add('fade-out');
 
         setTimeout(() => {
             let nextTitle;
@@ -170,7 +170,7 @@ export default class HomeView extends ViewBase {
 
             this.scrambleText(titleName, nextTitle);
             subtitleName.textContent = nextSubtitle;
-            titleName.classList.remove("fade-out");
+            titleName.classList.remove('fade-out');
         }, 1000);
     }
 
