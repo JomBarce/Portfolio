@@ -112,11 +112,11 @@ viewButton.addEventListener('click', () => {
 
 // Console message
 var consoleSytle = [
-  "display: block",
-  "padding: 20px",
-  "background: black",
-  "font-size: 20px",
-  "color: white"
+  'display: block',
+  'padding: 20px',
+  'background: black',
+  'font-size: 20px',
+  'color: white'
 ].join(";");
 
 console.log(
