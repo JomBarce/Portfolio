@@ -172,11 +172,11 @@ const pages = {
             <p class="section-text">Whether you've got a small project in mind or just want to connect, free to drop me a message. I'd love to hear what you're working on.</p>
           </div>
           <div class="contact-icons">
-            <a class="tooltip-wrapper" href="https://www.linkedin.com/in/jomer-barcenilla-903403227" target="_blank">
+            <a class="tooltip-wrapper" href="https://www.linkedin.com/in/jomer-barcenilla-903403227" target="_blank" rel="noopener noreferrer">
               <img class="contact-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" alt="LinkedIn" draggable="false"/>
               <span class="tooltip-text">Visit LinkedIn profile</span>
             </a>
-            <a class="tooltip-wrapper" href="https://github.com/JomBarce" target="_blank">
+            <a class="tooltip-wrapper" href="https://github.com/JomBarce" target="_blank" rel="noopener noreferrer">
               <img class="contact-icon invert-color" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Github" draggable="false"/>
               <span class="tooltip-text">Visit GitHub profile</span>
             </a>
