@@ -8,9 +8,13 @@ import { fetchText } from '../../utils/fetch.js';
 export default class AboutView extends ViewBase {
     constructor(canvas) {
         super(canvas);
+        this._handlers = {};
     }
 
     async init() {
+        await this.setAsciiImage();
+        this.addPageContent();
+
         // const position = new THREE.Vector3(0, 0, 0);
         // const angle = new THREE.Vector3(0, 0, 0);
         // CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
@@ -21,155 +25,7 @@ export default class AboutView extends ViewBase {
 
         setTimeout(() => {
             this.handleResize();
-        }, 2000); 
-
-        await this.setAsciiImage();
-
-        const aboutBtn = document.getElementById('aboutBtn');
-        const introSection = document.getElementById('about-intro');
-        const detailsSection = document.getElementById('about-details');
-        const contentDiv = document.getElementById('pageContent');
-        const hideButton = document.getElementById('hideBtn');
-        const viewButton = document.getElementById('viewBtn');
-        const closeButton = document.getElementById('closeBtn');
-
-
-        aboutBtn.addEventListener('click', () => {
-            if (introSection.style.display !== 'none') {
-                introSection.style.display = 'none';
-                detailsSection.classList.add('active');
-                contentDiv.className = 'container';
-                
-                const position = new THREE.Vector3(0, 0, -2);
-                CameraManager.moveTo(position, 2.0, 'power4.out');
-            }
-
-            hideButton.style.display = 'none';
-            viewButton.style.display = 'none';
-            closeButton.style.display = 'block';
-        });
-
-        closeButton.addEventListener('click', () => {
-            introSection.style.display = 'flex';
-            detailsSection.classList.remove('active');
-            contentDiv.className = 'abs-bottom';
-            hideButton.style.display = 'block';
-            viewButton.style.display = 'none';
-            closeButton.style.display = 'none';
-
-            this.handleResize();
-        });
-
-        const maxGrid = 3;
-        const iconGrids = document.querySelectorAll('.icons-grid');
-        const iconName = document.querySelector('.icon-name');
-        const icons = document.querySelectorAll('.tech-icon-wrapper');
-
-        let currentGrid = 0;
-        let lastHoveredIcon = null;
-
-        const showGrid = (index, direction) => {
-            iconGrids.forEach((iconGrid, i) => {
-                iconGrid.classList.remove('swipe-left', 'swipe-right');
-                iconGrid.style.display = (i == index) ? 'grid' : 'none';
-            });
-
-            iconGrids[index].classList.add((direction === 'left') ? 'swipe-left' : 'swipe-right');
-        };
-
-        icons.forEach(icon => {
-            icon.addEventListener('mouseover', () => {
-                if (icon.classList.contains('active')) return;
-
-                icons.forEach(i => i.classList.remove('active'));
-                icon.classList.add('active');
-
-                iconName.textContent = icon.dataset.name;
-                lastHoveredIcon = icon;
-            });
-        });
-
-        document.getElementById('leftIcon').addEventListener('click', () => {
-            currentGrid = (currentGrid - 1 + maxGrid) % maxGrid;
-            showGrid(currentGrid, 'left');
-        });
-
-        document.getElementById('rightIcon').addEventListener('click', () => {
-            currentGrid = (currentGrid + 1) % maxGrid;
-            showGrid(currentGrid, 'right');
-        });
-
-        iconName.addEventListener('click', () => {
-            if (!lastHoveredIcon) return;
-
-            iconGrids.forEach((grid, index) => {
-                if (grid.contains(lastHoveredIcon) && currentGrid != index) {
-                    const direction = index > currentGrid ? 'right' : 'left';
-                    currentGrid = index;
-                    showGrid(currentGrid, direction);
-                }
-            });
-        });
-
-        const expList = document.querySelectorAll('.experiences');
-        const expDetails = document.querySelectorAll('.experience-details');
-
-        let currentExp = 0;
-
-        const showExp = (index) => {
-            expDetails.forEach((detail, i) => {
-                detail.classList.remove('page-slide-in');
-                detail.style.display = (i == index) ? 'block' : 'none';
-            });
-
-            expDetails[index].classList.add('page-slide-in');
-        };
-
-        expList.forEach(exp => {
-            exp.addEventListener('click', () => {
-                if (exp.classList.contains('active')) return;
-                
-                const index = exp.getAttribute('data-index');
-                currentExp = index;
-
-                expList.forEach(i => i.classList.remove('active'));
-                exp.classList.add('active');
-
-                showExp(currentExp);
-            });
-        });
-
-        const emailButton = document.getElementById('emailButton');
-        const emailTooltip = emailButton.querySelector('.tooltip-text');
-        const discordButton = document.getElementById('discordButton');
-        const discordTooltip = discordButton.querySelector('.tooltip-text');
-
-        emailButton.addEventListener('click', () => {
-            navigator.clipboard.writeText("jomerbarcenilla@gmail.com").then(() => {
-                emailTooltip.textContent = "Copied to clipboard";
-                
-                setTimeout(() => {
-                    emailTooltip.textContent = "Copy to clipboard";
-                }, 2000);
-            }).catch(err => {
-                console.error("Failed to copy: ", err);
-            });
-        });
-
-        discordButton.addEventListener('click', () => {
-            navigator.clipboard.writeText("jomerok").then(() => {
-                discordTooltip.textContent = "Copied to clipboard";
-                
-                setTimeout(() => {
-                    discordTooltip.textContent = "Copy to clipboard";
-                }, 2000);
-            }).catch(err => {
-                console.error("Failed to copy: ", err);
-            });
-        });
-
-        showGrid(currentGrid);
-        showExp(currentExp);
+        }, 2000);
     }
 
     async setAsciiImage() {
@@ -294,6 +150,146 @@ export default class AboutView extends ViewBase {
         return asciiTexture;
     }
 
+    addPageContent(){
+        this.aboutButton = document.getElementById('aboutBtn');
+        this.closeButton = document.getElementById('closeBtn');
+        this.leftIcon = document.getElementById('leftIcon');
+        this.rightIcon = document.getElementById('rightIcon');
+        this.iconName = document.querySelector('.icon-name');
+        this.techIcons = document.querySelectorAll('.tech-icon-wrapper');
+        this.experiences = document.querySelectorAll('.experiences');
+        this.emailButton = document.getElementById('emailButton');
+        this.discordButton = document.getElementById('discordButton');
+        this.introSection = document.getElementById('about-intro');
+
+        const detailsSection = document.getElementById('about-details');
+        const contentDiv = document.getElementById('pageContent');
+        const hideButton = document.getElementById('hideBtn');
+        const viewButton = document.getElementById('viewBtn');
+        const iconsGrid = document.querySelectorAll('.icons-grid');
+        const expDetails = document.querySelectorAll('.experience-details');
+        const emailTooltip = this.emailButton.querySelector('.tooltip-text');
+        const discordTooltip = this.discordButton.querySelector('.tooltip-text');
+        const maxGrid = 3;
+        
+        let currentGrid = 0;
+        let lastHoveredIcon = null;
+        let currentExp = 0;
+
+        const showGrid = (index, direction) => {
+            iconsGrid.forEach((grid, i) => {
+                grid.classList.remove('swipe-left', 'swipe-right');
+                grid.style.display = (i === index) ? 'grid' : 'none';
+            });
+            
+            iconsGrid[index].classList.add(direction === 'left' ? 'swipe-left' : 'swipe-right');
+        };
+
+        const showExp = (index) => {
+            expDetails.forEach((detail, i) => {
+                detail.classList.remove('page-slide-in');
+                detail.style.display = (i === index) ? 'block' : 'none';
+            });
+            expDetails[index].classList.add('page-slide-in');
+        };
+
+        this._handlers.aboutClick = () => {
+            if (this.introSection.style.display !== 'none') {
+                this.introSection.style.display = 'none';
+                detailsSection.classList.add('active');
+                contentDiv.className = 'container';
+                CameraManager.moveTo(new THREE.Vector3(0, 0, -2), 2.0, 'power4.out');
+            }
+            hideButton.style.display = 'none';
+            viewButton.style.display = 'none';
+            this.closeButton.style.display = 'block';
+        };
+
+        this._handlers.closeClick = () => {
+            this.introSection.style.display = 'flex';
+            detailsSection.classList.remove('active');
+            contentDiv.className = 'abs-bottom';
+            hideButton.style.display = 'block';
+            viewButton.style.display = 'none';
+            this.closeButton.style.display = 'none';
+            this.handleResize();
+        };
+
+        this._handlers.escapeKey = (event) => {
+            if (event.key === 'Escape' && detailsSection.classList.contains('active')) {
+                this._handlers.closeClick();
+            }
+        };
+
+        this._handlers.leftClick = () => {
+            currentGrid = (currentGrid - 1 + maxGrid) % maxGrid;
+            showGrid(currentGrid, 'left');
+        };
+
+        this._handlers.rightClick = () => {
+            currentGrid = (currentGrid + 1) % maxGrid;
+            showGrid(currentGrid, 'right');
+        };
+
+        this._handlers.iconClick = () => {
+            if (!lastHoveredIcon) return;
+            iconsGrid.forEach((grid, index) => {
+                if (grid.contains(lastHoveredIcon) && currentGrid !== index) {
+                    const direction = index > currentGrid ? 'right' : 'left';
+                    currentGrid = index;
+                    showGrid(currentGrid, direction);
+                }
+            });
+        };
+
+        this._handlers.emailClick = () => {
+            navigator.clipboard.writeText("jomerbarcenilla@gmail.com").then(() => {
+                emailTooltip.textContent = "Copied to clipboard";
+                setTimeout(() => emailTooltip.textContent = "Copy to clipboard", 2000);
+            }).catch(err => console.error("Failed to copy: ", err));
+        };
+
+        this._handlers.discordClick = () => {
+            navigator.clipboard.writeText("jomerok").then(() => {
+                discordTooltip.textContent = "Copied to clipboard";
+                setTimeout(() => discordTooltip.textContent = "Copy to clipboard", 2000);
+            }).catch(err => console.error("Failed to copy: ", err));
+        };
+
+        this.aboutButton.addEventListener('click', this._handlers.aboutClick);
+        this.closeButton.addEventListener('click', this._handlers.closeClick);
+        document.addEventListener('keydown', this._handlers.escapeKey);
+        this.leftIcon.addEventListener('click', this._handlers.leftClick);
+        this.rightIcon.addEventListener('click', this._handlers.rightClick);
+        this.iconName.addEventListener('click', this._handlers.iconClick);
+        this.emailButton.addEventListener('click', this._handlers.emailClick);
+        this.discordButton.addEventListener('click', this._handlers.discordClick);
+
+        this.techIcons.forEach(icon => {
+            icon.addEventListener('mouseover', this._handlers.iconHover = () => {
+                if (icon.classList.contains('active')) return;
+                this.techIcons.forEach(i => i.classList.remove('active'));
+                icon.classList.add('active');
+                this.iconName.textContent = icon.dataset.name;
+                lastHoveredIcon = icon;
+            });
+        });
+
+        this.experiences.forEach(exp => {
+            exp.addEventListener('click', this._handlers.expClick = () => {
+                if (exp.classList.contains('active')) return;
+                const index = parseInt(exp.getAttribute('data-index'));
+                currentExp = index;
+                this.experiences.forEach(i => i.classList.remove('active'));
+                exp.classList.add('active');
+                showExp(index);
+            });
+        });
+
+        showGrid(currentGrid);
+        showExp(currentExp);
+    }
+
     handleResize() {
         if (!this.renderer || !this.camera || !this.camera.isPerspectiveCamera) return;
 
@@ -303,11 +299,9 @@ export default class AboutView extends ViewBase {
         this.renderer.setSize(width, height);
         CameraManager.resize(width, height);
 
-        const introSection = document.getElementById('about-intro');
-        if (introSection.style.display === 'none') return;
+        if (this.introSection.style.display === 'none') return;
         
         let position;
-
         if (width <= 650 && height <= 600) {
             position = new THREE.Vector3(0, 0, 10);
         } else if (width <= 650) {
@@ -336,6 +330,25 @@ export default class AboutView extends ViewBase {
             this.instancedMesh.geometry.dispose();
             this.instancedMesh.material.dispose();
         }
+
+        this.aboutButton?.removeEventListener('click', this._handlers.aboutClick);
+        this.closeBtn?.removeEventListener('click', this._handlers.closeClick);
+        document.removeEventListener('keydown', this._handlers.escapeKey);
+        this.leftIcon?.removeEventListener('click', this._handlers.leftClick);
+        this.rightIcon?.removeEventListener('click', this._handlers.rightClick);
+        this.iconName?.removeEventListener('click', this._handlers.iconClick);
+        this.emailButton?.removeEventListener('click', this._handlers.emailClick);
+        this.discordButton?.removeEventListener('click', this._handlers.discordClick);
+        
+        this.techIcons?.forEach(icon => {
+            icon.removeEventListener('mouseover', this._handlers.iconHover);
+        });
+
+        this.experiences?.forEach(exp => {
+            exp.removeEventListener('click', this._handlers.expClick);
+        });
+        
+        this._handlers = {};
 
         super.cleanup();
     }
