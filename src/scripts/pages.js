@@ -200,7 +200,7 @@ const pages = {
   works: `
     <section id="works-cards">
       <h1>Works</h1>
-      <div id="cards-container"></div>
+      <div class="cards-container"></div>
     </section>
     <div id="works-details"></div>
   `,
