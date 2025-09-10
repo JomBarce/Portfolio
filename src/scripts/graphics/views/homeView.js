@@ -24,16 +24,12 @@ export default class HomeView extends ViewBase {
     }
 
     async init() {
+        await this.setParticlesBackground();
+        this.startTitleCycle();
+
         let position = new THREE.Vector3(0, 0, 200);
         let angle = new THREE.Vector3(0, 0, 0);
         CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
-
-        // position = new THREE.Vector3(0, 0, 30);
-        // angle = new THREE.Vector3(0, 30, 0);
-
-        // setTimeout(() => {
-        //     CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
-        // }, 2000); 
 
         setTimeout(() => {
             this.handleResize();
@@ -42,20 +38,6 @@ export default class HomeView extends ViewBase {
         // const position = new THREE.Vector3(0, 0, 30);
         // const angle = new THREE.Vector3(0, 30, 0);
         // CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
-
-        await this.setParticlesBackground();
-        this.startTitleCycle();
-
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                clearInterval(this.intervalId);
-                this.intervalId = null;
-            } else {
-                if (!this.intervalId) {
-                    this.intervalId = setInterval(() => this.cycleTitles(), 3000);
-                }
-            }
-        });
     }
 
     async setParticlesBackground() {
@@ -174,6 +156,23 @@ export default class HomeView extends ViewBase {
         }, 1000);
     }
 
+    addListeners() {
+        super.addListeners();
+
+        this.handleVisibilityChange = () => {
+            if (document.hidden) {
+                clearInterval(this.intervalId);
+                this.intervalId = null;
+            } else {
+                if (!this.intervalId) {
+                    this.intervalId = setInterval(() => this.cycleTitles(), 3000);
+                }
+            }
+        };
+
+        document.addEventListener('visibilitychange', this.handleVisibilityChange);
+    }
+
     handleResize() {
         if (!this.renderer || !this.camera || !this.camera.isPerspectiveCamera) return;
 
@@ -211,6 +210,8 @@ export default class HomeView extends ViewBase {
             this.isCycling = false;
             this.intervalId = null;
         }
+
+        document.removeEventListener('visibilitychange', this.handleVisibilityChange);
 
         super.cleanup();
     }
