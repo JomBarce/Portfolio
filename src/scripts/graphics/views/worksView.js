@@ -1,7 +1,6 @@
 import * as THREE from 'https://esm.sh/three@0.154.0';
 
 import ViewBase from '../shared/viewBase.js';
-import AssetManager from '../shared/assetManager.js';
 import CameraManager from '../shared/cameraManager.js';
 import { fetchText, fetchJson } from '../../utils/fetch.js';
 import { PI, rangeRandom } from '../../utils/math.js';
@@ -9,91 +8,14 @@ import { PI, rangeRandom } from '../../utils/math.js';
 export default class WorksView extends ViewBase {
     constructor(canvas) {
         super(canvas);
+        this._handlers = {};
     }
 
     async init() {
-        this.handleResize();
-
         await this.setTerrainBackground();
+        await this.addPageContent();
 
-        const cardsSection = document.getElementById('works-cards');
-        const cardsContainer = document.getElementById('cards-container');
-        const detailsSection = document.getElementById('works-details');
-        const contentDiv = document.getElementById('pageContent');
-        const hideButton = document.getElementById('hideBtn');
-        const viewButton = document.getElementById('viewBtn');
-        const closeButton = document.getElementById('closeBtn');
-        const worksData = await fetchJson('../../../../data/works.json');
-
-        if (!Array.isArray(worksData) || worksData.length === 0) {
-            console.error('No valid data found.');
-            return;
-        }
-
-        worksData.forEach(project => {
-            const div = document.createElement('div');
-            div.className = 'card';
-
-            div.innerHTML = `
-                <div class="project-content">
-                    <h2>${project.name}</h2>
-                    <!-- <p>${project.description}</p> -->
-                    <p>Date: ${project.date}</p>
-                    <p>Type: ${project.type}</p>
-                    <p>Technologies: ${project.tech.join(', ')}</p>
-                    <button type="button" data-id=="${project.id}">View</button>
-                </div>
-            `;
-
-            div.addEventListener('click', () => {
-                if (cardsSection.style.display !== 'none') {
-                    cardsSection.style.display = 'none';
-                    detailsSection.classList.add('active');
-
-                    const position = new THREE.Vector3(0, 300, 0);
-                    CameraManager.moveTo(position, 2.0, 'power4.out');
-                }
-
-                hideButton.style.display = 'none';
-                viewButton.style.display = 'none';
-                closeButton.style.display = 'block';
-
-                renderProjectDetails(project.id);
-            });
-
-            cardsContainer.appendChild(div);
-        });
-
-        closeButton.addEventListener('click', () => {
-            cardsSection.style.display = 'block';
-            detailsSection.classList.remove('active');
-            contentDiv.className = 'container';
-            hideButton.style.display = 'block';
-            viewButton.style.display = 'none';
-            closeButton.style.display = 'none';
-
-            this.handleResize();
-        });
-
-        function renderProjectDetails(projectId) {
-            const project = worksData.find(p => p.id === projectId);
-
-            if (project) {
-                detailsSection.innerHTML = `
-                    <section class="page-section">
-                        <h2>${project.name}</h2>
-                        <p>${project.description}</p>
-                        <p><strong>Date:</strong> ${project.date}</p>
-                        <p><strong>Type:</strong> ${project.type}</p>
-                        <p><strong>Technologies:</strong> ${project.tech.join(', ')}</p>
-                    </section>
-                    <section class="page-section">
-                        <p><strong>URL:</strong> ${project.url}</p>
-                        <img class="project-img" src="/public/portfolio/images/ArcadeGames/ArcadeGames.png" alt="Project" draggable="false"/>
-                    </section>
-                `;
-            }
-        }
+        this.handleResize();
     }
 
     async setTerrainBackground() {
@@ -130,10 +52,126 @@ export default class WorksView extends ViewBase {
         });
 
         this.terrainMesh = new THREE.Mesh(geometry, material);
-
         this.terrainMesh.geometry.setAttribute('aPosition', new THREE.BufferAttribute(positionArray, 3));
-        
         this.scene.add(this.terrainMesh);
+    }
+
+    async addPageContent() {
+        this.worksSection = document.getElementById('works');
+        this.detailsSection = document.getElementById('works-details');
+        this.closeButton = document.getElementById('closeBtn');
+        this._handlers.projectDivs = [];
+
+        const worksContainer = document.querySelector('.project-container');
+        const contentDiv = document.getElementById('pageContent');
+        const hideButton = document.getElementById('hideBtn');
+        const viewButton = document.getElementById('viewBtn');
+        const worksData = await fetchJson('../../../../data/works.json');
+
+        if (!Array.isArray(worksData) || worksData.length === 0) return;
+
+        worksData.forEach((project, index) => {
+            const div = document.createElement('div');
+            div.className = 'project-content';
+            div.innerHTML = `<img class="thumbnail" src="${project.thumbnail}" alt="Project Thumbnail ${index + 1}" draggable="false"/>`;
+            
+            const clickHandler = () => {
+                if (this.worksSection.style.display !== 'none') {
+                    this.worksSection.style.display = 'none';
+                    this.detailsSection.classList.add('active');
+                    CameraManager.moveTo(new THREE.Vector3(0, 300, 0), 2.0, 'power4.out');
+                }
+                hideButton.style.display = 'none';
+                viewButton.style.display = 'none';
+                this.closeButton.style.display = 'block';
+                this.renderProjectDetails(project.id, worksData);
+                window.scrollTo({ top: 0 });
+            };
+
+            div.addEventListener('click', clickHandler);
+            this._handlers.projectDivs.push({ div, clickHandler });
+
+            worksContainer.appendChild(div);
+        });
+
+        this._handlers.closeClick = () => {
+            this.worksSection.style.display = 'block';
+            this.detailsSection.classList.remove('active');
+            contentDiv.className = 'container';
+            hideButton.style.display = 'block';
+            viewButton.style.display = 'none';
+            this.closeButton.style.display = 'none';
+            this.handleResize();
+        };
+
+        this._handlers.escapeKey = (event) => {
+            if (event.key === 'Escape' && this.detailsSection.classList.contains('active')) {
+                this._handlers.closeClick();
+            }
+        };
+
+        this.closeButton.addEventListener('click', this._handlers.closeClick);
+        document.addEventListener('keydown', this._handlers.escapeKey);
+    }
+
+    renderProjectDetails(projectId, worksData) {
+        const project = worksData.find(p => p.id === projectId);
+
+        if (project) {
+            let urlMarkup = '';
+            if (project.url) {
+                urlMarkup = `
+                    <p>
+                        <strong>URL:</strong> 
+                        <a class="truncate" href="${project.url}" target="_blank" rel="noopener noreferrer">${project.url}</a>
+                    </p>
+                `;
+            }
+
+            let infoMarkup = '';
+            if (project.info && Array.isArray(project.info)) {
+                infoMarkup = project.info.map(section => {
+                    const title = Array.isArray(section.title) ? section.title.join(', ') : section.title;
+                    const details = section.details.map(detail => `<li><p>${detail}</p></li>`).join('');
+                    return `
+                        <div class="project-info">
+                            <p><strong>${title}</strong></p>
+                            <ul>${details}</ul>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            this.detailsSection.innerHTML = `
+                <section class="page-section">
+                    <h1>${project.name}</h1>
+                    <div class="project-details">
+                        <p><strong>Date:</strong> ${project.date}</p>
+                        <p><strong>Type:</strong> ${project.type}</p>
+                        <p><strong>Technologies:</strong> ${project.tech.join(', ')}</p>
+                        ${urlMarkup}
+                        <p>${project.description}</p>
+                        ${infoMarkup}
+                    </div>
+                </section>
+            `;
+
+            const section = document.createElement('section');
+            section.id = "projectImages";
+            section.className = 'page-section';
+
+            project.images.forEach((image, index) => {
+                const img = document.createElement('img');
+                img.className = 'project-img';
+                img.src = image;
+                img.alt = `Project Image ${index + 1}`;
+                img.draggable = false;
+
+                section.appendChild(img);
+            });
+            
+            this.detailsSection.appendChild(section);
+        }
     }
 
     handleResize() {
@@ -145,8 +183,7 @@ export default class WorksView extends ViewBase {
         this.renderer.setSize(width, height);
         CameraManager.resize(width, height);
 
-        const cardsSection = document.getElementById('works-cards');
-        if (cardsSection.style.display === 'none') return;
+        if (this.worksSection.style.display === 'none') return;
         
         const position = new THREE.Vector3(0, 0, 200);
         const angle = new THREE.Vector3(0, 500, 0);
@@ -170,6 +207,16 @@ export default class WorksView extends ViewBase {
             this.gridMesh.material.dispose();   
         }
 
+        this.closeButton?.removeEventListener('click', this._handlers.closeClick);
+        document.removeEventListener('keydown', this._handlers.escapeKey);
+        
+        if (Array.isArray(this._handlers.projectDivs)) {
+            this._handlers.projectDivs.forEach(({ div, clickHandler }) => {
+                div.removeEventListener('click', clickHandler);
+            });
+        }
+        
+        this._handlers = {};
         super.cleanup();
     }
 }
