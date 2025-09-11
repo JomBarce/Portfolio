@@ -22,7 +22,7 @@ p {
 }
 
 a {
-    text-decoration: none;
+    color: white;
     pointer-events: auto;
 }
 
@@ -249,6 +249,62 @@ button:hover::before {
     pointer-events: auto;
 }
 
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.project-content {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    /* filter: grayscale(1); */
+}
+
+.project-content:hover {
+    transform: scale(1.05);
+    /* filter: grayscale(0); */
+}
+
+.thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.project-details {
+    padding: 0.5rem 2rem;
+}
+
+.project-img {
+    margin-bottom: 1rem;
+    break-inside: avoid;
+    border: 1px solid white;
+    border-radius: 5px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.truncate {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
 .row {
     display: flex;
     flex-wrap: nowrap;
@@ -323,7 +379,6 @@ button:hover::before {
     padding: 1rem;
     vertical-align: middle;
 }
-
 
 .icon-controls {
     display: flex;
@@ -480,31 +535,6 @@ button:hover::before {
     filter: invert(100%);
 }
 
-.project-content {
-    padding: 1rem;
-    border: 2px solid white;
-    border-radius: 1rem;
-    /* background-color: rgba(0, 0, 0, 1); */
-    background-color: rgb(0, 0, 0, 0.5);
-    width: 25vw;
-    height: 55vh;
-    min-width: 220px;
-    cursor: pointer;
-    scroll-snap-align: start;
-    /* transition: transform 0.2s; */
-}
-
-.project-content:hover {
-    /* transform: scale(1.1); */
-    background-color: rgba(0, 0, 0, 1);
-}
-
-.project-img {
-    width: 500px;
-    border: 2px solid white;
-}
-
-
 /* ID */
 #logo {
     height: 50px;
@@ -520,7 +550,7 @@ button:hover::before {
 }
 
 #logo.open {
-    visibility: hidden;
+    visibility: visible;
 }
 
 #menuOverlay {
@@ -537,30 +567,7 @@ button:hover::before {
 }
 
 #menuOverlay.open {
-    display: flex;
-}
-
-#works-cards {
-    pointer-events: auto;
-}
-
-#cards-container {
-    /* margin: 1rem 2rem 4rem; */
-    display: flex;
-    gap: 2rem;
-    /* padding: 3rem; */
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-snap-stop: always;
-    scroll-behavior: smooth;
-    /* scrollbar-width: none;
-    -ms-overflow-style: none; */
-    cursor: grab;
-}
-
-#cards-container:active {
-  cursor: grabbing;
+    display: none;
 }
 
 #works-details {
@@ -572,6 +579,12 @@ button:hover::before {
     display: block;
     opacity: 1;
     animation: slideIn 0.5s ease;
+}
+
+#projectImages {
+    column-count: 2;
+    /* column-count: 3; */
+    column-gap: 1.5rem;
 }
 
 #about-intro {
@@ -606,4 +619,8 @@ button:hover::before {
 	height: 100%;
 	z-index: -1;
     pointer-events: none;
+}
+
+#nav-arcade-btn, #menu-arcade-btn {
+    display: none;
 }
