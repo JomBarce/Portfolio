@@ -265,12 +265,12 @@ button:hover::before {
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.2s;
-    /* filter: grayscale(1); */
+    filter: grayscale(1);
 }
 
 .project-content:hover {
     transform: scale(1.05);
-    /* filter: grayscale(0); */
+    filter: grayscale(0);
 }
 
 .thumbnail {
@@ -621,6 +621,6 @@ button:hover::before {
     pointer-events: none;
 }
 
-#nav-arcade-btn, #menu-arcade-btn {
+/* #nav-arcade-btn, #menu-arcade-btn {
     display: none;
-}
+} */

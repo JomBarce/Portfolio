@@ -9,14 +9,11 @@ const viewButton = document.getElementById('viewBtn');
 const pageContent = document.getElementById('pageContent');
 
 let currentView = null;
-// let currentPage = 'home';
-let currentPage = 'works';
+let currentPage = 'home';
 
 // Load initial page
-// loadPage('home');
-// switchView('home');
-loadPage('works');
-switchView('works');
+loadPage('home');
+switchView('home');
 
 // Switch views
 async function switchView(viewName) {
@@ -62,7 +59,8 @@ document.querySelectorAll('.navbar-menu button').forEach(button => {
   button.addEventListener('click', () => {
     const page = button.getAttribute('data-page');
     if (button.id === 'nav-arcade-btn') {
-      window.open('games.html', '_blank');
+      // window.open('games.html', '_blank');
+      window.open('https://jombarce.github.io/Jomer-Barcenilla/', '_blank');
     } else {
       handlePageSwitch(page);
     }
@@ -75,7 +73,8 @@ document.querySelectorAll('.menu button').forEach(button => {
     const page = button.getAttribute('data-page');
 
     if (button.id === 'menu-arcade-btn') {
-      window.open('games.html', '_blank');
+      // window.open('games.html', '_blank');
+      window.open('https://jombarce.github.io/Jomer-Barcenilla/', '_blank');
     } else {
       handlePageSwitch(page);
     }
