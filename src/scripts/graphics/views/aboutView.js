@@ -29,10 +29,10 @@ export default class AboutView extends ViewBase {
     }
 
     async setAsciiImage() {
-        const vertexShader = await fetchText('/src/shaders/ascii.vert');
-        const fragmentShader = await fetchText('/src/shaders/ascii.frag');
+        const vertexShader = await fetchText('./src/shaders/ascii.vert');
+        const fragmentShader = await fetchText('./src/shaders/ascii.frag');
 
-        const bitmap = await AssetManager.loadImage('self', '/public/portfolio/images/Self.png');
+        const bitmap = await AssetManager.loadImage('self', './public/portfolio/images/Self.png');
 
         const texture = new THREE.CanvasTexture(bitmap);
         texture.flipY = false;

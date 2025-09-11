@@ -41,10 +41,10 @@ export default class HomeView extends ViewBase {
     }
 
     async setParticlesBackground() {
-        const vertexShader = await fetchText('/src/shaders/particle.vert');
-        const fragmentShader = await fetchText('/src/shaders/particle.frag');
+        const vertexShader = await fetchText('./src/shaders/particle.vert');
+        const fragmentShader = await fetchText('./src/shaders/particle.frag');
 
-        const bitmap = await AssetManager.loadImage('bg', '/public/portfolio/images/Oscar.png');
+        const bitmap = await AssetManager.loadImage('bg', './public/portfolio/images/Oscar.png');
 
         const texture = new THREE.CanvasTexture(bitmap);
         texture.flipY = false;

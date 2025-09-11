@@ -19,8 +19,8 @@ export default class WorksView extends ViewBase {
     }
 
     async setTerrainBackground() {
-        const vertexShader = await fetchText('/src/shaders/terrain.vert');
-        const fragmentShader = await fetchText('/src/shaders/terrain.frag');
+        const vertexShader = await fetchText('./src/shaders/terrain.vert');
+        const fragmentShader = await fetchText('./src/shaders/terrain.frag');
 
         const radius = 200;
         const widthSegments = 100;
