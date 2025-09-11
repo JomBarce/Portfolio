@@ -42,10 +42,10 @@ const pages = {
               <div class="tech-icon-wrapper" data-name="MySQL"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" draggable="false"/></div>
               <div class="tech-icon-wrapper" data-name="PHP"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP" draggable="false"/></div>
               <div class="tech-icon-wrapper" data-name="OpenGL"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opengl/opengl-plain.svg" alt="OpenGL" draggable="false"/></div>
-              <div class="tech-icon-wrapper" data-name="Rust"><img class="tech-icon" src="/public/portfolio/icons/Rust.svg" alt="Rust" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Rust"><img class="tech-icon" src="./public/portfolio/icons/Rust.svg" alt="Rust" draggable="false"/></div>
             </div>
             <div class="icons-grid">
-              <div class="tech-icon-wrapper" data-name="Three.js"><img class="tech-icon" src="/public/portfolio/icons/ThreeJs.svg" alt="Three.js" draggable="false"/></div>
+              <div class="tech-icon-wrapper" data-name="Three.js"><img class="tech-icon" src="./public/portfolio/icons/ThreeJs.svg" alt="Three.js" draggable="false"/></div>
               <div class="tech-icon-wrapper" data-name="TensorFlow"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" draggable="false"/></div>
               <div class="tech-icon-wrapper" data-name="NumPy"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy" draggable="false"/></div>
               <div class="tech-icon-wrapper" data-name="Pandas"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" draggable="false"/></div>
@@ -73,9 +73,9 @@ const pages = {
               <div class="tech-icon-wrapper" data-name="Photoshop"><img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" alt="Photoshop" draggable="false"/></div>
             </div>
             <div class="icon-controls">
-              <img id="leftIcon" class="control-icon" src="/public/portfolio/icons/ArrowLeft.svg" alt="Left" draggable="false"/>
+              <img id="leftIcon" class="control-icon" src="./public/portfolio/icons/ArrowLeft.svg" alt="Left" draggable="false"/>
               <h2 class="icon-name">\u{25CF}</h2>
-              <img id="rightIcon" class="control-icon" src="/public/portfolio/icons/ArrowRight.svg" alt="Right" draggable="false"/>
+              <img id="rightIcon" class="control-icon" src="./public/portfolio/icons/ArrowRight.svg" alt="Right" draggable="false"/>
             </div>
           </div>
           <div class="column flex-center">
@@ -118,7 +118,7 @@ const pages = {
             <div class="experience-container">
               <div class="experience-details">
                 <h2>
-                  <img class="experience-icon" src="/public/portfolio/icons/Software.gif" alt="Software" draggable="false">
+                  <img class="experience-icon" src="./public/portfolio/icons/Software.gif" alt="Software" draggable="false">
                   Full-stack Development
                 </h2>
                 <p>Designed and developed an internal Accommodation and Reporting System to streamline operational workflows.</p>
@@ -127,7 +127,7 @@ const pages = {
               </div>
               <div class="experience-details">
                 <h2>
-                  <img class="experience-icon" src="/public/portfolio/icons/Freelance.gif" alt="Freelance" draggable="false">                
+                  <img class="experience-icon" src="./public/portfolio/icons/Freelance.gif" alt="Freelance" draggable="false">                
                   Freelancer
                 </h2>
                 <p>Assisted in debugging and optimizing code, improving reliability and performance in the project.</p>
@@ -136,7 +136,7 @@ const pages = {
               </div>
               <div class="experience-details">
                 <h2>
-                  <img class="experience-icon" src="/public/portfolio/icons/Backend.gif" alt="Back End" draggable="false">
+                  <img class="experience-icon" src="./public/portfolio/icons/Backend.gif" alt="Back End" draggable="false">
                   Back-end API Development
                 </h2>
                 <p>Developed backend REST APIs for microservices with comprehensive documentation and unit testing.</p>
@@ -145,7 +145,7 @@ const pages = {
               </div>
               <div class="experience-details">
                 <h2>
-                  <img class="experience-icon" src="/public/portfolio/icons/MobileGame.gif" alt="Mobile Game" draggable="false">
+                  <img class="experience-icon" src="./public/portfolio/icons/MobileGame.gif" alt="Mobile Game" draggable="false">
                   Mobile Game Development
                 </h2>
                 <p>Independently designed, developed, and published a mobile game "Jump Frog" using Unity and C#.</p>
@@ -154,7 +154,7 @@ const pages = {
               </div>
               <div class="experience-details">
                 <h2>
-                  <img class="experience-icon" src="/public/portfolio/icons/Diploma.gif" alt="Diploma" draggable="false">
+                  <img class="experience-icon" src="./public/portfolio/icons/Diploma.gif" alt="Diploma" draggable="false">
                   Bachelor's Degree
                 </h2>
                 <p>Published a research article on identifying common pest and diseases in lettuce plants using CNN.</p>
@@ -185,11 +185,11 @@ const pages = {
               <span class="tooltip-text">Copy to clipboard</span>
             </div>
             <div id="discordButton" class="tooltip-wrapper">
-              <img class="contact-icon" src="/public/portfolio/icons/Discord.svg" alt="Discord" draggable="false"/>
+              <img class="contact-icon" src="./public/portfolio/icons/Discord.svg" alt="Discord" draggable="false"/>
               <span class="tooltip-text">Copy to clipboard</span>
             </div>
-            <a class="tooltip-wrapper" href="/public/portfolio/assets/BARCENILLA-CV.pdf" download>
-              <img class="contact-icon" src="/public/portfolio/icons/CV.svg" alt="CV" draggable="false"/>
+            <a class="tooltip-wrapper" href="./public/portfolio/assets/BARCENILLA-CV.pdf" download>
+              <img class="contact-icon" src="./public/portfolio/icons/CV.svg" alt="CV" draggable="false"/>
               <span class="tooltip-text">Download CV file</span>
             </a>
           </div>

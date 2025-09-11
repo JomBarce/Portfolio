@@ -23,16 +23,16 @@
                 ]
             }
         ],
-        "thumbnail": "../public/portfolio/images/FrogJump/FrogJump-Title.png",
+        "thumbnail": "./public/portfolio/images/FrogJump/FrogJump-Title.png",
         "images": [
-            "../public/portfolio/images/FrogJump/FrogJumpIcon.jpg",
-            "../public/portfolio/images/FrogJump/FrogJump1.png",
-            "../public/portfolio/images/FrogJump/FrogJump2.png",
-            "../public/portfolio/images/FrogJump/FrogJump3.png",
-            "../public/portfolio/images/FrogJump/FrogJump-Title.png",
-            "../public/portfolio/images/FrogJump/FrogJump-Menu.png",
-            "../public/portfolio/images/FrogJump/FrogJump4.png",
-            "../public/portfolio/images/FrogJump/FrogJump5.png"
+            "./public/portfolio/images/FrogJump/FrogJumpIcon.jpg",
+            "./public/portfolio/images/FrogJump/FrogJump1.png",
+            "./public/portfolio/images/FrogJump/FrogJump2.png",
+            "./public/portfolio/images/FrogJump/FrogJump3.png",
+            "./public/portfolio/images/FrogJump/FrogJump-Title.png",
+            "./public/portfolio/images/FrogJump/FrogJump-Menu.png",
+            "./public/portfolio/images/FrogJump/FrogJump4.png",
+            "./public/portfolio/images/FrogJump/FrogJump5.png"
         ]
     },
     {
@@ -52,11 +52,11 @@
                 ]
             }
         ],
-        "thumbnail": "../public/portfolio/images/ArcadeGames/ArcadeGames.png",
+        "thumbnail": "./public/portfolio/images/ArcadeGames/ArcadeGames.png",
         "images": [
-            "../public/portfolio/images/ArcadeGames/ArcadeGames.png",
-            "../public/portfolio/images/ArcadeGames/ShootingGame.png",
-            "../public/portfolio/images/ArcadeGames/SGHighScore.png"
+            "./public/portfolio/images/ArcadeGames/ArcadeGames.png",
+            "./public/portfolio/images/ArcadeGames/ShootingGame.png",
+            "./public/portfolio/images/ArcadeGames/SGHighScore.png"
         ]
     },
     {
@@ -83,13 +83,13 @@
                 ]
             }
         ],
-        "thumbnail": "../public/portfolio/images/Research/TitlePage.png",
+        "thumbnail": "./public/portfolio/images/Research/TitlePage.png",
         "images": [
-            "../public/portfolio/images/Research/TitlePage.png",
-            "../public/portfolio/images/Research/Model.png",
-            "../public/portfolio/images/Research/Results.png",
-            "../public/portfolio/images/Research/INCOFT2023.png",
-            "../public/portfolio/images/Research/Presentation.png"
+            "./public/portfolio/images/Research/TitlePage.png",
+            "./public/portfolio/images/Research/Model.png",
+            "./public/portfolio/images/Research/Results.png",
+            "./public/portfolio/images/Research/INCOFT2023.png",
+            "./public/portfolio/images/Research/Presentation.png"
         ]
     },
     {
@@ -112,14 +112,14 @@
                 ]
             }
         ],
-        "thumbnail": "../public/portfolio/images/VHire/VHire-Index.png",
+        "thumbnail": "./public/portfolio/images/VHire/VHire-Index.png",
         "images": [
-            "../public/portfolio/images/VHire/VHire-Index.png",
-            "../public/portfolio/images/VHire/VHire-Login.png",
-            "../public/portfolio/images/VHire/VHire-Role.png",
-            "../public/portfolio/images/VHire/VHire-Route.png",
-            "../public/portfolio/images/VHire/VHire-Search.png",
-            "../public/portfolio/images/VHire/VHire-Ticket.png"
+            "./public/portfolio/images/VHire/VHire-Index.png",
+            "./public/portfolio/images/VHire/VHire-Login.png",
+            "./public/portfolio/images/VHire/VHire-Role.png",
+            "./public/portfolio/images/VHire/VHire-Route.png",
+            "./public/portfolio/images/VHire/VHire-Search.png",
+            "./public/portfolio/images/VHire/VHire-Ticket.png"
         ]
     },
     {
@@ -142,12 +142,12 @@
                 ]
             }
         ],
-        "thumbnail": "../public/portfolio/images/ChatApp/ChatApp.png",
+        "thumbnail": "./public/portfolio/images/ChatApp/ChatApp.png",
         "images": [
-            "../public/portfolio/images/ChatApp/ChatApp.png",
-            "../public/portfolio/images/ChatApp/ChatApp1.png",
-            "../public/portfolio/images/ChatApp/ChatApp3.png",
-            "../public/portfolio/images/ChatApp/ChatApp2.png"
+            "./public/portfolio/images/ChatApp/ChatApp.png",
+            "./public/portfolio/images/ChatApp/ChatApp1.png",
+            "./public/portfolio/images/ChatApp/ChatApp3.png",
+            "./public/portfolio/images/ChatApp/ChatApp2.png"
         ]
     },
     {
@@ -170,16 +170,16 @@
                 ]
             }
         ],
-        "thumbnail": "../public/portfolio/images/MachineLearning/MachineLearning.png",
+        "thumbnail": "./public/portfolio/images/MachineLearning/MachineLearning.png",
         "images": [
-            "../public/portfolio/images/MachineLearning/Adaline.png",
-            "../public/portfolio/images/MachineLearning/SVM.png",
-            "../public/portfolio/images/MachineLearning/SBS.png",
-            "../public/portfolio/images/MachineLearning/SHAP.png",
-            "../public/portfolio/images/MachineLearning/Correlation.png",
-            "../public/portfolio/images/MachineLearning/Clustering.png",
-            "../public/portfolio/images/MachineLearning/RNN.png",
-            "../public/portfolio/images/MachineLearning/Inception.png"
+            "./public/portfolio/images/MachineLearning/Adaline.png",
+            "./public/portfolio/images/MachineLearning/SVM.png",
+            "./public/portfolio/images/MachineLearning/SBS.png",
+            "./public/portfolio/images/MachineLearning/SHAP.png",
+            "./public/portfolio/images/MachineLearning/Correlation.png",
+            "./public/portfolio/images/MachineLearning/Clustering.png",
+            "./public/portfolio/images/MachineLearning/RNN.png",
+            "./public/portfolio/images/MachineLearning/Inception.png"
         ]
     },
     {
@@ -188,7 +188,7 @@
         "date": "2021",
         "type": "Application Development",
         "tech": ["ServiceNow", "HTML", "JavaScript", "CSS"],
-        "imgPath": "../public/portfolio/images/BusReservation",
+        "imgPath": "./public/portfolio/images/BusReservation",
         "url": "",
         "description": "Bus Seat Reservation is a web application that allows users to search for buses, view schedules and routes, and book seats based on travel preferences. It supports dynamic fare calculation, multi-seat booking, and reservation management including seat and destination changes.",
         "info": [
@@ -202,12 +202,12 @@
                 ]
             }
         ],
-        "thumbnail": "../public/portfolio/images/BusReservation/BusSeatRsrv-Reserve.png",
+        "thumbnail": "./public/portfolio/images/BusReservation/BusSeatRsrv-Reserve.png",
         "images": [
-            "../public/portfolio/images/BusReservation/BusSeatRsrv-Index.png",
-            "../public/portfolio/images/BusReservation/BusSeatRsrv-Search.png",
-            "../public/portfolio/images/BusReservation/BusSeatRsrv-Book.png",
-            "../public/portfolio/images/BusReservation/BusSeatRsrv-Reserve.png"
+            "./public/portfolio/images/BusReservation/BusSeatRsrv-Index.png",
+            "./public/portfolio/images/BusReservation/BusSeatRsrv-Search.png",
+            "./public/portfolio/images/BusReservation/BusSeatRsrv-Book.png",
+            "./public/portfolio/images/BusReservation/BusSeatRsrv-Reserve.png"
         ]
     },
     {
@@ -230,13 +230,13 @@
                 ]
             }
         ],
-        "thumbnail": "../public/portfolio/images/HotelBooking/HotelBooking-Search.png",
+        "thumbnail": "./public/portfolio/images/HotelBooking/HotelBooking-Search.png",
         "images": [
-            "../public/portfolio/images/HotelBooking/HotelBooking-Search.png",
-            "../public/portfolio/images/HotelBooking/HotelBooking-Login.png",
-            "../public/portfolio/images/HotelBooking/HotelBooking-Signup.png",
-            "../public/portfolio/images/HotelBooking/HotelBooking-Hotel.png",
-            "../public/portfolio/images/HotelBooking/HotelBooking-Error.png"
+            "./public/portfolio/images/HotelBooking/HotelBooking-Search.png",
+            "./public/portfolio/images/HotelBooking/HotelBooking-Login.png",
+            "./public/portfolio/images/HotelBooking/HotelBooking-Signup.png",
+            "./public/portfolio/images/HotelBooking/HotelBooking-Hotel.png",
+            "./public/portfolio/images/HotelBooking/HotelBooking-Error.png"
         ]
     },
     {
@@ -245,7 +245,7 @@
         "date": "2022",
         "type": "Application Development",
         "tech": ["C#", "Xamarin Forms", "MySQL"],
-        "imgPath": "../public/portfolio/images/Autobar",
+        "imgPath": "./public/portfolio/images/Autobar",
         "url": "https://github.com/OG-Habit/AutoBar",
         "description": "AutoBar is a mobile-based application built using Xamarin.Forms and MySQL, integrating a POS system, E-wallet, and a points-based rewards program. It supports customer ordering, bartender fulfillment, and manager-level reporting and administration.",
         "info": [
@@ -260,14 +260,14 @@
                 ]
             }
         ],
-        "thumbnail": "../public/portfolio/images/Autobar/Autobar.png",
+        "thumbnail": "./public/portfolio/images/Autobar/Autobar.png",
         "images": [
-            "../public/portfolio/images/Autobar/Autobar.png",
-            "../public/portfolio/images/Autobar/Autobar-Customer.png",
-            "../public/portfolio/images/Autobar/Autobar-Reports.png",
-            "../public/portfolio/images/Autobar/Autobar-Orders.png",
-            "../public/portfolio/images/Autobar/Autobar-Rewards.png",
-            "../public/portfolio/images/Autobar/Autobar-Menu.png"
+            "./public/portfolio/images/Autobar/Autobar.png",
+            "./public/portfolio/images/Autobar/Autobar-Customer.png",
+            "./public/portfolio/images/Autobar/Autobar-Reports.png",
+            "./public/portfolio/images/Autobar/Autobar-Orders.png",
+            "./public/portfolio/images/Autobar/Autobar-Rewards.png",
+            "./public/portfolio/images/Autobar/Autobar-Menu.png"
         ]
     },
     {
@@ -276,7 +276,7 @@
         "date": "2021",
         "type": "Application Development",
         "tech": ["Java", "MySQL"],
-        "imgPath": "../public/portfolio/images/InventorySystem",
+        "imgPath": "./public/portfolio/images/InventorySystem",
         "url": "",
         "description": "Inventory System is a desktop application built with Java and MySQL that enables businesses to efficiently track items and manage stock levels before products are sold. Designed for simplicity and reliability, the system helps prevent stockouts and overstocking by providing clear visibility into item quantities and movement.",
         "info": [
@@ -289,12 +289,12 @@
                 ]
             }
         ],
-        "thumbnail": "../public/portfolio/images/InventorySystem/InventorySystem.png",
+        "thumbnail": "./public/portfolio/images/InventorySystem/InventorySystem.png",
         "images": [
-            "../public/portfolio/images/InventorySystem/InvSys-AddItem.png",
-            "../public/portfolio/images/InventorySystem/InvSys-Login.png",
-            "../public/portfolio/images/InventorySystem/InvSys.png",
-            "../public/portfolio/images/InventorySystem/InvSys-Register.png"
+            "./public/portfolio/images/InventorySystem/InvSys-AddItem.png",
+            "./public/portfolio/images/InventorySystem/InvSys-Login.png",
+            "./public/portfolio/images/InventorySystem/InvSys.png",
+            "./public/portfolio/images/InventorySystem/InvSys-Register.png"
         ]
     },
     {
@@ -303,7 +303,7 @@
         "date": "2024",
         "type": "Web Development",
         "tech": ["JavaScript","HTML", "CSS"],
-        "imgPath": "../public/portfolio/images/",
+        "imgPath": "./public/portfolio/images/",
         "url": "https://jombarce.github.io/Jomer-Barcenilla/",
         "description": "Portfolio Website of Jomer Barcenilla.",
         "info": [
@@ -316,13 +316,13 @@
                 ]
             }
         ],
-        "thumbnail": "../public/portfolio/images/Portfolio/HeroV1.png",
+        "thumbnail": "./public/portfolio/images/Portfolio/HeroV1.png",
         "images": [
-            "../public/portfolio/images/Portfolio/HeroV1.png",
-            "../public/portfolio/images/Portfolio/WorksV1.png",
-            "../public/portfolio/images/Portfolio/AboutV1-1.png",
-            "../public/portfolio/images/Portfolio/AboutV1-2.png",
-            "../public/portfolio/images/Portfolio/AboutV1-3.png"
+            "./public/portfolio/images/Portfolio/HeroV1.png",
+            "./public/portfolio/images/Portfolio/WorksV1.png",
+            "./public/portfolio/images/Portfolio/AboutV1-1.png",
+            "./public/portfolio/images/Portfolio/AboutV1-2.png",
+            "./public/portfolio/images/Portfolio/AboutV1-3.png"
         ]
     },
     {
@@ -331,7 +331,7 @@
         "date": "2021",
         "type": "Web Development",
         "tech": ["ReactJS", "JavaScript", "HTML"],
-        "imgPath": "../public/portfolio/images/ToDoApp",
+        "imgPath": "./public/portfolio/images/ToDoApp",
         "url": "",
         "description": "A React-based task management app that allows users to add, update, complete, and delete tasks with ease.",
         "info": [
@@ -344,9 +344,9 @@
                 ]
             }
         ],
-        "thumbnail": "../public/portfolio/images/ToDoApp.png",
+        "thumbnail": "./public/portfolio/images/ToDoApp.png",
         "images": [
-            "../public/portfolio/images/ToDoApp.png"
+            "./public/portfolio/images/ToDoApp.png"
         ]
     },
     {
@@ -355,7 +355,7 @@
         "date": "2021",
         "type": "Web Development",
         "tech": ["VueJS", "JavaScript", "HTML"],
-        "imgPath": "../public/portfolio/images/FoodShop",
+        "imgPath": "./public/portfolio/images/FoodShop",
         "url": "https://github.com/JomBarce/FoodShop-Prefinals",
         "description": "A Vue.js-powered static website that simulates a food e-commerce platform with dynamic search filtering.",
         "info": [
@@ -368,11 +368,11 @@
                 ]
             }
         ],
-        "thumbnail": "../public/portfolio/images/FoodShop/FoodShop.png",
+        "thumbnail": "./public/portfolio/images/FoodShop/FoodShop.png",
         "images": [
-            "../public/portfolio/images/FoodShop/FoodShop.png",
-            "../public/portfolio/images/FoodShop/FoodShop-Search.png",
-            "../public/portfolio/images/FoodShop/FoodShop-Find.png"
+            "./public/portfolio/images/FoodShop/FoodShop.png",
+            "./public/portfolio/images/FoodShop/FoodShop-Search.png",
+            "./public/portfolio/images/FoodShop/FoodShop-Find.png"
         ]
     },
     {
@@ -381,7 +381,7 @@
         "date": "2021",
         "type": "Application Development",
         "tech": ["Java"],
-        "imgPath": "../public/portfolio/images/BasketballScore",
+        "imgPath": "./public/portfolio/images/BasketballScore",
         "url": "https://github.com/JomBarce/Basketball-Scoreboard",
         "description": "A simple Java desktop application that provides the ability to track the scores, fouls, period, time, and shot clock of a basketball game.",
         "info": [
@@ -394,9 +394,9 @@
                 ]
             }
         ],
-        "thumbnail": "../public/portfolio/images/BasketballScore/BasketballScore.png",
+        "thumbnail": "./public/portfolio/images/BasketballScore/BasketballScore.png",
         "images": [
-            "../public/portfolio/images/BasketballScore/BasketballScoreboard.png"
+            "./public/portfolio/images/BasketballScore/BasketballScoreboard.png"
         ]
     },
     {
@@ -405,15 +405,15 @@
         "date": "2020",
         "type": "Web Design/Development",
         "tech": ["HTML", "JavaScript", "CSS"],
-        "imgPath": "../public/portfolio/images/CustomKybrd",
+        "imgPath": "./public/portfolio/images/CustomKybrd",
         "url": "https://github.com/JomBarce/CustomKybrd",
         "description": "A static website designed for mechanical keyboard enthusiasts, showcasing a mock e-commerce interface with basic navigation and validation.",
         "info": [],
-        "thumbnail": "../public/portfolio/images/CustomKybrd/CustomKybrd-Index.png",
+        "thumbnail": "./public/portfolio/images/CustomKybrd/CustomKybrd-Index.png",
         "images": [
-            "../public/portfolio/images/CustomKybrd/CustomKybrd-Login.png",
-            "../public/portfolio/images/CustomKybrd/CustomKybrd-Store.png",
-            "../public/portfolio/images/CustomKybrd/CustomKybrd-Index.png"
+            "./public/portfolio/images/CustomKybrd/CustomKybrd-Login.png",
+            "./public/portfolio/images/CustomKybrd/CustomKybrd-Store.png",
+            "./public/portfolio/images/CustomKybrd/CustomKybrd-Index.png"
         ]
     }
 ]

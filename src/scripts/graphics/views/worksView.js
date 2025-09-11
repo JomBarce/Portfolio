@@ -66,7 +66,7 @@ export default class WorksView extends ViewBase {
         const contentDiv = document.getElementById('pageContent');
         const hideButton = document.getElementById('hideBtn');
         const viewButton = document.getElementById('viewBtn');
-        const worksData = await fetchJson('../../../../data/works.json');
+        const worksData = await fetchJson('./data/works.json');
 
         if (!Array.isArray(worksData) || worksData.length === 0) return;
 
