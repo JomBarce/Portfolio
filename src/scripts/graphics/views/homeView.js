@@ -58,13 +58,11 @@ export default class HomeView extends ViewBase {
         const rows = Math.floor(imgHeight * multiplier);
 
         const points = [];
-
         for (let i = 0; i < rows; i++) {
             for (let j = 0; j < columns; j++) {
                 const x = (j - columns / 2);
                 const y = (i - rows / 2);
                 const z = 0;
-
                 points.push(x, y, z);
             }
         }
@@ -212,7 +210,6 @@ export default class HomeView extends ViewBase {
         }
 
         document.removeEventListener('visibilitychange', this.handleVisibilityChange);
-
         super.cleanup();
     }
 }
