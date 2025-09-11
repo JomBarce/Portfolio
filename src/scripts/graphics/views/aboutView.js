@@ -112,7 +112,6 @@ export default class AboutView extends ViewBase {
         this.instancedMesh.geometry.setAttribute('aRandom', new THREE.InstancedBufferAttribute(random, 1));
         this.instancedMesh.geometry.setAttribute('aPixelUV', new THREE.InstancedBufferAttribute(uv, 2));
         this.instancedMesh.geometry.setAttribute('aPosition', new THREE.BufferAttribute(positionArray, 3));
-        
         this.scene.add(this.instancedMesh);
     }
 
@@ -180,8 +179,7 @@ export default class AboutView extends ViewBase {
             iconsGrid.forEach((grid, i) => {
                 grid.classList.remove('swipe-left', 'swipe-right');
                 grid.style.display = (i === index) ? 'grid' : 'none';
-            });
-            
+            });  
             iconsGrid[index].classList.add(direction === 'left' ? 'swipe-left' : 'swipe-right');
         };
 
@@ -349,7 +347,6 @@ export default class AboutView extends ViewBase {
         });
         
         this._handlers = {};
-
         super.cleanup();
     }
 }
