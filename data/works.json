@@ -2,141 +2,418 @@
     {
         "id": 1,
         "name": "Frog Jump",
-        "description": "An endless platformer mobile game where a frog charges a jump to accurately land on a platform and collect fireflies while its direction is based on the tilt of the mobile device.",
         "date": "2021",
         "type": "Game Development",
-        "tech": ["C#", "Unity"],
-        "imgPath": "../public/portfolio/images/FrogJump",
-        "url": ""
+        "tech": ["C#", "Unity", "Photoshop"],
+        "url": "",
+        "description": "A mobile endless platformer where players guide a frog by charging jumps through touch and steering with device tilt. Gameplay emphasizes timing, instinct, and control as players leap across platforms to collect fireflies and unlock frogs with unique stats that influence jump dynamics and playstyle.",
+        "info": [
+            {
+                "title": "Gameplay Modes",
+                "details": [
+                    "Endless Mode: Jump across procedurally generated platforms while collecting fireflies.",
+                    "Speedrun Mode: Race through 4 biome-themed levels of increasing difficulty, testing precision and timing."
+                ]
+            },
+            {
+                "title": "Progression",
+                "details": [
+                    "Collected fireflies serve as currency to unlock new frogs.",
+                    "Each frog is inspired by real-life species and features unique power and control stats that influences gameplay."
+                ]
+            }
+        ],
+        "thumbnail": "../public/portfolio/images/FrogJump/FrogJump-Title.png",
+        "images": [
+            "../public/portfolio/images/FrogJump/FrogJumpIcon.jpg",
+            "../public/portfolio/images/FrogJump/FrogJump1.png",
+            "../public/portfolio/images/FrogJump/FrogJump2.png",
+            "../public/portfolio/images/FrogJump/FrogJump3.png",
+            "../public/portfolio/images/FrogJump/FrogJump-Title.png",
+            "../public/portfolio/images/FrogJump/FrogJump-Menu.png",
+            "../public/portfolio/images/FrogJump/FrogJump4.png",
+            "../public/portfolio/images/FrogJump/FrogJump5.png"
+        ]
     },
     {
         "id": 2,
         "name": "Arcade Games",
-        "description": "A curated collection of engaging 3D web games, powered by Three.js and designed to showcase interactive gaming experiences in the browser.",
         "date": "2025",
         "type": "Web/Game Development",
         "tech": ["Three.js", "Typescript","HTML", "CSS"],
-        "imgPath": "../public/portfolio/images/ArcadeGames",
-        "url": "https://github.com/JomBarce/ArcadeGames"
+        "url": "https://github.com/JomBarce/ArcadeGames",
+        "description": "A curated suite of interactive 3D web-based games built with Three.js, designed to demonstrate immersive browser-based gameplay. The collection includes multiple mini-games, such as a fast-paced shooting game with real-time scoring.",
+        "info": [
+            {
+                "title": "Games",
+                "details": [
+                    "Shooting Game: Inspired by carnival skill-shot games, this 3D shooting range challenges players to hit randomly generated targets without a crosshair, relying on angle and trajectory estimation.",
+                    "More games coming soon: Additional titles are currently in development to expand the arcade lineup."
+                ]
+            }
+        ],
+        "thumbnail": "../public/portfolio/images/ArcadeGames/ArcadeGames.png",
+        "images": [
+            "../public/portfolio/images/ArcadeGames/ArcadeGames.png",
+            "../public/portfolio/images/ArcadeGames/ShootingGame.png",
+            "../public/portfolio/images/ArcadeGames/SGHighScore.png"
+        ]
     },
     {
         "id": 3,
         "name": "Identifying Common Pest and Disease of Lettuce Plants Using Convolutional Neural Network",
-        "description": "A published research paper about using a Convolutional Neural Network Model to identify if a lettuce plant is healthy, diseased, or has sign of pest infestation.",
         "date": "2023",
         "type": "Machine Learning / Deep Learning",
         "tech": ["Python", "Tensorflow", "NumPy", "Pandas", "Matplotlib", "Scikit-Learn"],
-        "imgPath": "../public/portfolio/images/Research",
-        "url": "https://ieeexplore.ieee.org/document/10424991"
+        "url": "https://ieeexplore.ieee.org/document/10424991",
+        "description": "A published research project that leverages deep learning to address a major challenge in agriculture: crop loss due to pests and diseases, which account for up to 40% of global production losses. This study introduces a Convolutional Neural Network (CNN) model designed to assess the health of lettuce plants by analyzing images and identifying signs of common diseases and pest infestations.",
+        "info": [
+            {
+                "title": "Research Highlights",
+                "details": [
+                    "Targets common lettuce issues such as anthracnose, leaf drop, powdery mildew, septoria leaf spot, big vein, bottom rot, and downy mildew.",
+                    "Uses a custom image dataset and applies 10-fold cross-validation for model reliability."
+                ]
+            },
+            {
+                "title": "Results",
+                "details": [
+                    "Achieved 95.72% accuracy, 97.03% precision, 95.12% recall, and a 95.84% F1 score.",
+                    "Presented at INCOFT 2023 and published in IEEE."
+                ]
+            }
+        ],
+        "thumbnail": "../public/portfolio/images/Research/TitlePage.png",
+        "images": [
+            "../public/portfolio/images/Research/TitlePage.png",
+            "../public/portfolio/images/Research/Model.png",
+            "../public/portfolio/images/Research/Results.png",
+            "../public/portfolio/images/Research/INCOFT2023.png",
+            "../public/portfolio/images/Research/Presentation.png"
+        ]
     },
     {
         "id": 4,
-        "name": "Portfolio Website",
-        "description": "It is an application that will help track the users of their tasks and habits, and help improve on them. ",
-        "date": "2025",
-        "type": "Web Development",
-        "tech": ["Three.js", "JavaScript","HTML", "CSS", "GLSL"],
-        "imgPath": "../public/portfolio/images/Merakoni",
-        "url": "https://github.com/Idan-Garay/Merakoni"
-    },
-    {
-        "id": 5,
         "name": "VHire: Booking System",
-        "description": "It is a web-based application that provides a facility to reserve, cancel, and search for V-hire transportation seats.",
-        "date": "2021",
-        "type": "Web Development",
-        "tech": ["HTML", "JavaScript", "CSS", "PHP", "MySQL"],
-        "imgPath": "../public/portfolio/images/VHire",
-        "url": "https://github.com/JomBarce/VHire"
-    },
-    {
-        "id": 6,
-        "name": "Chat App",
-        "description": "A simple mobile-based chat application built with Xamarin.Forms and Firebase.",
-        "date": "2022",
-        "type": "Mobile Development",
-        "tech": ["C#", "Xamarin Forms", "Firebase"],
-        "imgPath": "../public/portfolio/images/ChatApp",
-        "url": "https://github.com/JomBarce/Chat_App"
-    },
-    {
-        "id": 7,
-        "name": "Hotel Booking",
-        "description": "An online reservation system that allows potential guests to book a hotel according to their specifications.",
         "date": "2021",
         "type": "Web Development",
         "tech": ["HTML", "JavaScript", "CSS", "PHP", "MySQL", "SweetAlert"],
-        "imgPath": "../public/portfolio/images/HotelBooking",
-        "url": "https://github.com/JomBarce/Hotel-Booking"
+        "url": "https://github.com/JomBarce/VHire",
+        "description": "A web-based application that streamlines seat reservation for V-hire transportation. Designed to replace manual ticketing, it allows users to view routes, fares, and seat availability, book and cancel tickets, and receive real-time updates.",
+        "info": [
+            {
+                "title": "Features",
+                "details": [
+                    "Online seat reservation and cancellation for V-hire transportation.",
+                    "Real-time display of schedules, routes, fares, and seat availability.",
+                    "Auto-cancel unconfirmed tickets before departure.",
+                    "Ticket validation system with time-based auto-cancellation.",
+                    "Role-based access for Users, Drivers, Admins, and Super Admins."
+                ]
+            }
+        ],
+        "thumbnail": "../public/portfolio/images/VHire/VHire-Index.png",
+        "images": [
+            "../public/portfolio/images/VHire/VHire-Index.png",
+            "../public/portfolio/images/VHire/VHire-Login.png",
+            "../public/portfolio/images/VHire/VHire-Role.png",
+            "../public/portfolio/images/VHire/VHire-Route.png",
+            "../public/portfolio/images/VHire/VHire-Search.png",
+            "../public/portfolio/images/VHire/VHire-Ticket.png"
+        ]
     },
     {
-        "id": 8,
-        "name": "Inventory System",
-        "description": "A java application that provides a way to tracks items and control stock before it is sold.",
-        "date": "2021",
-        "type": "Application Development",
-        "tech": ["Java", "MySQL"],
-        "imgPath": "../public/portfolio/images/InvSys",
-        "url": ""
+        "id": 5,
+        "name": "Chat App",
+        "date": "2022",
+        "type": "Mobile Development",
+        "tech": ["C#", "Xamarin Forms", "Firebase"],
+        "url": "https://github.com/JomBarce/Chat_App",
+        "description": "A cross-platform mobile chat application built with Xamarin.Forms and Firebase, enabling users to send and receive real-time messages across devices. It supports secure authentication, account management, and cloud-based data storage, ensuring seamless and reliable communication between email-linked accounts.",
+        "info": [
+            {
+                "title": "Features",
+                "details": [
+                    "Real-time messaging between users linked via email accounts.",
+                    "Cross-platform support for Android and iOS using Xamarin.Forms.",
+                    "Firebase Authentication for secure login and user management.",
+                    "Support for multiple conversations and message threads.",
+                    "Automatic data sync across devices for seamless communication."
+                ]
+            }
+        ],
+        "thumbnail": "../public/portfolio/images/ChatApp/ChatApp.png",
+        "images": [
+            "../public/portfolio/images/ChatApp/ChatApp.png",
+            "../public/portfolio/images/ChatApp/ChatApp1.png",
+            "../public/portfolio/images/ChatApp/ChatApp3.png",
+            "../public/portfolio/images/ChatApp/ChatApp2.png"
+        ]
     },
     {
-        "id": 9,
+        "id": 6,
+        "name": "Machine/Deep Learning Compilation",
+        "date": "2023",
+        "type": "Machine Learning / Deep Learning",
+        "tech": ["Python", "Tensorflow", "NumPy", "Pandas", "Matplotlib", "Scikit-Learn", "Keras"],
+        "url": "https://github.com/JomBarce/Machine-Deep-Learning",
+        "description": "Compilation of outputs and examples covering the fundamentals and advanced concepts in Artificial Intelligence, including Machine Learning and Deep Learning.",
+        "info": [
+            {
+                "title": "Topics Covered",
+                "details": [
+                    "Fundamentals: Data Preprocessing, Perceptron, Adaline, Logistic Regression, SVM, Multilayer Perceptrons, LDA",
+                    "Model Evaluation & Optimization: Model Selection, Hyperparameter Tuning, Feature Selection, SBS, Performance Metrics, SHAP, LIME",
+                    "Unsupervised Learning: Clustering, Autoencoders",
+                    "Deep Learning Architectures: ANN, CNN, RNN, UNet, Inception Model",
+                    "Ensemble Methods: Random Forest, Boosted Trees"
+                ]
+            }
+        ],
+        "thumbnail": "../public/portfolio/images/MachineLearning/MachineLearning.png",
+        "images": [
+            "../public/portfolio/images/MachineLearning/Adaline.png",
+            "../public/portfolio/images/MachineLearning/SVM.png",
+            "../public/portfolio/images/MachineLearning/SBS.png",
+            "../public/portfolio/images/MachineLearning/SHAP.png",
+            "../public/portfolio/images/MachineLearning/Correlation.png",
+            "../public/portfolio/images/MachineLearning/Clustering.png",
+            "../public/portfolio/images/MachineLearning/RNN.png",
+            "../public/portfolio/images/MachineLearning/Inception.png"
+        ]
+    },
+    {
+        "id": 7,
         "name": "Bus Seat Reservation",
-        "description": "A web application that provides a facility to reserve, cancel, and search for Bus seats.",
         "date": "2021",
         "type": "Application Development",
         "tech": ["ServiceNow", "HTML", "JavaScript", "CSS"],
-        "imgPath": "../public/portfolio/images/Bus",
-        "url": ""
+        "imgPath": "../public/portfolio/images/BusReservation",
+        "url": "",
+        "description": "Bus Seat Reservation is a web application that allows users to search for buses, view schedules and routes, and book seats based on travel preferences. It supports dynamic fare calculation, multi-seat booking, and reservation management including seat and destination changes.",
+        "info": [
+            {
+                "title": "Features",
+                "details": [
+                    "View bus schedules with details like company, accessibility, status, route, and departure info.",
+                    "Search and book buses based on departure date/time, origin, and destination.",
+                    "Check reservation status and view ticket details including bus code, route, schedule, seat number, and fare.",
+                    "Update reservations by changing seat or destination within the selected route."
+                ]
+            }
+        ],
+        "thumbnail": "../public/portfolio/images/BusReservation/BusSeatRsrv-Reserve.png",
+        "images": [
+            "../public/portfolio/images/BusReservation/BusSeatRsrv-Index.png",
+            "../public/portfolio/images/BusReservation/BusSeatRsrv-Search.png",
+            "../public/portfolio/images/BusReservation/BusSeatRsrv-Book.png",
+            "../public/portfolio/images/BusReservation/BusSeatRsrv-Reserve.png"
+        ]
     },
     {
-        "id": 10,
+        "id": 8,
+        "name": "Hotel Booking",
+        "date": "2021",
+        "type": "Web Development",
+        "tech": ["HTML", "JavaScript", "CSS", "PHP", "MySQL", "SweetAlert"],
+        "url": "https://github.com/JomBarce/Hotel-Booking",
+        "description": "A web-based reservation system that allows users to search for hotels, view room availability, and book stays based on specific preferences. Guests can input check-in/check-out dates, number of adults and children, and even search by hotel name.",
+        "info": [
+            {
+                "title": "Features",
+                "details": [
+                    "Search hotels by name, check-in/check-out dates, and guest count.",
+                    "View hotel profiles with detailed information and room availability.",
+                    "Book rooms based on user-defined specifications.",
+                    "User registration and login system with validation.",
+                    "Secure backend using PHP and MySQL for data handling."
+                ]
+            }
+        ],
+        "thumbnail": "../public/portfolio/images/HotelBooking/HotelBooking-Search.png",
+        "images": [
+            "../public/portfolio/images/HotelBooking/HotelBooking-Search.png",
+            "../public/portfolio/images/HotelBooking/HotelBooking-Login.png",
+            "../public/portfolio/images/HotelBooking/HotelBooking-Signup.png",
+            "../public/portfolio/images/HotelBooking/HotelBooking-Hotel.png",
+            "../public/portfolio/images/HotelBooking/HotelBooking-Error.png"
+        ]
+    },
+    {
+        "id": 9,
         "name": "AutoBar",
-        "description": "It is a mobile-based application built using Xamarin.Forms and MySQL. It is an integration of a POS, E-wallet, and points and rewards system.",
         "date": "2022",
         "type": "Application Development",
         "tech": ["C#", "Xamarin Forms", "MySQL"],
         "imgPath": "../public/portfolio/images/Autobar",
-        "url": "https://github.com/OG-Habit/AutoBar"
+        "url": "https://github.com/OG-Habit/AutoBar",
+        "description": "AutoBar is a mobile-based application built using Xamarin.Forms and MySQL, integrating a POS system, E-wallet, and a points-based rewards program. It supports customer ordering, bartender fulfillment, and manager-level reporting and administration.",
+        "info": [
+            {
+                "title": "Features",
+                "details": [
+                    "Customers can order food and drinks using their in-app cash balance.",
+                    "Earn and redeem points for rewards based on completed orders.",
+                    "View profile with balance overview, transaction history, and points history.",
+                    "Bartenders can manage and complete customer orders in real time.",
+                    "Managers can generate daily reports, update menu and reward items, and manage staff accounts."
+                ]
+            }
+        ],
+        "thumbnail": "../public/portfolio/images/Autobar/Autobar.png",
+        "images": [
+            "../public/portfolio/images/Autobar/Autobar.png",
+            "../public/portfolio/images/Autobar/Autobar-Customer.png",
+            "../public/portfolio/images/Autobar/Autobar-Reports.png",
+            "../public/portfolio/images/Autobar/Autobar-Orders.png",
+            "../public/portfolio/images/Autobar/Autobar-Rewards.png",
+            "../public/portfolio/images/Autobar/Autobar-Menu.png"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Inventory System",
+        "date": "2021",
+        "type": "Application Development",
+        "tech": ["Java", "MySQL"],
+        "imgPath": "../public/portfolio/images/InventorySystem",
+        "url": "",
+        "description": "Inventory System is a desktop application built with Java and MySQL that enables businesses to efficiently track items and manage stock levels before products are sold. Designed for simplicity and reliability, the system helps prevent stockouts and overstocking by providing clear visibility into item quantities and movement.",
+        "info": [
+            {
+                "title": "Features",
+                "details": [
+                    "Add, update, and delete inventory items.",
+                    "Track stock levels and item availability in real time.",
+                    "User registration and login system."
+                ]
+            }
+        ],
+        "thumbnail": "../public/portfolio/images/InventorySystem/InventorySystem.png",
+        "images": [
+            "../public/portfolio/images/InventorySystem/InvSys-AddItem.png",
+            "../public/portfolio/images/InventorySystem/InvSys-Login.png",
+            "../public/portfolio/images/InventorySystem/InvSys.png",
+            "../public/portfolio/images/InventorySystem/InvSys-Register.png"
+        ]
     },
     {
         "id": 11,
-        "name": "To Do App",
-        "description": "A web application that will help users track their tasks and create task with just a click of a button",
-        "date": "2021",
+        "name": "Portfolio V1",
+        "date": "2024",
         "type": "Web Development",
-        "tech": ["ReactJS"],
-        "imgPath": "../public/portfolio/images/ToDoApp",
-        "url": ""
+        "tech": ["JavaScript","HTML", "CSS"],
+        "imgPath": "../public/portfolio/images/",
+        "url": "https://jombarce.github.io/Jomer-Barcenilla/",
+        "description": "Portfolio Website of Jomer Barcenilla.",
+        "info": [
+            {
+                "title": "Features",
+                "details": [
+                    "Animated gradient background using CSS.",
+                    "Dynamic works viewer with left/right navigation.",
+                    "Single-page layout with Works, About and Contact sections."
+                ]
+            }
+        ],
+        "thumbnail": "../public/portfolio/images/Portfolio/HeroV1.png",
+        "images": [
+            "../public/portfolio/images/Portfolio/HeroV1.png",
+            "../public/portfolio/images/Portfolio/WorksV1.png",
+            "../public/portfolio/images/Portfolio/AboutV1-1.png",
+            "../public/portfolio/images/Portfolio/AboutV1-2.png",
+            "../public/portfolio/images/Portfolio/AboutV1-3.png"
+        ]
     },
     {
         "id": 12,
-        "name": "Food Shop",
-        "description": "A static website with a search filter that shows an example of food ecommerce website.",
+        "name": "To Do App",
         "date": "2021",
         "type": "Web Development",
-        "tech": ["VueJS"],
-        "imgPath": "../public/portfolio/images/FoodShop",
-        "url": "https://github.com/JomBarce/FoodShop-Prefinals"
+        "tech": ["ReactJS", "JavaScript", "HTML"],
+        "imgPath": "../public/portfolio/images/ToDoApp",
+        "url": "",
+        "description": "A React-based task management app that allows users to add, update, complete, and delete tasks with ease.",
+        "info": [
+            {
+                "title": "Features",
+                "details": [
+                    "Add and delete new tasks with a single click.",
+                    "Update task content dynamically.",
+                    "Delete all tasks at once for quick cleanup."
+                ]
+            }
+        ],
+        "thumbnail": "../public/portfolio/images/ToDoApp.png",
+        "images": [
+            "../public/portfolio/images/ToDoApp.png"
+        ]
     },
     {
         "id": 13,
-        "name": "CustomKybrd",
-        "description": "A static website that shows an example of an keyboard ecommerce website.",
-        "date": "2020",
+        "name": "Food Shop",
+        "date": "2021",
         "type": "Web Development",
-        "tech": ["HTML", "JavaScript", "CSS"],
-        "imgPath": "../public/portfolio/images/CustomKybrd",
-        "url": "https://github.com/JomBarce/CustomKybrd"
+        "tech": ["VueJS", "JavaScript", "HTML"],
+        "imgPath": "../public/portfolio/images/FoodShop",
+        "url": "https://github.com/JomBarce/FoodShop-Prefinals",
+        "description": "A Vue.js-powered static website that simulates a food e-commerce platform with dynamic search filtering.",
+        "info": [
+            {
+                "title": "Features",
+                "details": [
+                    "Search bar filters items dynamically based on input.",
+                    "Static layout simulating a food e-commerce experience.",
+                    "Responsive design for browsing food items."
+                ]
+            }
+        ],
+        "thumbnail": "../public/portfolio/images/FoodShop/FoodShop.png",
+        "images": [
+            "../public/portfolio/images/FoodShop/FoodShop.png",
+            "../public/portfolio/images/FoodShop/FoodShop-Search.png",
+            "../public/portfolio/images/FoodShop/FoodShop-Find.png"
+        ]
     },
     {
         "id": 14,
-        "name": "BasketBall Counter",
-        "description": "A simple java application that provides the ability to track the scores, fouls, period, time, and shot clock of a basketball game.",
+        "name": "BasketBall Scoreboard",
         "date": "2021",
         "type": "Application Development",
         "tech": ["Java"],
         "imgPath": "../public/portfolio/images/BasketballScore",
-        "url": ""
+        "url": "https://github.com/JomBarce/Basketball-Scoreboard",
+        "description": "A simple Java desktop application that provides the ability to track the scores, fouls, period, time, and shot clock of a basketball game.",
+        "info": [
+            {
+                "title": "Features",
+                "details": [
+                    "Track home and guest scores with increase/decrease buttons.",
+                    "Manage team fouls and game period/quarter with adjustable counters.",
+                    "Operate shot clock with start, stop, and reset controls."
+                ]
+            }
+        ],
+        "thumbnail": "../public/portfolio/images/BasketballScore/BasketballScore.png",
+        "images": [
+            "../public/portfolio/images/BasketballScore/BasketballScoreboard.png"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "CustomKybrd",
+        "date": "2020",
+        "type": "Web Design/Development",
+        "tech": ["HTML", "JavaScript", "CSS"],
+        "imgPath": "../public/portfolio/images/CustomKybrd",
+        "url": "https://github.com/JomBarce/CustomKybrd",
+        "description": "A static website designed for mechanical keyboard enthusiasts, showcasing a mock e-commerce interface with basic navigation and validation.",
+        "info": [],
+        "thumbnail": "../public/portfolio/images/CustomKybrd/CustomKybrd-Index.png",
+        "images": [
+            "../public/portfolio/images/CustomKybrd/CustomKybrd-Login.png",
+            "../public/portfolio/images/CustomKybrd/CustomKybrd-Store.png",
+            "../public/portfolio/images/CustomKybrd/CustomKybrd-Index.png"
+        ]
     }
 ]
