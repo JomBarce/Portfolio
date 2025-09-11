@@ -198,9 +198,9 @@ const pages = {
     </div>
   `,
   works: `
-    <section id="works-cards">
+    <section id="works" class="page-section">
       <h1>Works</h1>
-      <div class="cards-container"></div>
+      <div class="project-container"></div>
     </section>
     <div id="works-details"></div>
   `,
