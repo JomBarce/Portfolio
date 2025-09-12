@@ -19,28 +19,13 @@ Portfolio/
 │   │   ├── main.js
 │   │   ├── pages.js
 │   │   ├── games/
-│   │   │   ├── gameState.js
-│   │   │   └── blasterGame.js
 │   │   ├── graphics/
 │   │   │   ├── shared/
-│   │   │   │   ├── assetManager.js
-│   │   │   │   ├── cameraManager.js
-│   │   │   │   └── viewBase.js
 │   │   │   └── views/
-│   │   │       ├── aboutView.js
-│   │   │       ├── homeView.js
-│   │   │       └── worksView.js
 │   │   └── utils/
 │   │       ├── fetch.js
 │   │       └── math.js
 │   ├── shaders/
-│   │   ├── ascii.frag
-│   │   ├── ascii.vert
-│   │   ├── particle.frag
-│   │   └── particle.vert
 │   └──  styles/
-│       ├── games.css
-│       ├── main.css
-│       └── rules.css
 ├── structure.txt
 └── readMe.md
