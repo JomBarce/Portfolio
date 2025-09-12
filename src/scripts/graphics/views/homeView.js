@@ -34,10 +34,6 @@ export default class HomeView extends ViewBase {
         setTimeout(() => {
             this.handleResize();
         }, 2000); 
-        
-        // const position = new THREE.Vector3(0, 0, 30);
-        // const angle = new THREE.Vector3(0, 30, 0);
-        // CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
     }
 
     async setParticlesBackground() {
