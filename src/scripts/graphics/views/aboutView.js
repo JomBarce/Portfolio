@@ -15,10 +15,6 @@ export default class AboutView extends ViewBase {
         await this.setAsciiImage();
         this.addPageContent();
 
-        // const position = new THREE.Vector3(0, 0, 0);
-        // const angle = new THREE.Vector3(0, 0, 0);
-        // CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
-
         const position = new THREE.Vector3(0, 0, 1);
         const angle = new THREE.Vector3(0, 0, 0);
         CameraManager.moveToLookAt(position, angle, 2.0, 'power4.out');
