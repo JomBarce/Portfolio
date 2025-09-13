@@ -18,6 +18,10 @@ const rangeRandom = (min, max) => {
     return Math.random() * (max - min) + min;
 };
 
+const rangeRandomFloor = (min, max) => {
+    return Math.floor(Math.random() * (max - min) + min);
+};
+
 export {
     PI,
     DEG_TO_RAD,
@@ -25,5 +29,6 @@ export {
     clamp,
     lerp,
     mod,
-    rangeRandom
+    rangeRandom,
+    rangeRandomFloor
 };
