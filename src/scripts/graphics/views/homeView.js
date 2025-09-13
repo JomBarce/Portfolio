@@ -4,6 +4,7 @@ import ViewBase from '../shared/viewBase.js';
 import AssetManager from '../shared/assetManager.js';
 import CameraManager from '../shared/cameraManager.js';
 import { fetchText } from '../../utils/fetch.js';
+import { rangeRandomFloor } from '../../utils/math.js';
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ-";
 const fullName = "JOMER BARCENILLA";
@@ -72,7 +73,8 @@ export default class HomeView extends ViewBase {
             uTexture: { value: texture },
             uColumns: { value: columns },
             uRows: { value: rows },
-            uTime: { value: 0.0 }
+            uTime: { value: 0.0 },
+            uAnimationType: { value: rangeRandomFloor(0, 7) }
         };
 
         const material = new THREE.ShaderMaterial({
