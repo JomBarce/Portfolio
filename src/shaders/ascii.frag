@@ -59,7 +59,5 @@ void main() {
     asciiColor.rgb *= vignette;
 
     // Final output
-    gl_FragColor = asciiColor;
-
-    
+    gl_FragColor = asciiColor;  
 }
