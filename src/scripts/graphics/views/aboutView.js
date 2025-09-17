@@ -155,9 +155,9 @@ export default class AboutView extends ViewBase {
         this.experiences = document.querySelectorAll('.experiences');
         this.emailButton = document.getElementById('emailButton');
         this.discordButton = document.getElementById('discordButton');
-        this.introSection = document.getElementById('about-intro');
+        this.introSection = document.getElementById('aboutIntro');
 
-        const detailsSection = document.getElementById('about-details');
+        const detailsSection = document.getElementById('aboutDetails');
         const contentDiv = document.getElementById('pageContent');
         const hideButton = document.getElementById('hideBtn');
         const viewButton = document.getElementById('viewBtn');

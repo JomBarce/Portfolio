@@ -58,7 +58,7 @@ export default class WorksView extends ViewBase {
 
     async addPageContent() {
         this.worksSection = document.getElementById('works');
-        this.detailsSection = document.getElementById('works-details');
+        this.detailsSection = document.getElementById('worksDetails');
         this.closeButton = document.getElementById('closeBtn');
         this._handlers.projectDivs = [];
 

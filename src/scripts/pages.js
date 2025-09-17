@@ -6,7 +6,7 @@ const pages = {
     </div>
   `,
   about: `
-    <section id="about-intro">
+    <section id="aboutIntro">
       <h1 class="intro-title">Software Developer with a passion for building purposeful experiences</h1>
       <p class="intro-text">
         I'm Jomer, a software developer from Cebu, Philippines.
@@ -16,7 +16,7 @@ const pages = {
       </p>
       <button id="aboutBtn" type="button">GET TO KNOW</button>
     </section>
-    <div id="about-details">
+    <div id="aboutDetails">
       <section class="page-section">
         <h1 class="section-title">About Me</h1>
         <div class="flex-col-center">
@@ -202,8 +202,8 @@ const pages = {
       <h1>Works</h1>
       <div class="project-container"></div>
     </section>
-    <div id="works-details"></div>
-  `,
+    <div id="worksDetails"></div>
+  `
 };
 
 let currentPage = null;
