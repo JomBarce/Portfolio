@@ -535,6 +535,40 @@ button:hover::before {
     filter: invert(100%);
 }
 
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    flex: 25%;
+    padding: 1rem;
+    background-color: rgb(20, 20, 20);
+    border: 2px solid white;
+    border-radius: 5px;
+    max-width: 300px;
+    text-align: center;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    background-color: black;
+}
+
+.card-img {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    min-height: 200px;
+    object-fit: cover;
+}
+
 /* ID */
 #logo {
     height: 50px;
@@ -570,12 +604,12 @@ button:hover::before {
     display: none;
 }
 
-#works-details {
+#worksDetails {
     display: none;
     margin-bottom: 5rem;
 }
 
-#works-details.active {
+#worksDetails.active {
     display: block;
     opacity: 1;
     animation: slideIn 0.5s ease;
@@ -587,7 +621,7 @@ button:hover::before {
     column-gap: 1.5rem;
 }
 
-#about-intro {
+#aboutIntro {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -596,12 +630,12 @@ button:hover::before {
     gap: 1.85rem;
 }
 
-#about-details {
+#aboutDetails {
     display: none;
     margin-bottom: 5rem;
 }
 
-#about-details.active {
+#aboutDetails.active {
     display: block;
     opacity: 1;
     animation: slideIn 0.5s ease;
@@ -621,6 +655,6 @@ button:hover::before {
     pointer-events: none;
 }
 
-/* #nav-arcade-btn, #menu-arcade-btn {
+/* #arcadeContainer {
     display: none;
 } */

@@ -129,6 +129,14 @@
         gap: 1.85rem;
         margin-top: 3rem;
     }
+    
+    .card {
+        flex: 100%;
+    }
+    
+    .card-img {
+        min-height: 150px;
+    }
 
     #logo.open {
         visibility: hidden;
@@ -220,6 +228,10 @@
 
     .contact-icons .tooltip-wrapper:nth-child(5) .tooltip-text {
         transform: translateX(-85%);
+    }
+
+    .card-img {
+        min-height: 100px;
     }
 
     #projectImages {
