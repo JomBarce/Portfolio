@@ -65,6 +65,7 @@ button:hover::before {
     padding: 6rem 3rem 3rem;
     background-color: transparent;
     box-sizing: border-box;
+    overflow-y: hidden;
 }
 
 .navbar {
@@ -655,6 +656,6 @@ button:hover::before {
     pointer-events: none;
 }
 
-/* #arcadeContainer {
+#arcadeContainer {
     display: none;
-} */
+}

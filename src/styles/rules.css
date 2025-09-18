@@ -135,6 +135,7 @@
     }
     
     .card-img {
+        margin-bottom: 1rem;
         min-height: 150px;
     }
 
