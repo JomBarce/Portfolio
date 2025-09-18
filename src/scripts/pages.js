@@ -203,6 +203,25 @@ const pages = {
       <div class="project-container"></div>
     </section>
     <div id="worksDetails"></div>
+  `,
+  more: `
+    <section class="page-section flex-col-center">
+      <h1>More Content</h1>
+      <div class="card-container">
+        <div id="arcadeContainer" class="card">
+          <img class="card-img" src="./public/portfolio/images/ArcadeGames/ArcadeGames.png" alt="Arcade Games" draggable="false"/>
+          <h2>Arcade Games</h2>
+        </div>
+        <div id="portfolioContainer" class="card">
+          <img class="card-img" src="./public/portfolio/images/Portfolio/HeroV1.png" alt="Portfolio V1" draggable="false"/>
+          <h2>Porfolio V1</h2>
+        </div>
+        <div id="soonContainer" class="card">
+          <img class="card-img" src="./public/portfolio/images/Oscar.png" alt="Portfolio V1" draggable="false"/>
+          <h2>Coming Soon...</h2>
+        </div>
+      </div>	
+    </section>
   `
 };
 
