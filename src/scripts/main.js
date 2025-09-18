@@ -2,6 +2,7 @@ import { loadPage } from './pages.js';
 import HomeView from './graphics/views/homeView.js';
 import WorksView from './graphics/views/worksView.js';
 import AboutView from './graphics/views/aboutView.js';
+import MoreView from './graphics/views/moreView.js';
 
 const bgCanvas = document.getElementById('bgCanvas');
 const hideButton = document.getElementById('hideBtn');
@@ -29,7 +30,8 @@ async function switchView(viewName) {
   const views = {
     home: HomeView,
     works: WorksView,
-    about: AboutView
+    about: AboutView,
+    more: MoreView
   };
 
   const ViewClass = views[viewName];
@@ -58,12 +60,7 @@ document.getElementById('logo').addEventListener('click', () => {
 document.querySelectorAll('.navbar-menu button').forEach(button => {
   button.addEventListener('click', () => {
     const page = button.getAttribute('data-page');
-    if (button.id === 'nav-arcade-btn') {
-      // window.open('games.html', '_blank');
-      window.open('https://jombarce.github.io/Jomer-Barcenilla/', '_blank');
-    } else {
-      handlePageSwitch(page);
-    }
+    handlePageSwitch(page);
   });
 });
 
@@ -71,14 +68,7 @@ document.querySelectorAll('.navbar-menu button').forEach(button => {
 document.querySelectorAll('.menu button').forEach(button => {
   button.addEventListener('click', () => {
     const page = button.getAttribute('data-page');
-
-    if (button.id === 'menu-arcade-btn') {
-      // window.open('games.html', '_blank');
-      window.open('https://jombarce.github.io/Jomer-Barcenilla/', '_blank');
-    } else {
-      handlePageSwitch(page);
-    }
-
+    handlePageSwitch(page);
     toggleMenuOverlay();
   });
 });
