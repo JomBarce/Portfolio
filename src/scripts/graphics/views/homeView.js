@@ -4,7 +4,7 @@ import ViewBase from '../shared/viewBase.js';
 import AssetManager from '../shared/assetManager.js';
 import CameraManager from '../shared/cameraManager.js';
 import { fetchText } from '../../utils/fetch.js';
-import { rangeRandomFloor } from '../../utils/math.js';
+import { rangeRandomFloor, floorValue, randomFloor } from '../../utils/math.js';
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ-";
 const fullName = "JOMER BARCENILLA";
@@ -51,8 +51,8 @@ export default class HomeView extends ViewBase {
         const imgHeight = texture.image.height;
 
         const multiplier = 1;
-        const columns = Math.floor(imgWidth * multiplier);
-        const rows = Math.floor(imgHeight * multiplier);
+        const columns = floorValue(imgWidth * multiplier);
+        const rows = floorValue(imgHeight * multiplier);
 
         const points = [];
         for (let i = 0; i < rows; i++) {
@@ -103,13 +103,13 @@ export default class HomeView extends ViewBase {
                 .map((letter, index) => {
                     if (letter == " ") return " ";
 
-                    const roundedIndex = Math.floor(iteration);
+                    const roundedIndex = floorValue(iteration);
                     
                     if (index <= roundedIndex) {
                         return newText[index];
                     }
 
-                    return letters[Math.floor(Math.random() * 26)];
+                    return letters[randomFloor(26)];
                 })
                 .join("");
 
