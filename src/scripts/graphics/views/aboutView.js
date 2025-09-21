@@ -4,6 +4,7 @@ import ViewBase from '../shared/viewBase.js';
 import AssetManager from '../shared/assetManager.js';
 import CameraManager from '../shared/cameraManager.js';
 import { fetchText } from '../../utils/fetch.js';
+import { powerRandom } from '../../utils/math.js';
 
 export default class AboutView extends ViewBase {
     constructor(canvas) {
@@ -53,8 +54,8 @@ export default class AboutView extends ViewBase {
         let positions = new Float32Array(instances * 3);
 
         let palette = [
-            '#8c1eff',
-            '#f222ff',
+            '#6e00e4',
+            '#6172c5',
             '#ff2975',
             '#ff901f',
             '#ffd319',
@@ -91,7 +92,7 @@ export default class AboutView extends ViewBase {
                 index = (i * columns) + j;
                 uv[index * 2] = i / (rows - 1);
                 uv[index * 2 + 1] = j / (columns - 1);
-                random[index] = Math.pow(Math.random(), 4)
+                random[index] = powerRandom(4);
                 positions[index * 3] = i * size - size * (rows - 1) / 2;
                 positions[index * 3 + 1] = j * size - size * (columns - 1) / 2;
                 positions[index * 3 + 2] = 0;
