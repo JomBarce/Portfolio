@@ -2,37 +2,37 @@ const PI = Math.PI;
 const DEG_TO_RAD = PI / 180;
 const RAD_TO_DEG = 180 / PI;
 
-// Clamps a value between a minimum and maximum.
+// Clamps a value between min and max
 const clamp = (value, min, max) => {
     return Math.max(min, Math.min(max, value));
 };
 
-// Linearly interpolates between two values based on the amount (0 to 1).
+// Linearly interpolates between two values based on the amount
 const lerp = (min, max, amount) => {
     return min + amount * (max - min);
 };
 
-// Modulo that always returns a positive result.
+// Positive Modulo
 const mod = (value, modulus) => {
     return ((value % modulus) + modulus) % modulus;
 };
 
-// Raises a value to the given exponent.
+// Raises a value to the given exponent
 const power = (value, exponent) => {
     return Math.pow(value, exponent);
 };
 
-// Raises a random number (between 0 and 1) to the given exponent.
+// Raises a random number (between 0 and 1) to the given exponent
 const powerRandom = (exponent) => {
     return Math.pow(Math.random(), exponent);
 };
 
-// Returns a random number between min (inclusive) and max (exclusive).
+// Returns a random number between min (inclusive) and max (exclusive)
 const rangeRandom = (min, max) => {
     return Math.random() * (max - min) + min;
 };
 
-// Returns a random integer between min (inclusive) and max (exclusive).
+// Returns a random integer between min (inclusive) and max (exclusive)
 const rangeRandomFloor = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
 };
