@@ -91,20 +91,7 @@ export default class ViewBase {
         }
     }
 
-    resetScene() {
-        this.scene.traverse(object => {
-            if (object instanceof THREE.Mesh) {
-                object.geometry.dispose();
-                if (object.material.map) object.material.map.dispose();
-                object.material.dispose();
-                this.scene.remove(object);
-            }
-        });
-    }
-
     async cleanup() {
-        this.resetScene();
-
         if (this.renderer) {
             this.renderer.dispose();
             this.renderer.domElement = null;
