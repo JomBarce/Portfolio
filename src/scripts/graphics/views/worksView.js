@@ -201,10 +201,11 @@ export default class WorksView extends ViewBase {
     }
 
     cleanup() {
-        if (this.gridMesh) {
-            this.scene.remove(this.gridMesh);
-            this.gridMesh.geometry.dispose();
-            this.gridMesh.material.dispose();   
+        if (this.terrainMesh) {
+            this.scene.remove(this.terrainMesh);
+            this.terrainMesh.geometry.dispose();
+            this.terrainMesh.material.dispose();
+            this.terrainMesh = null;
         }
 
         this.closeButton?.removeEventListener('click', this._handlers.closeClick);
