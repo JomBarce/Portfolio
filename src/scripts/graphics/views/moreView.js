@@ -112,8 +112,25 @@ export default class MoreView extends ViewBase {
     }
 
     cleanup() {
-        if (this.cube) {
-            this.scene.remove(this.cube);
+        if (this.shapes) {
+            this.scene.remove(this.shapes);
+
+            this.shapes.traverse(shape => {
+                if (shape.geometry) shape.geometry.dispose();
+
+                if (shape.material) {
+                    if (Array.isArray(shape.material)) {
+                        shape.material.forEach(mat => mat.dispose());
+                    } else {
+                        shape.material.dispose();
+                    }
+                }
+            });
+
+            this.shapes = null;
+            this.cube = null;
+            this.cube1 = null;
+            this.cube2 = null;
         }
 
         this.arcardeDiv?.removeEventListener('click', this._handlers.arcadeClick);
