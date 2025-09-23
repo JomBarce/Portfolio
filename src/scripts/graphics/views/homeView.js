@@ -197,7 +197,13 @@ export default class HomeView extends ViewBase {
         if (this.gridMesh) {
             this.scene.remove(this.gridMesh);
             this.gridMesh.geometry.dispose();
+
+            if (this.gridMesh.material.uniforms?.uTexture?.value) {
+                this.gridMesh.material.uniforms.uTexture.value.dispose();
+            }
+            
             this.gridMesh.material.dispose();
+            this.gridMesh = null;
         }
 
         if (this.intervalId) {
@@ -208,6 +214,8 @@ export default class HomeView extends ViewBase {
         }
 
         document.removeEventListener('visibilitychange', this.handleVisibilityChange);
+        this.handleVisibilityChange = null;
+
         super.cleanup();
     }
 }
