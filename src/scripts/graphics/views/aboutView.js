@@ -323,7 +323,17 @@ export default class AboutView extends ViewBase {
         if (this.instancedMesh) {
             this.scene.remove(this.instancedMesh);
             this.instancedMesh.geometry.dispose();
+
+            if (this.uniforms?.uTexture?.value) {
+            this.uniforms.uTexture.value.dispose();
+            }
+            
+            if (this.uniforms?.uAsciiTexture?.value) {
+                this.uniforms.uAsciiTexture.value.dispose();
+            }
+
             this.instancedMesh.material.dispose();
+            this.instancedMesh = null;
         }
 
         this.aboutButton?.removeEventListener('click', this._handlers.aboutClick);
