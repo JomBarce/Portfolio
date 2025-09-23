@@ -93,6 +93,8 @@ export default class MoreView extends ViewBase {
 
     animate() {
         super.animate();
+
+        if (!this.shapes) return;
         
         const delta = this.clock.getDelta();
         this.shapes.position.z += 0.02 * this.direction;
