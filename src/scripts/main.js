@@ -4,7 +4,7 @@ import WorksView from './graphics/views/worksView.js';
 import AboutView from './graphics/views/aboutView.js';
 import MoreView from './graphics/views/moreView.js';
 
-const bgCanvas = document.getElementById('bgCanvas');
+const canvas = document.getElementById('canvas');
 const hideButton = document.getElementById('hideBtn');
 const viewButton = document.getElementById('viewBtn');
 const pageContent = document.getElementById('pageContent');
@@ -37,7 +37,7 @@ async function switchView(viewName) {
   const ViewClass = views[viewName];
   if (!ViewClass) return;
 
-  currentView = new ViewClass(bgCanvas);
+  currentView = new ViewClass(canvas);
   await currentView.init();
   currentView.animate();
 }
