@@ -646,7 +646,7 @@ button:hover::before {
     width: 50%;
 }
 
-#bgCanvas {
+#canvas {
     position: fixed;
 	top: 0;
 	left: 0;
