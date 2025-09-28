@@ -1,21 +1,15 @@
 Portfolio/
 ├── index.html
-├── games.html
 ├── data/
 │   ├── games.json
 │   └── works.json
 ├── public/
-│   ├── games/
-│   │   ├── assets/
-│   │   ├── icons/
-│   │   └── images/
 │   └── portfolio/
 │       ├── assets/
 │       ├── icons/ 
 │       └── images/
 ├── src/
 │   ├── scripts/
-│   │   ├── games.js
 │   │   ├── main.js
 │   │   ├── pages.js
 │   │   ├── games/
