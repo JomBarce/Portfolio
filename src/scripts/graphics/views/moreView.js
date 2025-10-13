@@ -60,7 +60,7 @@ export default class MoreView extends ViewBase {
         this.soonDiv = document.getElementById('soonContainer');
 
         this._handlers.arcadeClick = () => {
-            window.open('https://github.com/JomBarce/ArcadeGames', '_blank');
+            window.open('https://jombarce.github.io/ArcadeGames/', '_blank');
         };
 
         this._handlers.portfolioClick = () => {
