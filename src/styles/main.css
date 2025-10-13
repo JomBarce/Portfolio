@@ -655,7 +655,3 @@ button:hover::before {
 	z-index: -1;
     pointer-events: none;
 }
-
-#arcadeContainer {
-    display: none;
-}
